@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://css1jxuhq3q88"
-path="res://.godot/imported/TPF_Character_2a.png-63fd385be615b78fc71afac4fd64ec77.ctex"
+uid="uid://4pht4rr2wibj"
+path="res://.godot/imported/planetario reduzido.png-d87fbfbb90f285ba1fd9d4388912be38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/TPF_Character_2a.png"
-dest_files=["res://.godot/imported/TPF_Character_2a.png-63fd385be615b78fc71afac4fd64ec77.ctex"]
+source_file="res://assets/sprites/planetario reduzido.png"
+dest_files=["res://.godot/imported/planetario reduzido.png-d87fbfbb90f285ba1fd9d4388912be38.ctex"]
 
 [params]
 

@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=4 uid="uid://bmx8emouf4xbl"]
+[gd_scene load_steps=19 format=4 uid="uid://bmx8emouf4xbl"]
 
-[ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://tilemap/tile_floor.png" id="1_8uhu6"]
-[ext_resource type="Texture2D" uid="uid://b3t16e3mxiyvu" path="res://tilemap/gentle tree wall.png" id="2_eifp5"]
-[ext_resource type="Texture2D" uid="uid://4pht4rr2wibj" path="res://tilemap/planetario reduzido.png" id="3_y8url"]
-[ext_resource type="PackedScene" uid="uid://dp1x6bmwoerk2" path="res://scenes/character_body_2d.tscn" id="4_eifp5"]
-[ext_resource type="PackedScene" uid="uid://b4kavx1v1772u" path="res://scenes/arvore_01.tscn" id="5_44wwh"]
-[ext_resource type="PackedScene" uid="uid://c2k1clv4qvo1g" path="res://scenes/arvore_02.tscn" id="6_wu7t7"]
+[ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://assets/tilemap/tile_floor.png" id="1_qx4g2"]
+[ext_resource type="Texture2D" uid="uid://b3t16e3mxiyvu" path="res://assets/tilemap/gentle tree wall.png" id="2_s5csg"]
+[ext_resource type="Texture2D" uid="uid://4pht4rr2wibj" path="res://assets/sprites/planetario reduzido.png" id="3_onvjq"]
+[ext_resource type="PackedScene" uid="uid://dp1x6bmwoerk2" path="res://scenes/player.tscn" id="4_yk1bj"]
+[ext_resource type="PackedScene" uid="uid://b4kavx1v1772u" path="res://scenes/arvore_01.tscn" id="5_anyxf"]
+[ext_resource type="PackedScene" uid="uid://c2k1clv4qvo1g" path="res://scenes/arvore_02.tscn" id="6_da15a"]
+[ext_resource type="PackedScene" uid="uid://ctosmvt47xi2o" path="res://scenes/porta.tscn" id="7_s5csg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44wwh"]
-texture = ExtResource("1_8uhu6")
+texture = ExtResource("1_qx4g2")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -552,7 +553,7 @@ texture = ExtResource("1_8uhu6")
 24:19/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wu7t7"]
-texture = ExtResource("2_eifp5")
+texture = ExtResource("2_s5csg")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1919,7 +1920,7 @@ sources/0 = SubResource("TileSetAtlasSource_44wwh")
 sources/1 = SubResource("TileSetAtlasSource_wu7t7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3lsu3"]
-texture = ExtResource("1_8uhu6")
+texture = ExtResource("1_qx4g2")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2466,7 +2467,7 @@ texture = ExtResource("1_8uhu6")
 sources/0 = SubResource("TileSetAtlasSource_3lsu3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csdg6"]
-texture = ExtResource("3_y8url")
+texture = ExtResource("3_onvjq")
 1:4/size_in_atlas = Vector2i(23, 16)
 1:4/0 = 0
 1:4/0/y_sort_origin = -40
@@ -2477,7 +2478,7 @@ physics_layer_0/collision_layer = 1
 sources/4 = SubResource("TileSetAtlasSource_csdg6")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eifp5"]
-texture = ExtResource("1_8uhu6")
+texture = ExtResource("1_qx4g2")
 10:2/0 = 0
 10:5/0 = 0
 10:6/0 = 0
@@ -2488,7 +2489,7 @@ texture = ExtResource("1_8uhu6")
 sources/0 = SubResource("TileSetAtlasSource_eifp5")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbjo1"]
-texture = ExtResource("1_8uhu6")
+texture = ExtResource("1_qx4g2")
 8:0/size_in_atlas = Vector2i(2, 2)
 8:0/0 = 0
 8:0/0/y_sort_origin = -4
@@ -2502,7 +2503,7 @@ texture = ExtResource("1_8uhu6")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_mbjo1")
 
-[node name="terreno" type="Node2D"]
+[node name="planetario" type="Node2D"]
 y_sort_enabled = true
 
 [node name="grama" type="TileMapLayer" parent="."]
@@ -2528,17 +2529,20 @@ tile_map_data = PackedByteArray("AAAbABgAAQAIAAAAAAAUABgAAQAIAAAAAAAiABgAAQAIAAA
 tile_set = SubResource("TileSet_3jxr8")
 y_sort_origin = 18
 
-[node name="CharacterBody2D" parent="arbusto" instance=ExtResource("4_eifp5")]
+[node name="CharacterBody2D" parent="arbusto" instance=ExtResource("4_yk1bj")]
 position = Vector2(352, 568)
 
-[node name="arvore_01-1" parent="." instance=ExtResource("5_44wwh")]
+[node name="arvore_01-1" parent="." instance=ExtResource("5_anyxf")]
 position = Vector2(792, 360)
 
-[node name="arvore_01-2" parent="." instance=ExtResource("5_44wwh")]
+[node name="arvore_01-2" parent="." instance=ExtResource("5_anyxf")]
 position = Vector2(640, 360)
 
-[node name="arvore_02-1" parent="." instance=ExtResource("6_wu7t7")]
+[node name="arvore_02-1" parent="." instance=ExtResource("6_da15a")]
 position = Vector2(416, 112)
 
-[node name="arvore_02-2" parent="." instance=ExtResource("6_wu7t7")]
+[node name="arvore_02-2" parent="." instance=ExtResource("6_da15a")]
 position = Vector2(1016, 192)
+
+[node name="porta" parent="." instance=ExtResource("7_s5csg")]
+position = Vector2(712, 285)

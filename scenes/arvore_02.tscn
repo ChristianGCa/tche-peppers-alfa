@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2k1clv4qvo1g"]
 
-[ext_resource type="Script" uid="uid://dsx7dhygera45" path="res://scenes/arvore_1.gd" id="1_fttp1"]
-[ext_resource type="Texture2D" uid="uid://cd4bctkl0rtjo" path="res://trees/tree3.png" id="2_fk1u0"]
+[ext_resource type="Script" uid="uid://dsx7dhygera45" path="res://scripts/arvore.gd" id="1_fttp1"]
+[ext_resource type="Texture2D" uid="uid://cd4bctkl0rtjo" path="res://assets/sprites/tree3.png" id="2_fk1u0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vplca"]
 radius = 39.0

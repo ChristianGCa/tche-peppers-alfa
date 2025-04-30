@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctosmvt47xi2o"]
+
+[ext_resource type="Texture2D" uid="uid://bwylc3t1wwk50" path="res://assets/sprites/CityInterior_4_1.png" id="1_hlcnn"]
+[ext_resource type="Texture2D" uid="uid://cd40mh80e3skf" path="res://assets/sprites/CityInterior_5_1.png" id="2_rwxfp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8gms0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hlcnn")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rwxfp")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqm4t"]
+size = Vector2(14, 31)
+
+[node name="porta" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8gms0")
+animation = &"opened"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vqm4t")
+debug_color = Color(0, 0, 0, 0.42)

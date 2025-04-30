@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://deo7mb2lj4wlv"]
+[gd_scene load_steps=3 format=3 uid="uid://cyklw8sdqn8wj"]
 
-[ext_resource type="Texture2D" uid="uid://byxwe45lc3nxs" path="res://trees/tree1.png" id="1_avsvi"]
+[ext_resource type="Texture2D" uid="uid://byxwe45lc3nxs" path="res://assets/sprites/tree1.png" id="1_avsvi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vplca"]
 radius = 39.0

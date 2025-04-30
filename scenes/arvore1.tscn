@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3kyx6n7rmomi"]
+[gd_scene load_steps=5 format=3 uid="uid://bv81mceq38hpi"]
 
-[ext_resource type="Script" uid="uid://dsx7dhygera45" path="res://scenes/arvore_1.gd" id="1_rctuq"]
-[ext_resource type="Texture2D" uid="uid://byxwe45lc3nxs" path="res://trees/tree1.png" id="1_vkivt"]
+[ext_resource type="Script" uid="uid://dsx7dhygera45" path="res://scripts/arvore.gd" id="1_rctuq"]
+[ext_resource type="Texture2D" uid="uid://byxwe45lc3nxs" path="res://assets/sprites/tree1.png" id="2_vgcjb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vplca"]
 radius = 39.0
@@ -16,7 +16,7 @@ script = ExtResource("1_rctuq")
 
 [node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(0, 41)
-texture = ExtResource("1_vkivt")
+texture = ExtResource("2_vgcjb")
 offset = Vector2(0, -41)
 
 [node name="Area2D" type="Area2D" parent="."]
