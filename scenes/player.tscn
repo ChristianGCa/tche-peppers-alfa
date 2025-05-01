@@ -164,7 +164,7 @@ height = 8.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2brh"]
 radius = 8.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2brh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctosmvt47xi2o"]
+[gd_scene load_steps=7 format=3 uid="uid://ctosmvt47xi2o"]
 
 [ext_resource type="Texture2D" uid="uid://bwylc3t1wwk50" path="res://assets/sprites/CityInterior_4_1.png" id="1_hlcnn"]
+[ext_resource type="Script" uid="uid://6ug1uctwoyxl" path="res://scripts/porta.gd" id="1_rwxfp"]
+[ext_resource type="PackedScene" uid="uid://jtww36vsobxf" path="res://scenes/interior_planetario.tscn" id="2_8gms0"]
 [ext_resource type="Texture2D" uid="uid://cd40mh80e3skf" path="res://assets/sprites/CityInterior_5_1.png" id="2_rwxfp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8gms0"]
@@ -25,15 +27,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqm4t"]
 size = Vector2(14, 31)
 
-[node name="porta" type="Node2D"]
+[node name="Porta" type="Area2D"]
+script = ExtResource("1_rwxfp")
+cena_destino = ExtResource("2_8gms0")
+nome_ponto_entrada = "porta_entrada"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8gms0")
 animation = &"opened"
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_vqm4t")
 debug_color = Color(0, 0, 0, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
