@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drehonla7pgia"
-path="res://.godot/imported/TopDownHouse_FurnitureState2.png-1a81d9d40bbd8e9e85b108d855c34bde.ctex"
+uid="uid://ccflw0djpn6es"
+path="res://.godot/imported/Props.png-73fbba385a8c37803492907417d6c36e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemap/TopDownHouse_FurnitureState2.png"
-dest_files=["res://.godot/imported/TopDownHouse_FurnitureState2.png-1a81d9d40bbd8e9e85b108d855c34bde.ctex"]
+source_file="res://assets/tilemap/house/Props.png"
+dest_files=["res://.godot/imported/Props.png-73fbba385a8c37803492907417d6c36e.ctex"]
 
 [params]
 

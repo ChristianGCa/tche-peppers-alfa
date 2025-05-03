@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3t16e3mxiyvu"
-path="res://.godot/imported/gentle tree wall.png-2ddabc9cd55ef59cbc54a099e851d5e8.ctex"
+uid="uid://bqpl1b62h2qfg"
+path="res://.godot/imported/TopDownHouse_DoorsAndWindows.png-80134c55e8f673e06846647a7717a583.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemap/gentle tree wall.png"
-dest_files=["res://.godot/imported/gentle tree wall.png-2ddabc9cd55ef59cbc54a099e851d5e8.ctex"]
+source_file="res://assets/tilemap/interior/TopDownHouse_DoorsAndWindows.png"
+dest_files=["res://.godot/imported/TopDownHouse_DoorsAndWindows.png-80134c55e8f673e06846647a7717a583.ctex"]
 
 [params]
 

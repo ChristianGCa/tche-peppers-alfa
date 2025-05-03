@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx55mxvhrl6x8"
-path="res://.godot/imported/TopDownHouse_SmallItems.png-0c3423fcb717b587f41a50e05e54c45f.ctex"
+uid="uid://b3t16e3mxiyvu"
+path="res://.godot/imported/gentle tree wall.png-b49ca9c8b3ab91f59ee71bc3d63c3095.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemap/TopDownHouse_SmallItems.png"
-dest_files=["res://.godot/imported/TopDownHouse_SmallItems.png-0c3423fcb717b587f41a50e05e54c45f.ctex"]
+source_file="res://assets/tilemap/terrain/gentle tree wall.png"
+dest_files=["res://.godot/imported/gentle tree wall.png-b49ca9c8b3ab91f59ee71bc3d63c3095.ctex"]
 
 [params]
 

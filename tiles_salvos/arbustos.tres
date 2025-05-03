@@ -1,0 +1,18 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://77nnle8wlhrg"]
+
+[ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://assets/tilemap/terrain/tile_floor.png" id="1_tux4d"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbjo1"]
+texture = ExtResource("1_tux4d")
+8:0/size_in_atlas = Vector2i(2, 2)
+8:0/0 = 0
+8:0/0/y_sort_origin = -4
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.511, 2.1583, 0.539576, -1.07915, 10.2519, 2.1583, 13.1297, 8.81308, 0.539576, 15.1081, -12.5901, 8.81308)
+10:0/size_in_atlas = Vector2i(1, 2)
+10:0/0 = 0
+10:0/0/y_sort_origin = -4
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.35622, 10.8238, 0.503432, 9.81693, 4.11136, 11.495, 4.11136, 13.8444, 0.16781, 15.103, -3.77574, 13.7605)
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_mbjo1")

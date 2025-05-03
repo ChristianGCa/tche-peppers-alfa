@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqpl1b62h2qfg"
-path="res://.godot/imported/TopDownHouse_DoorsAndWindows.png-0b4cbb8f5c30f3ab815cd3ff7cc69336.ctex"
+uid="uid://biuxawijjcmdl"
+path="res://.godot/imported/catedral_sprite.png-f01900d57686f6b73b3502934e31958b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemap/TopDownHouse_DoorsAndWindows.png"
-dest_files=["res://.godot/imported/TopDownHouse_DoorsAndWindows.png-0b4cbb8f5c30f3ab815cd3ff7cc69336.ctex"]
+source_file="res://assets/sprites/catedral_sprite.png"
+dest_files=["res://.godot/imported/catedral_sprite.png-f01900d57686f6b73b3502934e31958b.ctex"]
 
 [params]
 
