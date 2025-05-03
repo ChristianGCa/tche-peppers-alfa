@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvhkkdqwutrf5"]
+
+[ext_resource type="Texture2D" uid="uid://bdjq86e0mpy2o" path="res://assets/character/homem_azul_cabelo_preto.png" id="1_oy677"]
+[ext_resource type="Script" uid="uid://b18c3wvms7en" path="res://dialog/npc.gd" id="1_y8s2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q11dd"]
+atlas = ExtResource("1_oy677")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpnes"]
+atlas = ExtResource("1_oy677")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtu7h"]
+atlas = ExtResource("1_oy677")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp3i8"]
+atlas = ExtResource("1_oy677")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boxmj"]
+atlas = ExtResource("1_oy677")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cfin"]
+atlas = ExtResource("1_oy677")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d1k1c"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_q11dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpnes")
+}],
+"loop": true,
+"name": &"down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_mtu7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp3i8")
+}],
+"loop": true,
+"name": &"left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_boxmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cfin")
+}],
+"loop": true,
+"name": &"right",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_di8ll"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oy677"]
+radius = 18.0278
+
+[node name="NPC" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_y8s2a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d1k1c")
+animation = &"down"
+frame_progress = 0.428059
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_di8ll")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_oy677")
+debug_color = Color(2.98411e-06, 0.851089, 0.42861, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

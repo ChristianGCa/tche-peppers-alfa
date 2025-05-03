@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 @export var speed: float = 200.0
 
-# Vamos assumir que você tem um AnimatedSprite2D chamado "AnimatedSprite2D"
 @onready var anim_sprite = $AnimatedSprite2D
+
+var last_direction := "down"
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
@@ -20,16 +21,20 @@ func _physics_process(delta):
 
 func _play_animation(direction: Vector2):
 	if direction == Vector2.ZERO:
-		anim_sprite.play("idle")
+		anim_sprite.play("idle_" + last_direction)
 		return
 
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
 			anim_sprite.play("walk_right")
+			last_direction = "right"
 		else:
 			anim_sprite.play("walk_left")
+			last_direction = "left"
 	else:
 		if direction.y > 0:
 			anim_sprite.play("walk_down")
+			last_direction = "down"
 		else:
 			anim_sprite.play("walk_up")
+			last_direction = "up"

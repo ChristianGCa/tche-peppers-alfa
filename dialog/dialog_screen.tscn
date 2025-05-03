@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://blf2j6t21u33g"]
+
+[ext_resource type="Script" uid="uid://ccanj1py8dgic" path="res://dialog/dialog_screen.gd" id="1_et6mj"]
+[ext_resource type="Texture2D" uid="uid://bwylc3t1wwk50" path="res://assets/sprites/CityInterior_4_1.png" id="1_hh11h"]
+[ext_resource type="FontFile" uid="uid://d1nmpnkb61rls" path="res://Fonts/PixelOperatorMonoHB8.ttf" id="2_et6mj"]
+[ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="3_brsqx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ksyaa"]
+font = ExtResource("2_et6mj")
+font_size = 24
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="DialogScreen" type="Control" node_paths=PackedStringArray("_name", "_dialog", "_faceset")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 264.0
+offset_top = 482.0
+offset_right = -216.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_et6mj")
+_name = NodePath("Background/HContainer/VContainer/Name")
+_dialog = NodePath("Background/HContainer/VContainer/Dialog")
+_faceset = NodePath("Background/HContainer/Border/FaceSet")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.188235)
+
+[node name="HContainer" type="HBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -389.5
+offset_top = -91.0
+offset_right = 389.5
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="ColorRect" parent="Background/HContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="FaceSet" type="TextureRect" parent="Background/HContainer/Border"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -80.5
+offset_right = 88.5
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hh11h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VContainer" type="VBoxContainer" parent="Background/HContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Background/HContainer/VContainer"]
+layout_mode = 2
+text = "Porta"
+label_settings = SubResource("LabelSettings_ksyaa")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Dialog" type="RichTextLabel" parent="Background/HContainer/VContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/normal_font = ExtResource("3_brsqx")
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/italics_font_size = 1
+theme_override_font_sizes/mono_font_size = 1
+theme_override_font_sizes/normal_font_size = 36
+text = "Olá Meus amigos"
