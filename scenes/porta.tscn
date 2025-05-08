@@ -28,6 +28,7 @@ animations = [{
 size = Vector2(14, 31)
 
 [node name="Porta" type="Area2D"]
+position = Vector2(0, -16)
 script = ExtResource("1_rwxfp")
 cena_destino = ExtResource("2_8gms0")
 nome_ponto_entrada = "porta_entrada"

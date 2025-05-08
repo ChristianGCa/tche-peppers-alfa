@@ -5,9 +5,11 @@ extends Node2D
 @onready var sprite = $sprite  # Ajusta o nome aqui se teu sprite tiver outro nome
 
 func _on_area_2d_body_entered(body):
-	if body.name == "player":
+	print("entrou")
+	print(body.name)
+	if body.name == "Player":
 		sprite.modulate.a = transparent_opacity
 
 func _on_area_2d_body_exited(body):
-	if body.name == "player":
+	if body.name == "Player":
 		sprite.modulate.a = 1.0

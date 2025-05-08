@@ -74,18 +74,21 @@ y_sort_enabled = true
 script = ExtResource("1_y8s2a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_d1k1c")
 animation = &"down"
 frame_progress = 0.428059
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 14)
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_di8ll")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 13)
+position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_oy677")
 debug_color = Color(2.98411e-06, 0.851089, 0.42861, 0.42)
 

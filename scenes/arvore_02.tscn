@@ -15,21 +15,21 @@ y_sort_enabled = true
 script = ExtResource("1_fttp1")
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(0, 41)
+position = Vector2(0, -15)
 texture = ExtResource("2_fk1u0")
 offset = Vector2(0, -41)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -17)
+position = Vector2(0, -72)
 shape = SubResource("CapsuleShape2D_vplca")
 debug_color = Color(1, 1, 1, 0.42)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 46)
+position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_rctuq")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
