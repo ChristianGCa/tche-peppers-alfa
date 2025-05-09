@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://jtww36vsobxf"]
+[gd_scene load_steps=11 format=4 uid="uid://jtww36vsobxf"]
 
 [ext_resource type="Texture2D" uid="uid://6r6lo06uvl2l" path="res://assets/tilemap/interior/tile_interior.png" id="1_fmo4i"]
 [ext_resource type="Script" uid="uid://de788d3c3ogpr" path="res://scripts/interior_planetario.gd" id="1_n7m4a"]
 [ext_resource type="Texture2D" uid="uid://drehonla7pgia" path="res://assets/tilemap/interior/TopDownHouse_FurnitureState2.png" id="2_n7m4a"]
 [ext_resource type="PackedScene" uid="uid://dp1x6bmwoerk2" path="res://scenes/player.tscn" id="3_mvnb1"]
+[ext_resource type="PackedScene" uid="uid://ctosmvt47xi2o" path="res://scenes/porta.tscn" id="5_mvnb1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e7mdf"]
 texture = ExtResource("1_fmo4i")
@@ -1774,5 +1775,9 @@ tile_set = SubResource("TileSet_xslor")
 [node name="Player" parent="decoração" instance=ExtResource("3_mvnb1")]
 position = Vector2(640, 360)
 
-[node name="porta_entrada" type="Marker2D" parent="."]
+[node name="Porta" parent="decoração" instance=ExtResource("5_mvnb1")]
+position = Vector2(639, 503)
+cena_destino_path = "res://scenes/planetario.tscn"
+
+[node name="porta_saida_planetario" type="Marker2D" parent="."]
 position = Vector2(639, 495)

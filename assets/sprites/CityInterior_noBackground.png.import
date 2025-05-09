@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7dordc2481yk"
-path="res://.godot/imported/AMBULANCE_CLEAN_8D0000-sheet.png-d821468d807953abddf0e6d725246108.ctex"
+uid="uid://cjm2rw1jis48s"
+path="res://.godot/imported/CityInterior_noBackground.png-a115bc509fa63f1171301db5ca153dd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/AMBULANCE_CLEAN_8D0000-sheet.png"
-dest_files=["res://.godot/imported/AMBULANCE_CLEAN_8D0000-sheet.png-d821468d807953abddf0e6d725246108.ctex"]
+source_file="res://assets/sprites/CityInterior_noBackground.png"
+dest_files=["res://.godot/imported/CityInterior_noBackground.png-a115bc509fa63f1171301db5ca153dd7.ctex"]
 
 [params]
 

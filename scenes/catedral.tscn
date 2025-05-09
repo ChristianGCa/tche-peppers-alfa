@@ -3362,6 +3362,9 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAcACcAAAAhAAQAAAAhACYAAAAhAAMAAAAhACcAAAAhAAQAAAAiACMAAAAiAAAAAAAiACcAAAAiAAQAAAASAAwAAAAMABIAAAAMABoAAAAIAAAAAAAHABwAAAAIAAAAAAAaABsAAAAIAAAAAAAkABoAAAAIAAAAAAA2ABwAAAAIAAAAAABAABkAAAAIAAAAAAA/ABwAAAAIAAAAAABCABsAAAAKAAAAAABGABwAAAAKAAAAAAA+ABcAAAAKAAAAAAA0ABkAAAAKAAAAAAAjABwAAAAKAAAAAAAiABgAAAAKAAAAAAAUABwAAAAKAAAAAAAbABgAAAAKAAAAAAANABwAAAAKAAAAAAAKAB4AAQAFAAoAAAAYAB4AAQAFAAoAAAAmAB4AAQAFAAoAAAA0AB4AAQAFAAoAAABCAB4AAQAFAAoAAABCACUAAgAaABoAAAA2ACUAAwAaABoAAAA=")
 tile_set = SubResource("TileSet_jxno4")
 
+[node name="player" parent="decoracoes" instance=ExtResource("9_605ht")]
+position = Vector2(80, 735)
+
 [node name="arvore_01-1" parent="decoracoes" instance=ExtResource("7_pykg7")]
 position = Vector2(377, 397)
 
@@ -3379,9 +3382,6 @@ position = Vector2(128, 425)
 
 [node name="arvore_01-3" parent="decoracoes" instance=ExtResource("7_pykg7")]
 position = Vector2(650, 412)
-
-[node name="Player" parent="decoracoes" instance=ExtResource("9_605ht")]
-position = Vector2(80, 735)
 
 [node name="CatedralSprite2" type="Sprite2D" parent="."]
 position = Vector2(684, 9)

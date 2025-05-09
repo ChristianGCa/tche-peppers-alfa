@@ -1,18 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctosmvt47xi2o"]
+[gd_scene load_steps=8 format=3 uid="uid://ctosmvt47xi2o"]
 
 [ext_resource type="Texture2D" uid="uid://bwylc3t1wwk50" path="res://assets/sprites/CityInterior_4_1.png" id="1_hlcnn"]
 [ext_resource type="Script" uid="uid://6ug1uctwoyxl" path="res://scripts/porta.gd" id="1_rwxfp"]
-[ext_resource type="PackedScene" uid="uid://jtww36vsobxf" path="res://scenes/interior_planetario.tscn" id="2_8gms0"]
 [ext_resource type="Texture2D" uid="uid://cd40mh80e3skf" path="res://assets/sprites/CityInterior_5_1.png" id="2_rwxfp"]
+[ext_resource type="Texture2D" uid="uid://cjm2rw1jis48s" path="res://assets/sprites/CityInterior_noBackground.png" id="3_vqm4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ede8e"]
+atlas = ExtResource("3_vqm4t")
+region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8gms0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ede8e")
+}],
+"loop": true,
+"name": &"in_opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_hlcnn")
 }],
 "loop": true,
-"name": &"closed",
+"name": &"out_closed",
 "speed": 5.0
 }, {
 "frames": [{
@@ -20,7 +32,7 @@ animations = [{
 "texture": ExtResource("2_rwxfp")
 }],
 "loop": true,
-"name": &"opened",
+"name": &"out_opened",
 "speed": 5.0
 }]
 
@@ -28,14 +40,13 @@ animations = [{
 size = Vector2(14, 31)
 
 [node name="Porta" type="Area2D"]
-position = Vector2(0, -16)
+position = Vector2(0, -15)
 script = ExtResource("1_rwxfp")
-cena_destino = ExtResource("2_8gms0")
 nome_ponto_entrada = "porta_entrada"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8gms0")
-animation = &"opened"
+animation = &"in_opened"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
