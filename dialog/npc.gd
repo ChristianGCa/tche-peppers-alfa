@@ -24,6 +24,8 @@ var _dialog_data: Dictionary = {
 }
 
 func _process(delta: float) -> void:
+	if player_in_area:
+		print("ta na area")
 	if player_in_area and Input.is_action_just_pressed("ui_accept"):
 		var dialog_instance = _DIALOG_SCREEN.instantiate()
 		dialog_instance.data = _dialog_data  # Passa os dados de diálogo
@@ -31,11 +33,14 @@ func _process(delta: float) -> void:
 		player_in_area = false  # Evita múltiplas ativações seguidas
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(body.name)
+	print("aaaaa")
 	if body.name == "player":
 		player_in_area = true
 		print("entrou")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
+	print(body.name)
 	if body.name == "player":
 		player_in_area = false
 		print("saiu")

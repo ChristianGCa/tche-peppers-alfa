@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vplca"]
 radius = 39.0
-height = 80.0
+height = 90.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rctuq"]
 radius = 11.0
@@ -20,9 +20,11 @@ texture = ExtResource("2_fk1u0")
 offset = Vector2(0, -41)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -72)
+position = Vector2(0, -66)
 shape = SubResource("CapsuleShape2D_vplca")
 debug_color = Color(1, 1, 1, 0.42)
 

@@ -6,10 +6,6 @@ extends Area2D
 
 var jogador_na_area = false
 
-func _ready():
-	connect("body_entered", _on_body_entered)
-	connect("body_exited", _on_body_exited)
-
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		jogador_na_area = true

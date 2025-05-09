@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var speed_running: float = 200.0
+@export var speed_walking: float = 80.0
 
 @onready var anim_sprite = $AnimatedSprite2D
 
@@ -9,12 +10,18 @@ var last_direction := "down"
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	# Verificando as entradas de direção
+	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 
 	input_vector = input_vector.normalized()
 
-	velocity = input_vector * speed
+	# Alterando a velocidade dependendo se o shift está pressionado
+	if Input.is_key_pressed(KEY_SHIFT):
+		velocity = input_vector * speed_running
+	else:
+		velocity = input_vector * speed_walking
+	
 	move_and_slide()
 
 	_play_animation(input_vector)

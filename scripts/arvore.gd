@@ -7,9 +7,9 @@ extends Node2D
 func _on_area_2d_body_entered(body):
 	print("entrou")
 	print(body.name)
-	if body.name == "Player":
+	if body.name == "player":
 		sprite.modulate.a = transparent_opacity
 
 func _on_area_2d_body_exited(body):
-	if body.name == "Player":
+	if body.name == "player":
 		sprite.modulate.a = 1.0
