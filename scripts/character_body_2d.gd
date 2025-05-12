@@ -6,8 +6,12 @@ extends CharacterBody2D
 @onready var anim_sprite = $AnimatedSprite2D
 
 var last_direction := "down"
+var can_move = true
 
 func _physics_process(delta):
+	
+	if not can_move:
+		return
 	var input_vector = Vector2.ZERO
 
 	# Verificando as entradas de direção
@@ -21,7 +25,7 @@ func _physics_process(delta):
 		velocity = input_vector * speed_running
 	else:
 		velocity = input_vector * speed_walking
-	
+		
 	move_and_slide()
 
 	_play_animation(input_vector)
