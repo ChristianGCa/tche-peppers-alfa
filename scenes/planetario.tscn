@@ -2526,7 +2526,7 @@ y_sort_origin = 18
 [node name="NPC" parent="decoracoes" instance=ExtResource("10_anyxf")]
 position = Vector2(542, 293)
 
-[node name="player" parent="decoracoes" instance=ExtResource("4_yk1bj")]
+[node name="Player" parent="decoracoes" instance=ExtResource("4_yk1bj")]
 position = Vector2(352, 568)
 
 [node name="arvore_01-1" parent="decoracoes" instance=ExtResource("5_anyxf")]

@@ -11,7 +11,7 @@ font_size = 24
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="DialogScreen" type="Control" node_paths=PackedStringArray("_name", "_dialog", "_faceset")]
+[node name="DialogScreen" type="Control" node_paths=PackedStringArray("_name", "_dialog", "_faceset", "_translate_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +26,7 @@ script = ExtResource("1_et6mj")
 _name = NodePath("Background/HContainer/VContainer/Name")
 _dialog = NodePath("Background/HContainer/VContainer/Dialog")
 _faceset = NodePath("Background/HContainer/Border/FaceSet")
+_translate_button = NodePath("Background/HContainer/VContainer/Button")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -94,3 +95,9 @@ theme_override_font_sizes/italics_font_size = 1
 theme_override_font_sizes/mono_font_size = 1
 theme_override_font_sizes/normal_font_size = 36
 text = "Olá Meus amigos"
+
+[node name="Button" type="Button" parent="Background/HContainer/VContainer"]
+layout_mode = 2
+text = "Mostrar Tradução"
+
+[connection signal="pressed" from="Background/HContainer/VContainer/Button" to="." method="_on_button_pressed"]
