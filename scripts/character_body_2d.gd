@@ -2,33 +2,56 @@ extends CharacterBody2D
 
 @export var speed_running: float = 200.0
 @export var speed_walking: float = 80.0
-
+@onready var dialog_panel = $"../../HUD/dialogue_panel"
 @onready var anim_sprite = $AnimatedSprite2D
 
+enum STATE { WALKING, DIALOG }
+
+var state = STATE.WALKING
 var last_direction := "down"
 var can_move = true
+var dialogue_area = null
 
-func _physics_process(delta):
-	
-	if not can_move:
+func to_dialog():
+	state = STATE.DIALOG
+	dialog_panel.visible = true
+	dialogue_area = dialogue_area.get_node("..").verifica_quest(self)
+	dialogue_area.reset_lines()
+	var linhas = dialogue_area.get_next_lines(0)
+	dialog_panel.set_lines(linhas)
+
+func process_dialogue():
+	var res = dialog_panel.process_dialogue("up", "donw", "ok", dialogue_area)
+	if res == false:
+		to_walking()
+
+func to_walking():
+	state = STATE.WALKING
+
+func process_walking():
+	if dialogue_area != null and Input.is_action_just_pressed("acao"):
+		to_dialog()
 		return
-	var input_vector = Vector2.ZERO
 
-	# Verificando as entradas de direção
-	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	var direction := Vector2.ZERO
 
-	input_vector = input_vector.normalized()
+	if Input.is_action_pressed("up"):
+		direction.y -= 1
+	if Input.is_action_pressed("down"):
+		direction.y += 1
+	if Input.is_action_pressed("right"):
+		direction.x += 1
+	if Input.is_action_pressed("left"):
+		direction.x -= 1
 
-	# Alterando a velocidade dependendo se o shift está pressionado
-	if Input.is_key_pressed(KEY_SHIFT):
-		velocity = input_vector * speed_running
+	if direction != Vector2.ZERO:
+		direction = direction.normalized()
+		velocity = direction * speed_walking
 	else:
-		velocity = input_vector * speed_walking
-		
-	move_and_slide()
+		velocity = Vector2.ZERO
 
-	_play_animation(input_vector)
+	move_and_slide()
+	_play_animation(direction)
 
 func _play_animation(direction: Vector2):
 	if direction == Vector2.ZERO:
@@ -49,3 +72,17 @@ func _play_animation(direction: Vector2):
 		else:
 			anim_sprite.play("walk_up")
 			last_direction = "up"
+
+func _physics_process(delta):
+	if state == STATE.WALKING:
+		process_walking()
+	elif state == STATE.DIALOG:
+		process_dialogue()
+
+func _on_dialog_detect_area_entered(area: Area2D) -> void:
+	if area.is_in_group("dialogue_area"):
+		dialogue_area = area
+
+func _on_dialog_detect_area_exited(area: Area2D) -> void:
+	if area == dialogue_area:
+		dialogue_area = null
