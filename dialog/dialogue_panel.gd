@@ -33,7 +33,7 @@ func set_lines(lines):
 	for line in lines:
 		add_dialogue_item(line)	
 	idx_selected=0
-	$hbox/margin_pic/picture.texture=lines[0].picture
+	$hbox/margin_pic/AspectRatioContainer/picture.texture=lines[0].picture
 	$hbox/margin_items/vbox/label_name.text=lines[0].char_name
 	
 

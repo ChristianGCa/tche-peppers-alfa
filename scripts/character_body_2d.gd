@@ -21,7 +21,7 @@ func to_dialog():
 	dialog_panel.set_lines(linhas)
 
 func process_dialogue():
-	var res = dialog_panel.process_dialogue("up", "donw", "ok", dialogue_area)
+	var res = dialog_panel.process_dialogue("up", "down", "ok", dialogue_area)
 	if res == false:
 		to_walking()
 
@@ -29,7 +29,7 @@ func to_walking():
 	state = STATE.WALKING
 
 func process_walking():
-	if dialogue_area != null and Input.is_action_just_pressed("acao"):
+	if dialogue_area != null and Input.is_action_just_pressed("ok"):
 		to_dialog()
 		return
 

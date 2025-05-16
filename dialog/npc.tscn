@@ -1,53 +1,26 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqwdc4f3u0gh7"]
+[gd_scene load_steps=18 format=3 uid="uid://dqwdc4f3u0gh7"]
 
 [ext_resource type="Texture2D" uid="uid://bdjq86e0mpy2o" path="res://assets/character/homem_azul_cabelo_preto.png" id="1_oy677"]
 [ext_resource type="PackedScene" uid="uid://d7denlk6pmkn" path="res://dialog/dialogue_area.tscn" id="2_gcm4l"]
 [ext_resource type="Script" uid="uid://dh78fu8tr81pa" path="res://dialog/dialogue_area.gd" id="3_d0ify"]
 [ext_resource type="PackedScene" uid="uid://toyub3necoa1" path="res://dialog/dialogue_line.tscn" id="4_654qy"]
 [ext_resource type="Script" uid="uid://1oe2t35jmc20" path="res://dialog/dialogue_line.gd" id="5_4tf3u"]
+[ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://assets/character/npc1.png" id="6_d0ify"]
+[ext_resource type="Texture2D" uid="uid://dn5ji02a0a1dx" path="res://assets/character/retrato_player.png" id="7_654qy"]
 
 [sub_resource type="GDScript" id="GDScript_oy677"]
 script/source = "extends CharacterBody2D
 
-var player_in_area := false
 
-# Busca o HUD dinamicamente quando a cena é carregada
-@onready var planetario_hud = get_parent().get_node(\"HUD\")  # HUD deve estar no mesmo nível do NPC
+enum QUEST_STATE{BEGIN, END}
+var estado_quest = QUEST_STATE.BEGIN
 
-var _dialog_data: Dictionary = {
-	0: {
-		\"faceset\": \"res://assets/character/npc1.png\",
-		\"dialog\": \"Hi, man! Are you lost around here?\",
-		\"traduction\": \"Buenas, tchê! Tá perdido por essas bandas?\",
-		\"title\": \"Gaúcho\"
-	},
-	1: {
-		\"faceset\": \"res://assets/character/npc1.png\",
-		\"dialog\": \"I've never seen you around here... You're a foreigner, right?\",
-		\"traduction\": \"Nunca te vi por aqui... Tu é estrangeiro, né?\",
-		\"title\": \"Gaúcho\"
-	}
-}
-
-func _process(delta: float) -> void:
-	if player_in_area and Input.is_action_just_pressed(\"ui_accept\"):
-		print(\"Interação com NPC\")
-		get_parent().get_node(\"Player\").can_move = false
-		
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print(\"Body entered:\", body.name)
-	if body.name == \"Player\":
-		player_in_area = true
-		print(\"Player entrou na área!\")
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	print(body.name)
-	if body.name == \"Player\":
-		player_in_area = false
-		print(\"saiu\")
-
-func _on_dialog_closed():
-	get_parent().get_node(\"Player\").can_move = true
+func verifica_quest(player):
+	if estado_quest == QUEST_STATE.BEGIN:
+		estado_quest = QUEST_STATE.END
+		return $dialogo1
+	if estado_quest == QUEST_STATE.END:
+		return $dialogo2
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q11dd"]
@@ -145,3 +118,11 @@ debug_color = Color(2.98411e-06, 0.851089, 0.42861, 0.42)
 [node name="dialogue_line" parent="dialogo1" instance=ExtResource("4_654qy")]
 script = ExtResource("5_4tf3u")
 char_name = "Cidadão Local"
+text = "Bah"
+picture = ExtResource("6_d0ify")
+
+[node name="dialogue_line" parent="dialogo1/dialogue_line" instance=ExtResource("4_654qy")]
+script = ExtResource("5_4tf3u")
+char_name = "Player"
+text = "Tchê"
+picture = ExtResource("7_654qy")
