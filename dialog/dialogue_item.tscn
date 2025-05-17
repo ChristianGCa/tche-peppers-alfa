@@ -1,26 +1,72 @@
-[gd_scene load_steps=2 format=3 uid="uid://brricdcqsr1sc"]
+[gd_scene load_steps=3 format=3 uid="uid://brricdcqsr1sc"]
 
-[ext_resource type="Script" uid="uid://ylefrfy5vbtq" path="res://dialog/dialogue_item.gd" id="1_3ncvd"]
+[ext_resource type="Script" uid="uid://ylefrfy5vbtq" path="res://dialog/dialogue_item.gd" id="1_0qafj"]
+[ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="2_capnw"]
 
 [node name="dialogue_item" type="ColorRect"]
+offset_left = -3.0
+offset_right = 1039.0
+offset_bottom = 213.0
 size_flags_vertical = 3
 color = Color(0.537255, 0.431373, 0.321569, 1)
-script = ExtResource("1_3ncvd")
+script = ExtResource("1_0qafj")
 
-[node name="margin" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
+[node name="margin" type="VBoxContainer" parent="."]
+layout_mode = 2
+anchor_top = -0.016
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
+anchor_bottom = 1.026
+offset_left = 60.0
+offset_top = 22.312
+offset_right = -97.0
+offset_bottom = -20.382
 
-[node name="richlabel" type="RichTextLabel" parent="margin"]
+[node name="LabelText" type="RichTextLabel" parent="margin"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "dfgdhgdfgdfgdfg
- dkjfgndfjkngkjdfng dkjgndfkjgndkjfg kdjngfdkjngkdjfgndm gfdkgndfkgndkjgnf"
+theme_override_fonts/normal_font = ExtResource("2_capnw")
+theme_override_font_sizes/normal_font_size = 40
+text = "AKSHJDKAJHSKJKJASHKAJSH"
+fit_content = true
 vertical_alignment = 1
+
+[node name="HBoxButtons" type="HBoxContainer" parent="margin"]
+layout_mode = 2
+
+[node name="option1" type="Button" parent="margin/HBoxButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_capnw")
+theme_override_font_sizes/font_size = 30
+text = "qweqwe"
+
+[node name="option2" type="Button" parent="margin/HBoxButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_capnw")
+theme_override_font_sizes/font_size = 30
+text = "qweqwe"
+
+[node name="option3" type="Button" parent="margin/HBoxButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_capnw")
+theme_override_font_sizes/font_size = 30
+text = "qweqwe"
+
+[node name="LabelTranslation" type="RichTextLabel" parent="margin"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_capnw")
+theme_override_font_sizes/normal_font_size = 30
+text = "AKSDJHAKJSDHKAJSHDKJASHDKJAHSDKJHASKDJHAKSJDHKAJSHDKJAHSDKJAKSDJHAKJSHDKJASHDKJ
+"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="margin"]
+layout_mode = 2
+
+[node name="ButtonTranslation" type="Button" parent="margin/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_capnw")
+theme_override_font_sizes/font_size = 30
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "MOSTRAR TRADUÇÃO"

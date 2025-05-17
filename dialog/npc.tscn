@@ -1,10 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqwdc4f3u0gh7"]
+[gd_scene load_steps=16 format=3 uid="uid://dqwdc4f3u0gh7"]
 
 [ext_resource type="Texture2D" uid="uid://bdjq86e0mpy2o" path="res://assets/character/homem_azul_cabelo_preto.png" id="1_oy677"]
 [ext_resource type="PackedScene" uid="uid://d7denlk6pmkn" path="res://dialog/dialogue_area.tscn" id="2_gcm4l"]
-[ext_resource type="Script" uid="uid://dh78fu8tr81pa" path="res://dialog/dialogue_area.gd" id="3_d0ify"]
 [ext_resource type="PackedScene" uid="uid://toyub3necoa1" path="res://dialog/dialogue_line.tscn" id="4_654qy"]
-[ext_resource type="Script" uid="uid://1oe2t35jmc20" path="res://dialog/dialogue_line.gd" id="5_4tf3u"]
 [ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://assets/character/npc1.png" id="6_d0ify"]
 [ext_resource type="Texture2D" uid="uid://dn5ji02a0a1dx" path="res://assets/character/retrato_player.png" id="7_654qy"]
 
@@ -106,7 +104,6 @@ position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_di8ll")
 
 [node name="dialogo1" parent="." instance=ExtResource("2_gcm4l")]
-script = ExtResource("3_d0ify")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dialogo1"]
 light_mask = 4
@@ -116,13 +113,16 @@ shape = SubResource("CircleShape2D_oy677")
 debug_color = Color(2.98411e-06, 0.851089, 0.42861, 0.42)
 
 [node name="dialogue_line" parent="dialogo1" instance=ExtResource("4_654qy")]
-script = ExtResource("5_4tf3u")
 char_name = "Cidadão Local"
-text = "Bah"
+text = "Bah, man! You're a ____ right? I've never seen a foreigner around the planetarium, man."
+translation = "Bah, tchê! Você é gringo, né? Nunca vi cara de fora por essas bandas do planetário, vivente."
+word_options = Array[String](["foreigner", "fool", "volkswagen"])
+correct_word = "foreigner"
 picture = ExtResource("6_d0ify")
+is_minigame = true
 
 [node name="dialogue_line" parent="dialogo1/dialogue_line" instance=ExtResource("4_654qy")]
-script = ExtResource("5_4tf3u")
 char_name = "Player"
-text = "Tchê"
+text = "Oh man"
+translation = "Bah guri"
 picture = ExtResource("7_654qy")

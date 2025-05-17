@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3tj64ox1uvov"]
+
+[ext_resource type="Script" uid="uid://cflwxlxnpouky" path="res://scripts/notification_panel.gd" id="1_s2f68"]
+
+[node name="NotificationPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 484.0
+offset_top = 324.0
+offset_right = 524.0
+offset_bottom = 364.0
+script = ExtResource("1_s2f68")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.529647, 0.348254, 0.152081, 1)
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "dsadasdasdasdasdasdasdasdasdasdasdasdasd"

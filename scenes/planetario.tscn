@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bmx8emouf4xbl"]
+[gd_scene load_steps=22 format=4 uid="uid://bmx8emouf4xbl"]
 
 [ext_resource type="Script" uid="uid://dcdvqjjyvsh4r" path="res://scripts/planetario.gd" id="1_anyxf"]
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://assets/tilemap/terrain/tile_floor.png" id="1_qx4g2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ctosmvt47xi2o" path="res://scenes/porta.tscn" id="7_s5csg"]
 [ext_resource type="PackedScene" uid="uid://dqwdc4f3u0gh7" path="res://dialog/npc.tscn" id="10_anyxf"]
 [ext_resource type="PackedScene" uid="uid://b3c1u8pbkagou" path="res://dialog/dialogue_panel.tscn" id="11_da15a"]
+[ext_resource type="PackedScene" uid="uid://b3tj64ox1uvov" path="res://scenes/notification_panel.tscn" id="12_5o251"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44wwh"]
 texture = ExtResource("1_qx4g2")
@@ -2549,11 +2550,13 @@ position = Vector2(712, 312)
 
 [node name="dialogue_panel" parent="HUD" instance=ExtResource("11_da15a")]
 visible = false
-anchor_left = 0.0101562
-anchor_top = 0.651389
-anchor_right = 0.820312
-anchor_bottom = 0.904167
-offset_left = 123.0
+anchor_top = 0.544444
+anchor_right = 0.932813
+anchor_bottom = 0.938889
+offset_left = 48.0
 offset_top = 2.0
-offset_right = 123.0
+offset_right = 48.0
 offset_bottom = 2.0
+
+[node name="NotificationPanel" parent="HUD" instance=ExtResource("12_5o251")]
+visible = false

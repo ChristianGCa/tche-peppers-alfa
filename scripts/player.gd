@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed_running: float = 200.0
-@export var speed_walking: float = 80.0
+@export var speed_walking: float = 300.0
 @onready var dialog_panel = $"../../HUD/dialogue_panel"
 @onready var anim_sprite = $AnimatedSprite2D
 
@@ -14,11 +14,12 @@ var dialogue_area = null
 
 func to_dialog():
 	state = STATE.DIALOG
-	dialog_panel.visible = true
 	dialogue_area = dialogue_area.get_node("..").verifica_quest(self)
 	dialogue_area.reset_lines()
 	var linhas = dialogue_area.get_next_lines(0)
-	dialog_panel.set_lines(linhas)
+
+	dialog_panel.start_dialogue(self, dialogue_area, linhas)
+
 
 func process_dialogue():
 	var res = dialog_panel.process_dialogue("up", "down", "ok", dialogue_area)

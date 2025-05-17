@@ -3266,8 +3266,6 @@ position = Vector2(650, 412)
 
 [node name="Player" parent="decoracoes" instance=ExtResource("9_605ht")]
 position = Vector2(80, 735)
-speed_running = 200.0
-speed_walking = 80.0
 
 [node name="CatedralSprite2" type="Sprite2D" parent="."]
 position = Vector2(684, 9)
