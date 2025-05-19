@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://dp1x6bmwoerk2"]
+[gd_scene load_steps=30 format=3 uid="uid://dp1x6bmwoerk2"]
 
-[ext_resource type="Script" uid="uid://bd1psyqy7suul" path="res://scripts/character_body_2d.gd" id="1_g2brh"]
+[ext_resource type="Script" uid="uid://bd1psyqy7suul" path="res://scripts/player.gd" id="1_g2brh"]
 [ext_resource type="Texture2D" uid="uid://css1jxuhq3q88" path="res://assets/character/TPF_Character_2a.png" id="2_g2brh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dn4c7"]
@@ -214,6 +214,10 @@ height = 8.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2brh"]
 radius = 8.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 11.0
+height = 38.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 collision_mask = 3
@@ -242,3 +246,12 @@ zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
+
+[node name="dialogue_detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialogue_detect"]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_g2els")
+
+[connection signal="area_entered" from="dialogue_detect" to="." method="_on_dialog_detect_area_entered"]
+[connection signal="area_exited" from="dialogue_detect" to="." method="_on_dialog_detect_area_exited"]

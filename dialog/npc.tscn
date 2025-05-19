@@ -1,7 +1,25 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvhkkdqwutrf5"]
+[gd_scene load_steps=16 format=3 uid="uid://dqwdc4f3u0gh7"]
 
 [ext_resource type="Texture2D" uid="uid://bdjq86e0mpy2o" path="res://assets/character/homem_azul_cabelo_preto.png" id="1_oy677"]
-[ext_resource type="Script" uid="uid://b18c3wvms7en" path="res://dialog/npc.gd" id="1_y8s2a"]
+[ext_resource type="PackedScene" uid="uid://d7denlk6pmkn" path="res://dialog/dialogue_area.tscn" id="2_gcm4l"]
+[ext_resource type="PackedScene" uid="uid://toyub3necoa1" path="res://dialog/dialogue_line.tscn" id="4_654qy"]
+[ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://assets/character/npc1.png" id="6_d0ify"]
+[ext_resource type="Texture2D" uid="uid://dn5ji02a0a1dx" path="res://assets/character/retrato_player.png" id="7_654qy"]
+
+[sub_resource type="GDScript" id="GDScript_oy677"]
+script/source = "extends CharacterBody2D
+
+
+enum QUEST_STATE{BEGIN, END}
+var estado_quest = QUEST_STATE.BEGIN
+
+func verifica_quest(player):
+	if estado_quest == QUEST_STATE.BEGIN:
+		estado_quest = QUEST_STATE.END
+		return $dialogo1
+	if estado_quest == QUEST_STATE.END:
+		return $dialogo2
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q11dd"]
 atlas = ExtResource("1_oy677")
@@ -73,7 +91,7 @@ radius = 18.0278
 y_sort_enabled = true
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_y8s2a")
+script = SubResource("GDScript_oy677")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -19)
@@ -85,13 +103,40 @@ frame_progress = 0.428059
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_di8ll")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+[node name="dialogo1" parent="." instance=ExtResource("2_gcm4l")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialogo1"]
+light_mask = 4
+visibility_layer = 4
 position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_oy677")
 debug_color = Color(2.98411e-06, 0.851089, 0.42861, 0.42)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="dialogue_line" parent="dialogo1" instance=ExtResource("4_654qy")]
+char_name = "Cidadão Local"
+text = "Bah, man! You're a ____ right? I've never seen a foreigner around the planetarium, man."
+translation = "Bah, tchê! Você é gringo, né? Nunca vi cara de fora por essas bandas do planetário, vivente."
+word_options = Array[String](["foreigner", "fool", "volkswagen"])
+correct_word = "foreigner"
+picture = ExtResource("6_d0ify")
+is_minigame = true
+
+[node name="dialogue_line" parent="dialogo1/dialogue_line" instance=ExtResource("4_654qy")]
+char_name = "Player"
+text = "Oh man"
+translation = "Bah guri"
+picture = ExtResource("7_654qy")
+
+[node name="dialogo2" parent="." instance=ExtResource("2_gcm4l")]
+
+[node name="dialogue_line" parent="dialogo2" instance=ExtResource("4_654qy")]
+char_name = "NPC"
+text = "Explore the place!"
+translation = "Explore o lugar!"
+correct_word = "asdasd"
+picture = ExtResource("6_d0ify")
+
+[node name="dialogue_line2" parent="dialogo2" instance=ExtResource("4_654qy")]
+char_name = "NPC"
+text = "Oh man"
+translation = "Bah guri"
