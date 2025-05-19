@@ -126,3 +126,17 @@ char_name = "Player"
 text = "Oh man"
 translation = "Bah guri"
 picture = ExtResource("7_654qy")
+
+[node name="dialogo2" parent="." instance=ExtResource("2_gcm4l")]
+
+[node name="dialogue_line" parent="dialogo2" instance=ExtResource("4_654qy")]
+char_name = "NPC"
+text = "Explore the place!"
+translation = "Explore o lugar!"
+correct_word = "asdasd"
+picture = ExtResource("6_d0ify")
+
+[node name="dialogue_line2" parent="dialogo2" instance=ExtResource("4_654qy")]
+char_name = "NPC"
+text = "Oh man"
+translation = "Bah guri"
