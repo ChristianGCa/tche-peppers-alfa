@@ -6,17 +6,22 @@ extends Area2D
 var cena_destino: PackedScene
 
 func _ready():
+	$AnimatedSprite2D.play("out_closed")
 	if cena_destino_path != "":
 		cena_destino = load(cena_destino_path)
 
 var jogador_na_area = false
 
 func _on_body_entered(body):
+	print("ta na frente da porta")
 	if body.is_in_group("player"):
+		$AnimatedSprite2D.play("out_opened")
 		jogador_na_area = true
 
 func _on_body_exited(body):
+	print("saiu da porta")
 	if body.is_in_group("player"):
+		$AnimatedSprite2D.play("out_closed")
 		jogador_na_area = false
 
 func _process(delta):

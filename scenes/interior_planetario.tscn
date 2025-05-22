@@ -1773,10 +1773,10 @@ tile_map_data = PackedByteArray("AAAwABIAAAAEAA0AAAAwABMAAAAEAA0AAAAwABQAAAAEAA0
 tile_set = SubResource("TileSet_xslor")
 
 [node name="Player" parent="decoração" instance=ExtResource("3_mvnb1")]
-position = Vector2(640, 360)
+position = Vector2(639, 484)
 
 [node name="Porta" parent="decoração" instance=ExtResource("5_mvnb1")]
-position = Vector2(639, 503)
+position = Vector2(640, 500)
 cena_destino_path = "res://scenes/planetario.tscn"
 
 [node name="porta_saida_planetario" type="Marker2D" parent="."]

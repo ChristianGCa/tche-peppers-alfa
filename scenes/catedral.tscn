@@ -3786,45 +3786,32 @@ texture = ExtResource("1_joyk0")
 10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.42857, 8, 8, 12.5714, 3.42857, 17.1429, -3.42857, 17.1429, -8, 12.5714, -3.42857, 8)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l0tt6"]
-load_path = "res://.godot/imported/Black_VAN_CLEAN_All_000-sheet.png-ab6ca2033ebbc235c97cfca40d0b2b40.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxno4"]
 texture = SubResource("CompressedTexture2D_l0tt6")
-20:26/size_in_atlas = Vector2i(4, 5)
 20:26/0 = 0
-26:26/size_in_atlas = Vector2i(4, 5)
 26:26/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pykg7"]
-load_path = "res://.godot/imported/Blue_COUPE_CLEAN_All_000-sheet.png-cfdbdc0bd6603755f777dc0d15cac155.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmjc4"]
 texture = SubResource("CompressedTexture2D_pykg7")
-26:26/size_in_atlas = Vector2i(4, 5)
 26:26/0 = 0
-32:6/size_in_atlas = Vector2i(4, 6)
 32:6/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_605ht"]
-load_path = "res://.godot/imported/POLICE_CLEAN_ALLD0000-sheet.png-c262c9c54b23ce991b7ad49db84b61a9.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2h57r"]
 texture = SubResource("CompressedTexture2D_605ht")
-26:26/size_in_atlas = Vector2i(4, 5)
 26:26/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yhvpp"]
-load_path = "res://.godot/imported/Red_MUSCLECAR_CLEAN_All_000-sheet.png-8c98af457b8add1db80ab363fed7c97c.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owdn1"]
 texture = SubResource("CompressedTexture2D_yhvpp")
-26:26/size_in_atlas = Vector2i(4, 5)
 26:26/0 = 0
-8:32/size_in_atlas = Vector2i(3, 5)
 8:32/0 = 0
-32:14/size_in_atlas = Vector2i(5, 4)
 32:14/0 = 0
-33:6/size_in_atlas = Vector2i(4, 6)
 33:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_jxno4"]
