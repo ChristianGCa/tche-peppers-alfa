@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b8ndtnuwykcur"]
+
+[ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="1_25plj"]
+[ext_resource type="Texture2D" uid="uid://bjcaqdrnw78yq" path="res://assets/interface/button_01_hover.png" id="2_xo10p"]
+[ext_resource type="Texture2D" uid="uid://jnytnyvoxbyo" path="res://assets/interface/button_01.png" id="3_lst5e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_edk5d"]
+texture = ExtResource("2_xo10p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xo10p"]
+texture = ExtResource("3_lst5e")
+
+[resource]
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_25plj")
+Button/styles/hover = SubResource("StyleBoxTexture_edk5d")
+Button/styles/normal = SubResource("StyleBoxTexture_xo10p")

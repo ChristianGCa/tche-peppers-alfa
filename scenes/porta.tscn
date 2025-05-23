@@ -48,7 +48,7 @@ nome_ponto_entrada = "porta_entrada"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8gms0")
-animation = &"out_opened"
+animation = &"in_opened"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
