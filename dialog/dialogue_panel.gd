@@ -25,10 +25,26 @@ func set_lines(lines):
 	
 
 func add_dialogue_item(line):
-	var dialogue_item=dialogue_item_comp.instantiate()
+	var dialogue_item = dialogue_item_comp.instantiate()
 	dialogue_item.set_dialogue_line(line)
+	dialogue_item.dialogue_item_selected.connect(_on_dialogue_item_selected)
 	items_vbox.add_child(dialogue_item)
-	pass
+
+func _on_dialogue_item_selected(item):
+	var items = items_vbox.get_children()
+	var new_idx = items.find(item)
+
+	if new_idx == -1:
+		return
+
+	if not items[idx_selected].answered_correctly:
+		$"../NotificationPanel".show_message("Responda corretamente antes de continuar.")
+		return
+
+	idx_selected = new_idx
+	$hbox/margin_pic/picture.texture = item.dialogue_line.picture
+	$hbox/margin_items/vbox/label_name.text = item.dialogue_line.char_name
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,15 +82,15 @@ func process_dialogue(action_up,action_down,action_ok,dialogue_area):
 		select_previous()
 	if Input.is_action_just_pressed(action_down):
 		select_next()	
-	if Input.is_action_just_pressed(action_ok):
-		var lines=dialogue_area.get_next_lines(idx_selected)		
-		if len(lines)==0:
-			visible=false
-			return false
-		else:
-			set_lines(lines)
-			visible=true
-			return true
+	#if Input.is_action_just_pressed(action_ok):
+	#	var lines=dialogue_area.get_next_lines(idx_selected)		
+	#	if len(lines)==0:
+	#		visible=false
+	#		return false
+	#	else:
+	#		set_lines(lines)
+	#		visible=true
+	#		return true
 	visible=true
 	return true;
 

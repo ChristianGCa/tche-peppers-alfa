@@ -9,7 +9,6 @@
 [sub_resource type="GDScript" id="GDScript_oy677"]
 script/source = "extends CharacterBody2D
 
-
 enum QUEST_STATE{BEGIN, END}
 var estado_quest = QUEST_STATE.BEGIN
 
@@ -97,7 +96,6 @@ script = SubResource("GDScript_oy677")
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_d1k1c")
 animation = &"down"
-frame_progress = 0.428059
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

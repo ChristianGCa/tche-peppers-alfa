@@ -1,8 +1,8 @@
 extends Node2D
 
 func _ready():
-	if Global.ponto_entrada != "":
-		var marcador = get_node_or_null(Global.ponto_entrada)
+	if Global.posicao_marcador != "":
+		var marcador = get_node_or_null(Global.posicao_marcador)
 		if marcador:
 			var player = get_tree().get_first_node_in_group("player")
 			if player:

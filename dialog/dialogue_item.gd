@@ -2,11 +2,19 @@ extends Control
 
 var dialogue_line
 var answered_correctly = false
+signal dialogue_item_selected(item)
 
 @onready var label_text = $margin/LabelText as RichTextLabel
 @onready var hbox_buttons = $margin/HBoxButtons
 @onready var translation_label = $margin/LabelTranslation
 @onready var button_show_translation = $margin/VBoxContainer/ButtonTranslation
+
+func _ready():
+	connect("gui_input", Callable(self, "_on_gui_input"))
+
+func _on_gui_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		emit_signal("dialogue_item_selected", self)
 
 func set_dialogue_line(line):
 	await ready

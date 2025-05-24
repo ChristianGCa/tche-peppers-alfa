@@ -13,14 +13,6 @@ region = Rect2(0, 52, 32, 26)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8gms0")
-}],
-"loop": true,
-"name": &"in_opened",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("1_hlcnn")
 }],
 "loop": true,
@@ -33,6 +25,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"out_opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gms0")
+}],
+"loop": true,
+"name": &"stair",
 "speed": 5.0
 }]
 
@@ -48,7 +48,7 @@ nome_ponto_entrada = "porta_entrada"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8gms0")
-animation = &"in_opened"
+animation = &"stair"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

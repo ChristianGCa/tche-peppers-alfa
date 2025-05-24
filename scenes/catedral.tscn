@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cu5qihhwaxnv4"]
+[gd_scene load_steps=34 format=4 uid="uid://cu5qihhwaxnv4"]
 
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://assets/tilemap/terrain/tile_floor.png" id="1_joyk0"]
 [ext_resource type="Texture2D" uid="uid://clamrqxodudwr" path="res://assets/tilemap/house/Roofs.png" id="2_irx2n"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c2k1clv4qvo1g" path="res://scenes/arvore_02.tscn" id="8_pmjc4"]
 [ext_resource type="Texture2D" uid="uid://dc21sptwf74t7" path="res://assets/tilemap/vehicles/Black_SUV_CLEAN_All_032.png" id="9_1u2h4"]
 [ext_resource type="PackedScene" uid="uid://dp1x6bmwoerk2" path="res://scenes/player.tscn" id="9_605ht"]
+[ext_resource type="PackedScene" uid="uid://dqwdc4f3u0gh7" path="res://dialog/npc.tscn" id="9_jxno4"]
+[ext_resource type="PackedScene" uid="uid://d7denlk6pmkn" path="res://dialog/dialogue_area.tscn" id="10_pykg7"]
+[ext_resource type="PackedScene" uid="uid://toyub3necoa1" path="res://dialog/dialogue_line.tscn" id="11_pmjc4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ob8de"]
 texture = ExtResource("1_joyk0")
@@ -3883,6 +3886,16 @@ texture = ExtResource("9_1u2h4")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decoracoes/carro1"]
 position = Vector2(-4, -24)
 polygon = PackedVector2Array(1, -7, 7, 0, 10, 3, 30, 38, 30, 50, -2, 58, -26, 14, -26, 0)
+
+[node name="NPC" parent="decoracoes" instance=ExtResource("9_jxno4")]
+position = Vector2(252, 654)
+
+[node name="dialogo3" parent="decoracoes/NPC" instance=ExtResource("10_pykg7")]
+
+[node name="dialogue_line" parent="decoracoes/NPC/dialogo3" instance=ExtResource("11_pmjc4")]
+char_name = "a"
+text = "aas"
+translation = "aasdasd"
 
 [node name="CatedralSprite2" type="Sprite2D" parent="."]
 position = Vector2(684, 9)
