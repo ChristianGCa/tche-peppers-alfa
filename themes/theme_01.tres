@@ -15,3 +15,5 @@ Button/font_sizes/font_size = 60
 Button/fonts/font = ExtResource("1_25plj")
 Button/styles/hover = SubResource("StyleBoxTexture_edk5d")
 Button/styles/normal = SubResource("StyleBoxTexture_xo10p")
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_25plj")

@@ -12,6 +12,13 @@ signal dialogue_item_selected(item)
 func _ready():
 	connect("gui_input", Callable(self, "_on_gui_input"))
 
+	# Ignora clique nos filhos (para que passe para o pai)
+	label_text.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hbox_buttons.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	translation_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button_show_translation.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		emit_signal("dialogue_item_selected", self)

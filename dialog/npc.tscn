@@ -1,23 +1,44 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqwdc4f3u0gh7"]
+[gd_scene load_steps=18 format=3 uid="uid://dqwdc4f3u0gh7"]
 
 [ext_resource type="Texture2D" uid="uid://bdjq86e0mpy2o" path="res://assets/character/homem_azul_cabelo_preto.png" id="1_oy677"]
 [ext_resource type="PackedScene" uid="uid://d7denlk6pmkn" path="res://dialog/dialogue_area.tscn" id="2_gcm4l"]
 [ext_resource type="PackedScene" uid="uid://toyub3necoa1" path="res://dialog/dialogue_line.tscn" id="4_654qy"]
+[ext_resource type="Texture2D" uid="uid://mf728un1ix2c" path="res://dialog/UI_Flat_Bar10a.png" id="6_654qy"]
 [ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://assets/character/npc1.png" id="6_d0ify"]
+[ext_resource type="Theme" uid="uid://b8ndtnuwykcur" path="res://themes/theme_01.tres" id="7_4tf3u"]
 [ext_resource type="Texture2D" uid="uid://dn5ji02a0a1dx" path="res://assets/character/retrato_player.png" id="7_654qy"]
 
 [sub_resource type="GDScript" id="GDScript_oy677"]
 script/source = "extends CharacterBody2D
 
-enum QUEST_STATE{BEGIN, END}
+enum QUEST_STATE { BEGIN, END }
 var estado_quest = QUEST_STATE.BEGIN
+
+@onready var interaction_prompt = $InteractionPrompt
+
+func _ready():
+	$InteractPrompt.visible = false
 
 func verifica_quest(player):
 	if estado_quest == QUEST_STATE.BEGIN:
 		estado_quest = QUEST_STATE.END
 		return $dialogo1
-	if estado_quest == QUEST_STATE.END:
+	elif estado_quest == QUEST_STATE.END:
 		return $dialogo2
+
+func _on_player_interacted():
+	# Força o player a iniciar o diálogo
+	if interaction_prompt.is_player_inside:
+		var player = interaction_prompt.player_ref
+		player.to_dialog()
+
+func _on_dialogo_1_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		$InteractPrompt.visible = true
+
+func _on_dialogo_1_body_exited(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		$InteractPrompt.visible = false
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q11dd"]
@@ -139,3 +160,32 @@ char_name = "NPC"
 text = "Oh man"
 translation = "Bah guri"
 picture = ExtResource("6_d0ify")
+
+[node name="InteractPrompt" type="Node2D" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="InteractPrompt"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -56.0
+offset_right = 22.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="InteractPrompt/CenterContainer"]
+custom_minimum_size = Vector2(45, 17)
+layout_mode = 2
+texture = ExtResource("6_654qy")
+
+[node name="Label" type="Label" parent="InteractPrompt/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("7_4tf3u")
+text = "Dialog"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="dialogo1" to="." method="_on_dialogo_1_body_entered"]
+[connection signal="body_exited" from="dialogo1" to="." method="_on_dialogo_1_body_exited"]

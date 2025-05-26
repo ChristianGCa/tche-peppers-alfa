@@ -20,6 +20,9 @@ func to_dialog():
 
 	dialog_panel.start_dialogue(self, dialogue_area, linhas)
 
+	velocity = Vector2.ZERO
+	anim_sprite.play("idle_" + last_direction)
+
 
 func process_dialogue():
 	var res = dialog_panel.process_dialogue("up", "down", "ok", dialogue_area)

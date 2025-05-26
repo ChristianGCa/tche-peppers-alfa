@@ -2527,6 +2527,7 @@ tile_set = ExtResource("4_onvjq")
 y_sort_origin = 18
 
 [node name="NPC" parent="decoracoes" instance=ExtResource("10_anyxf")]
+y_sort_enabled = false
 position = Vector2(542, 293)
 
 [node name="Player" parent="decoracoes" instance=ExtResource("4_yk1bj")]
