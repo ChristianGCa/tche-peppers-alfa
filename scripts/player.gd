@@ -84,6 +84,7 @@ func _physics_process(delta):
 		process_dialogue()
 
 func _on_dialog_detect_area_entered(area: Area2D) -> void:
+	print("Área: ", area)
 	if area.is_in_group("dialogue_area"):
 		dialogue_area = area
 

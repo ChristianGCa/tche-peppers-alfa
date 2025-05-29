@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1g3hrequ7t1m" path="res://assets/sprites/projetor.png" id="3_7ou5g"]
 [ext_resource type="PackedScene" uid="uid://dp1x6bmwoerk2" path="res://scenes/player.tscn" id="3_mvnb1"]
 [ext_resource type="PackedScene" uid="uid://ctosmvt47xi2o" path="res://scenes/porta.tscn" id="5_mvnb1"]
-[ext_resource type="PackedScene" uid="uid://dqwdc4f3u0gh7" path="res://dialog/npc.tscn" id="6_ga6mc"]
+[ext_resource type="PackedScene" uid="uid://dhj2nor3m0lap" path="res://scenes/professor_planetario.tscn" id="6_jowvy"]
 [ext_resource type="PackedScene" uid="uid://b3c1u8pbkagou" path="res://dialog/dialogue_panel.tscn" id="7_ldaic"]
 [ext_resource type="PackedScene" uid="uid://b3tj64ox1uvov" path="res://scenes/notification_panel.tscn" id="8_jowvy"]
 
@@ -1763,7 +1763,7 @@ texture = ExtResource("2_n7m4a")
 texture = ExtResource("3_7ou5g")
 1:1/size_in_atlas = Vector2i(3, 3)
 1:1/0 = 0
-1:1/0/y_sort_origin = 16
+1:1/0/y_sort_origin = 15
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 12, 0, 18, -18, 18, -18, 12)
 
 [sub_resource type="TileSet" id="TileSet_xslor"]
@@ -1785,11 +1785,12 @@ tile_map_data = PackedByteArray("AAAwABIAAAAEAA0AAAAwABMAAAAEAA0AAAAwABQAAAAEAA0
 tile_set = SubResource("TileSet_xslor")
 
 [node name="Player" parent="decoracao" instance=ExtResource("3_mvnb1")]
-z_index = 3
 position = Vector2(639, 484)
 
-[node name="NPC" parent="decoracao" instance=ExtResource("6_ga6mc")]
-position = Vector2(638, 250)
+[node name="ProfessorPlanetario" parent="decoracao" instance=ExtResource("6_jowvy")]
+position = Vector2(640, 251)
+collision_layer = 7
+collision_mask = 7
 
 [node name="porta_saida_planetario" type="Marker2D" parent="."]
 position = Vector2(639, 495)
