@@ -20,6 +20,9 @@ func to_dialog():
 
 	dialog_panel.start_dialogue(self, dialogue_area, linhas)
 
+	velocity = Vector2.ZERO
+	anim_sprite.play("idle_" + last_direction)
+
 
 func process_dialogue():
 	var res = dialog_panel.process_dialogue("up", "down", "ok", dialogue_area)
@@ -81,6 +84,7 @@ func _physics_process(delta):
 		process_dialogue()
 
 func _on_dialog_detect_area_entered(area: Area2D) -> void:
+	print("Área: ", area)
 	if area.is_in_group("dialogue_area"):
 		dialogue_area = area
 

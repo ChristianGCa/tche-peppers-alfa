@@ -1,24 +1,37 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqwdc4f3u0gh7"]
+[gd_scene load_steps=18 format=3 uid="uid://dqwdc4f3u0gh7"]
 
 [ext_resource type="Texture2D" uid="uid://bdjq86e0mpy2o" path="res://assets/character/homem_azul_cabelo_preto.png" id="1_oy677"]
 [ext_resource type="PackedScene" uid="uid://d7denlk6pmkn" path="res://dialog/dialogue_area.tscn" id="2_gcm4l"]
 [ext_resource type="PackedScene" uid="uid://toyub3necoa1" path="res://dialog/dialogue_line.tscn" id="4_654qy"]
+[ext_resource type="Texture2D" uid="uid://y2du2fpbb5f1" path="res://assets/sprites/balao.png" id="6_654qy"]
 [ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://assets/character/npc1.png" id="6_d0ify"]
+[ext_resource type="Theme" uid="uid://b8ndtnuwykcur" path="res://themes/theme_01.tres" id="7_4tf3u"]
 [ext_resource type="Texture2D" uid="uid://dn5ji02a0a1dx" path="res://assets/character/retrato_player.png" id="7_654qy"]
 
 [sub_resource type="GDScript" id="GDScript_oy677"]
-script/source = "extends CharacterBody2D
+script/source = "extends Area2D
 
-
-enum QUEST_STATE{BEGIN, END}
+enum QUEST_STATE { BEGIN, END }
 var estado_quest = QUEST_STATE.BEGIN
+
+func _ready():
+	$InteractPrompt.visible = false
 
 func verifica_quest(player):
 	if estado_quest == QUEST_STATE.BEGIN:
 		estado_quest = QUEST_STATE.END
 		return $dialogo1
-	if estado_quest == QUEST_STATE.END:
+	elif estado_quest == QUEST_STATE.END:
 		return $dialogo2
+
+
+func _on_dialogo_1_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		$InteractPrompt.visible = true
+
+func _on_dialogo_1_body_exited(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		$InteractPrompt.visible = false
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q11dd"]
@@ -87,7 +100,7 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_oy677"]
 radius = 18.0278
 
-[node name="NPC" type="CharacterBody2D"]
+[node name="NPC" type="Area2D"]
 y_sort_enabled = true
 collision_layer = 3
 collision_mask = 3
@@ -97,7 +110,6 @@ script = SubResource("GDScript_oy677")
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_d1k1c")
 animation = &"down"
-frame_progress = 0.428059
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
@@ -114,18 +126,48 @@ debug_color = Color(2.98411e-06, 0.851089, 0.42861, 0.42)
 
 [node name="dialogue_line" parent="dialogo1" instance=ExtResource("4_654qy")]
 char_name = "Cidadão Local"
-text = "Bah, man! You're a ____ right? I've never seen a foreigner around the planetarium, man."
-translation = "Bah, tchê! Você é gringo, né? Nunca vi cara de fora por essas bandas do planetário, vivente."
-word_options = Array[String](["foreigner", "fool", "volkswagen"])
+text = "Bah, man! You're a ____ right?"
+translation = "Bah, tchê! Tu é gringo, né?"
+word_options = Array[String](["foreigner", "fool", "volkswagen", "fusca", "klein", "leo"])
 correct_word = "foreigner"
 picture = ExtResource("6_d0ify")
 is_minigame = true
 
 [node name="dialogue_line" parent="dialogo1/dialogue_line" instance=ExtResource("4_654qy")]
 char_name = "Player"
-text = "Oh man"
-translation = "Bah guri"
+text = "I'm not from here. My grandfather was. His name was Alceu Dispor"
+translation = "Eu não sou daqui. meu avô era. o nome dela era Alceu Dispor"
 picture = ExtResource("7_654qy")
+
+[node name="dialogue_line" parent="dialogo1/dialogue_line/dialogue_line" instance=ExtResource("4_654qy")]
+char_name = "Cidadão Local"
+text = "What a barbarity. Old Alceu, always a braggart."
+translation = "Mas que barbaridade. O velho Alceu, sempre fanfarrão."
+picture = ExtResource("6_d0ify")
+
+[node name="dialogue_line" parent="dialogo1/dialogue_line/dialogue_line/dialogue_line" instance=ExtResource("4_654qy")]
+char_name = "Cidadão Local"
+text = "By the way, what brings you to these ____?"
+translation = "Aliás, o que te traz para essas bandas?"
+word_options = Array[String](["Cars", "Parts", "Dogs"])
+correct_word = "Parts"
+picture = ExtResource("6_d0ify")
+is_minigame = true
+
+[node name="dialogue_line" parent="dialogo1/dialogue_line/dialogue_line/dialogue_line/dialogue_line" instance=ExtResource("4_654qy")]
+char_name = "Player"
+text = "I want to visit his hometown. Santa Maria. Sounds cool!"
+translation = "Quero conhecer a cidade natal dele. Santa Maria. Soa legal!"
+picture = ExtResource("7_654qy")
+
+[node name="dialogue_line" parent="dialogo1/dialogue_line/dialogue_line/dialogue_line/dialogue_line/dialogue_line" instance=ExtResource("4_654qy")]
+char_name = "Cidadão Local"
+text = "Cool, man! You can start right here, man. The ____ is a weird place."
+translation = "Trilegal Tchê! Pode começar por aqui mesmo vivente. O planetário é um lugar bagual e meio."
+word_options = Array[String](["planetarium", "school", "Mario"])
+correct_word = "planetarium"
+picture = ExtResource("6_d0ify")
+is_minigame = true
 
 [node name="dialogo2" parent="." instance=ExtResource("2_gcm4l")]
 
@@ -136,7 +178,34 @@ translation = "Explore o lugar!"
 correct_word = "asdasd"
 picture = ExtResource("6_d0ify")
 
-[node name="dialogue_line2" parent="dialogo2" instance=ExtResource("4_654qy")]
-char_name = "NPC"
-text = "Oh man"
-translation = "Bah guri"
+[node name="InteractPrompt" type="Node2D" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="InteractPrompt"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -53.0
+offset_right = 34.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="InteractPrompt/CenterContainer"]
+custom_minimum_size = Vector2(68, 20)
+layout_mode = 2
+texture = ExtResource("6_654qy")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="InteractPrompt/CenterContainer"]
+custom_minimum_size = Vector2(2, 22)
+layout_mode = 2
+theme = ExtResource("7_4tf3u")
+theme_override_font_sizes/font_size = 16
+text = " Dialog (E)"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="dialogo1" to="." method="_on_dialogo_1_body_entered"]
+[connection signal="body_exited" from="dialogo1" to="." method="_on_dialogo_1_body_exited"]

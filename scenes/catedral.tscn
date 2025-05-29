@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cu5qihhwaxnv4"]
+[gd_scene load_steps=34 format=4 uid="uid://cu5qihhwaxnv4"]
 
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://assets/tilemap/terrain/tile_floor.png" id="1_joyk0"]
 [ext_resource type="Texture2D" uid="uid://clamrqxodudwr" path="res://assets/tilemap/house/Roofs.png" id="2_irx2n"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c2k1clv4qvo1g" path="res://scenes/arvore_02.tscn" id="8_pmjc4"]
 [ext_resource type="Texture2D" uid="uid://dc21sptwf74t7" path="res://assets/tilemap/vehicles/Black_SUV_CLEAN_All_032.png" id="9_1u2h4"]
 [ext_resource type="PackedScene" uid="uid://dp1x6bmwoerk2" path="res://scenes/player.tscn" id="9_605ht"]
+[ext_resource type="PackedScene" uid="uid://dqwdc4f3u0gh7" path="res://dialog/npc.tscn" id="9_jxno4"]
+[ext_resource type="PackedScene" uid="uid://d7denlk6pmkn" path="res://dialog/dialogue_area.tscn" id="10_pykg7"]
+[ext_resource type="PackedScene" uid="uid://toyub3necoa1" path="res://dialog/dialogue_line.tscn" id="11_pmjc4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ob8de"]
 texture = ExtResource("1_joyk0")
@@ -3786,45 +3789,32 @@ texture = ExtResource("1_joyk0")
 10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.42857, 8, 8, 12.5714, 3.42857, 17.1429, -3.42857, 17.1429, -8, 12.5714, -3.42857, 8)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l0tt6"]
-load_path = "res://.godot/imported/Black_VAN_CLEAN_All_000-sheet.png-ab6ca2033ebbc235c97cfca40d0b2b40.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxno4"]
 texture = SubResource("CompressedTexture2D_l0tt6")
-20:26/size_in_atlas = Vector2i(4, 5)
 20:26/0 = 0
-26:26/size_in_atlas = Vector2i(4, 5)
 26:26/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pykg7"]
-load_path = "res://.godot/imported/Blue_COUPE_CLEAN_All_000-sheet.png-cfdbdc0bd6603755f777dc0d15cac155.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmjc4"]
 texture = SubResource("CompressedTexture2D_pykg7")
-26:26/size_in_atlas = Vector2i(4, 5)
 26:26/0 = 0
-32:6/size_in_atlas = Vector2i(4, 6)
 32:6/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_605ht"]
-load_path = "res://.godot/imported/POLICE_CLEAN_ALLD0000-sheet.png-c262c9c54b23ce991b7ad49db84b61a9.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2h57r"]
 texture = SubResource("CompressedTexture2D_605ht")
-26:26/size_in_atlas = Vector2i(4, 5)
 26:26/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yhvpp"]
-load_path = "res://.godot/imported/Red_MUSCLECAR_CLEAN_All_000-sheet.png-8c98af457b8add1db80ab363fed7c97c.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owdn1"]
 texture = SubResource("CompressedTexture2D_yhvpp")
-26:26/size_in_atlas = Vector2i(4, 5)
 26:26/0 = 0
-8:32/size_in_atlas = Vector2i(3, 5)
 8:32/0 = 0
-32:14/size_in_atlas = Vector2i(5, 4)
 32:14/0 = 0
-33:6/size_in_atlas = Vector2i(4, 6)
 33:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_jxno4"]
@@ -3896,6 +3886,16 @@ texture = ExtResource("9_1u2h4")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decoracoes/carro1"]
 position = Vector2(-4, -24)
 polygon = PackedVector2Array(1, -7, 7, 0, 10, 3, 30, 38, 30, 50, -2, 58, -26, 14, -26, 0)
+
+[node name="NPC" parent="decoracoes" instance=ExtResource("9_jxno4")]
+position = Vector2(252, 654)
+
+[node name="dialogo3" parent="decoracoes/NPC" instance=ExtResource("10_pykg7")]
+
+[node name="dialogue_line" parent="decoracoes/NPC/dialogo3" instance=ExtResource("11_pmjc4")]
+char_name = "a"
+text = "aas"
+translation = "aasdasd"
 
 [node name="CatedralSprite2" type="Sprite2D" parent="."]
 position = Vector2(684, 9)

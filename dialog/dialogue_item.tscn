@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="2_capnw"]
 
 [node name="dialogue_item" type="ColorRect"]
+custom_minimum_size = Vector2(300, 100)
 offset_left = -3.0
 offset_right = 1039.0
 offset_bottom = 213.0
