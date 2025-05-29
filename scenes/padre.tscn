@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccnap12gfyn3m"]
+[gd_scene load_steps=5 format=3 uid="uid://dc34x2n7dro8b"]
 
-[ext_resource type="Script" uid="uid://copfwkk4ensgf" path="res://scenes/padre.gd" id="1_hsarq"]
+[ext_resource type="Script" path="res://scenes/padre.gd" id="1_hsarq"]
 [ext_resource type="Texture2D" uid="uid://c50dlyhkrdvjq" path="res://assets/sprites/Estatua padre.png" id="1_swnrr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hsarq"]
 radius = 18.0
 height = 54.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sh0vd"]
-radius = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsarq"]
+size = Vector2(53, 24)
 
 [node name="Padre" type="Node2D"]
 script = ExtResource("1_hsarq")
@@ -29,8 +29,8 @@ debug_color = Color(1, 1, 1, 0.42)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 18)
-shape = SubResource("CircleShape2D_sh0vd")
+position = Vector2(-0.5, 20)
+shape = SubResource("RectangleShape2D_hsarq")
 
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
