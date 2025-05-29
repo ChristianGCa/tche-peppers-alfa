@@ -4065,7 +4065,11 @@ position = Vector2(788, 449)
 position = Vector2(53, 442)
 
 [node name="arvore_01-3" parent="decoracoes" instance=ExtResource("7_pykg7")]
+<<<<<<< Updated upstream
 position = Vector2(554, 394)
+=======
+position = Vector2(590, 389)
+>>>>>>> Stashed changes
 
 [node name="Player" parent="decoracoes" instance=ExtResource("9_605ht")]
 position = Vector2(80, 735)
