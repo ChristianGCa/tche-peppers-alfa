@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3tj64ox1uvov"]
+
+[ext_resource type="Script" uid="uid://cflwxlxnpouky" path="res://Dialog/notification_panel.gd" id="1_sb1ib"]
+[ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="2_eo56b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w4x6h"]
+font = ExtResource("2_eo56b")
+font_size = 30
+
+[node name="NotificationPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 484.0
+offset_top = 324.0
+offset_right = 524.0
+offset_bottom = 364.0
+script = ExtResource("1_sb1ib")
+
+[node name="MarginBackground" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.725
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginBackground"]
+layout_mode = 2
+color = Color(0.387778, 0.201168, 4.81308e-08, 1)
+
+[node name="MarginText" type="MarginContainer" parent="MarginBackground"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Text" type="Label" parent="MarginBackground/MarginText"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_w4x6h")
+horizontal_alignment = 1

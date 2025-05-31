@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d7denlk6pmkn"]
-
-[ext_resource type="Script" uid="uid://dh78fu8tr81pa" path="res://dialog/dialogue_area.gd" id="1_awspb"]
-
-[node name="dialogue_area" type="Area2D" groups=["dialogue_area"]]
-script = ExtResource("1_awspb")

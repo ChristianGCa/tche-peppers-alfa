@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cf8gmm0hw0c8s"]
+
+[ext_resource type="Texture2D" uid="uid://b6dwhet0qoqys" path="res://Assets/Character/SpriteSheets/professor.png" id="1_7mmyv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ego3c"]
+atlas = ExtResource("1_7mmyv")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0xpg"]
+atlas = ExtResource("1_7mmyv")
+region = Rect2(144, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ego3c")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_j0xpg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
