@@ -4,12 +4,18 @@ extends Area2D
 @export var cena_destino_path: String = "" # Caminho da cena: ex. res://scenes/exterior.tscn
 @export var nome_ponto_entrada: String = "" # Nome do marcador de entrada
 @export var interior: bool = false  # TRUE se esta porta está dentro de um prédio
+@export var animacoes: SpriteFrames # ← aqui você arrasta o .tres
 
 var jogador_na_area = false
 var cena_destino: PackedScene
 
 func _ready():
 	print("Porta carregando...")
+
+	if animacoes:
+		$AnimatedSprite2D.frames = animacoes
+	else:
+		print("ERRO: Nenhum recurso de animações (.tres) definido!")
 
 	# Define animação inicial
 	if interior:
@@ -33,6 +39,7 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		print("Jogador entrou na área da porta")
 		if not interior:
+			print("Animação aberta")
 			$AnimatedSprite2D.play("out_opened")
 		jogador_na_area = true
 
@@ -40,6 +47,7 @@ func _on_body_exited(body):
 	if body.is_in_group("player"):
 		print("Jogador saiu da área da porta")
 		if not interior:
+			print("Animação fechada")
 			$AnimatedSprite2D.play("out_closed")
 		jogador_na_area = false
 
