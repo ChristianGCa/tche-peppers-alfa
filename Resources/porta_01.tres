@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://bpi3axqkuid8s"]
+
+[ext_resource type="Texture2D" uid="uid://bwylc3t1wwk50" path="res://Assets/Sprites/CityInterior_4_1.png" id="1_5j83j"]
+[ext_resource type="Texture2D" uid="uid://cd40mh80e3skf" path="res://Assets/Sprites/CityInterior_5_1.png" id="2_5uleh"]
+[ext_resource type="Texture2D" uid="uid://d2hjcp7g5wuvp" path="res://Assets/Sprites/escada.png" id="3_5j83j"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5j83j")
+}],
+"loop": true,
+"name": &"out_closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5uleh")
+}],
+"loop": true,
+"name": &"out_opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5j83j")
+}],
+"loop": true,
+"name": &"stair",
+"speed": 5.0
+}]

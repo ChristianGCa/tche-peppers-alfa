@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b12o0g5gfun3y"]
+
+[ext_resource type="Script" uid="uid://bogutdht6s2n5" path="res://FadeOnOverLap.gd" id="1_e7qcg"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_e7qcg")

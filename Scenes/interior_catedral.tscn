@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://0tttaj5ubehg"]
+
+[node name="interior_catedral" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
