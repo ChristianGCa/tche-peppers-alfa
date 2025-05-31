@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://3l22jwmigeha"]
+
+[ext_resource type="Texture2D" uid="uid://bdjq86e0mpy2o" path="res://Assets/Character/SpriteSheets/homem_azul_cabelo_preto.png" id="1_vomw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10bwf"]
+atlas = ExtResource("1_vomw4")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnyio"]
+atlas = ExtResource("1_vomw4")
+region = Rect2(144, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_10bwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnyio")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

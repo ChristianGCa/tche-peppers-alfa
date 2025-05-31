@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=7 format=3 uid="uid://badr6t7n6jlrq"]
+
+[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://Dialog/DialogLine.gd" id="1_vh7vo"]
+[ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Character/Portraits/npc1.png" id="2_e0kei"]
+[ext_resource type="Texture2D" uid="uid://dn5ji02a0a1dx" path="res://Assets/Character/Portraits/retrato_player.png" id="3_u1xgu"]
+[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://Dialog/DialogData.gd" id="4_yl2am"]
+
+[sub_resource type="Resource" id="Resource_few2m"]
+script = ExtResource("1_vh7vo")
+speaker_name = "Cidadão Local"
+text = "Olá"
+portrait = ExtResource("2_e0kei")
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_e8kib"]
+script = ExtResource("1_vh7vo")
+speaker_name = "Player"
+text = "Olá."
+portrait = ExtResource("3_u1xgu")
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[resource]
+script = ExtResource("4_yl2am")
+lines = Array[ExtResource("1_vh7vo")]([SubResource("Resource_few2m"), SubResource("Resource_e8kib")])
+metadata/_custom_type_script = "uid://d13f556ayg2wq"

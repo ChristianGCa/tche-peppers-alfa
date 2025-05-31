@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdv4tlp61c463"]
+
+[ext_resource type="Texture2D" uid="uid://b5iyq5ucr3cy8" path="res://Assets/Interface/a.png" id="1_bqqt6"]
+[ext_resource type="FontFile" uid="uid://d1nmpnkb61rls" path="res://Fonts/PixelOperatorMonoHB8.ttf" id="1_ekxnf"]
+[ext_resource type="Theme" uid="uid://b8ndtnuwykcur" path="res://themes/theme_01.tres" id="2_bqqt6"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_bqqt6")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 240.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ekxnf")
+theme_override_font_sizes/font_size = 80
+text = "Tchê Peppers"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+offset_top = 136.0
+offset_right = 1280.0
+offset_bottom = 728.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("2_bqqt6")
+
+[node name="PlayButton" type="Button" parent="CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_bqqt6")
+text = "Play the game"
+
+[node name="OptionsButton" type="Button" parent="CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_bqqt6")
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_bqqt6")
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_bqqt6")
+text = "Exit"
