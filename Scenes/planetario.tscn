@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c2k1clv4qvo1g" path="res://Scenes/arvore_02.tscn" id="6_da15a"]
 [ext_resource type="PackedScene" uid="uid://ctosmvt47xi2o" path="res://Scenes/porta.tscn" id="7_s5csg"]
 [ext_resource type="PackedScene" uid="uid://c8al8ppb6vohr" path="res://NPCs/NPC.tscn" id="10_e1nq0"]
-[ext_resource type="Resource" uid="uid://5woccpuj5swn" path="res://Resources/cidadao_local.tres" id="11_sa5gy"]
-[ext_resource type="PackedScene" uid="uid://viuryasit4gw" path="res://Dialog/dialog_box.tscn" id="12_sa5gy"]
+[ext_resource type="Resource" uid="uid://5woccpuj5swn" path="res://NPCs/Dialogues/cidadao_local.tres" id="11_sa5gy"]
+[ext_resource type="PackedScene" uid="uid://viuryasit4gw" path="res://DialogueSystem/dialog_box.tscn" id="12_sa5gy"]
 [ext_resource type="SpriteFrames" uid="uid://3l22jwmigeha" path="res://NPCs/SpriteFrames/cidadao_local.tres" id="12_sqsfq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44wwh"]
@@ -2546,7 +2546,7 @@ position = Vector2(1016, 192)
 
 [node name="CidadaoLocal" parent="decoracoes" instance=ExtResource("10_e1nq0")]
 position = Vector2(390, 409)
-dialog_resource = ExtResource("11_sa5gy")
+dialog_intro = ExtResource("11_sa5gy")
 sprite_frames = ExtResource("12_sqsfq")
 
 [node name="entrada_planetario" type="Marker2D" parent="."]

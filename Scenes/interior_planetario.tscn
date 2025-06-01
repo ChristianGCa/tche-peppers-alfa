@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://jtww36vsobxf"]
+[gd_scene load_steps=19 format=4 uid="uid://jtww36vsobxf"]
 
 [ext_resource type="Texture2D" uid="uid://6r6lo06uvl2l" path="res://Assets/tilemap/interior/tile_interior.png" id="1_fmo4i"]
 [ext_resource type="Script" uid="uid://de788d3c3ogpr" path="res://Scenes/interior_planetario.gd" id="1_n7m4a"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dp1x6bmwoerk2" path="res://Scenes/player.tscn" id="3_mvnb1"]
 [ext_resource type="PackedScene" uid="uid://ctosmvt47xi2o" path="res://Scenes/porta.tscn" id="5_mvnb1"]
 [ext_resource type="PackedScene" uid="uid://c8al8ppb6vohr" path="res://NPCs/NPC.tscn" id="6_xiv3i"]
-[ext_resource type="Resource" uid="uid://badr6t7n6jlrq" path="res://Resources/professor.tres" id="7_ea874"]
+[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://DialogueSystem/DialogLine.gd" id="7_65qgn"]
 [ext_resource type="SpriteFrames" uid="uid://cf8gmm0hw0c8s" path="res://NPCs/SpriteFrames/professor.tres" id="8_ht2pt"]
+[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://DialogueSystem/DialogData.gd" id="8_rdkfc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e7mdf"]
 texture = ExtResource("1_fmo4i")
@@ -1772,6 +1773,17 @@ sources/0 = SubResource("TileSetAtlasSource_gr5dx")
 sources/6 = SubResource("TileSetAtlasSource_xslor")
 sources/7 = SubResource("TileSetAtlasSource_7ou5g")
 
+[sub_resource type="Resource" id="Resource_fvq0i"]
+script = ExtResource("7_65qgn")
+speaker_name = "Professor"
+text = "Ai"
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_4ul5r"]
+script = ExtResource("8_rdkfc")
+lines = Array[ExtResource("7_65qgn")]([SubResource("Resource_fvq0i")])
+metadata/_custom_type_script = "uid://d13f556ayg2wq"
+
 [node name="planetario_interior" type="Node2D"]
 script = ExtResource("1_n7m4a")
 
@@ -1784,20 +1796,19 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAwABIAAAAEAA0AAAAwABMAAAAEAA0AAAAwABQAAAAEAA0AAAAwABUAAAAEAA0AAAAwABYAAAAEAA0AAAAwABcAAAAEAA0AAAAwABgAAAAEAA0AAAAwABkAAAAEAA0AAAAvABoAAAADAA4AAAAuABsAAAADAA4AAAAtABwAAAADAA4AAAAsAB0AAAADAA4AAAAtAB0AAAAEAA4AAAAuABwAAAAEAA4AAAAvABsAAAAEAA4AAAAwABoAAAAEAA4AAAAsAB4AAAAEAA4AAAAkAB4AAAACAA8AAAAlAB4AAAACAA8AAAAmAB4AAAABAA4AAAApAB4AAAADAA4AAAAqAB4AAAACAA8AAAArAB4AAAACAA8AAAAiAB0AAAABAA8AAAAjAB0AAAABAA4AAAAjAB4AAAABAA8AAAAhABwAAAABAA8AAAAiABwAAAABAA4AAAAgABsAAAABAA8AAAAhABsAAAABAA4AAAAfABoAAAAAAA4AAAAgABoAAAABAA4AAAAfABIAAAAAAA0AAAAfABMAAAAAAA0AAAAfABQAAAAAAA0AAAAfABUAAAAAAA0AAAAfABYAAAAAAA0AAAAfABcAAAAAAA0AAAAfABgAAAAAAA0AAAAfABkAAAAAAA0AAAAmAB8AAAAAAA0AAAApAB8AAAAEAA0AAAApACAAAAADAA8AAAAmACAAAAABAA8AAAAnACAAAAACAA8AAAAoACAAAAACAA8AAAAfABEAAAAAAA0AAAAfABAAAAAAAA0AAAAfAA8AAAAAAAwAAAAgAA8AAAABAAwAAAAhAA4AAAABAAwAAAAiAA0AAAABAAwAAAAjAAwAAAABAAwAAAAkAAsAAAACAAsAAAAlAAsAAAACAAsAAAAmAAsAAAACAAsAAAAnAAsAAAACAAsAAAAoAAsAAAACAAsAAAApAAsAAAACAAsAAAAqAAsAAAACAAsAAAArAAsAAAACAAsAAAAsAAwAAAADAAwAAAAtAA0AAAADAAwAAAAuAA4AAAADAAwAAAAvAA8AAAADAAwAAAAwABAAAAAEAA0AAAAwABEAAAAEAA0AAAAwAA8AAAADAAsAAAAvAA4AAAADAAsAAAAuAA0AAAADAAsAAAAtAAwAAAADAAsAAAAsAAsAAAADAAsAAAAjAAsAAAABAAsAAAAiAAwAAAABAAsAAAAhAA0AAAABAAsAAAAiABMAAAAqAAUAAAAiABUAAAAqAAUAAAAiABcAAAAqAAUAAAAiABkAAAAqAAUAAAAkABQAAAAqAAUAAAAkABYAAAAqAAUAAAAkABgAAAAqAAUAAAAkABEAAAAoAAUAAAAmABEAAAAoAAUAAAApABEAAAAoAAUAAAArABEAAAAoAAUAAAAmABMAAAAoAAUAAAApABMAAAAoAAUAAAAkABsAAAArAAUAAAAmABsAAAArAAUAAAApABsAAAArAAUAAAArABsAAAArAAUAAAAmABkAAAArAAUAAAApABkAAAArAAUAAAArABQAAAApAAUAAAArABYAAAApAAUAAAArABgAAAApAAUAAAAtABkAAAApAAUAAAAtABcAAAApAAUAAAAtABUAAAApAAUAAAAtABMAAAApAAUAAAAgAA4AAAABAAsAAAAoABUABwABAAEAAAA=")
 tile_set = SubResource("TileSet_xslor")
 
+[node name="Porta" parent="decoracao" instance=ExtResource("5_mvnb1")]
+position = Vector2(640, 500)
+cena_destino_path = "res://Scenes/planetario.tscn"
+nome_ponto_entrada = "entrada_planetario"
+interior = true
+
 [node name="Player" parent="decoracao" instance=ExtResource("3_mvnb1")]
 position = Vector2(639, 484)
 
 [node name="Professor" parent="decoracao" instance=ExtResource("6_xiv3i")]
 position = Vector2(637, 249)
-dialog_resource = ExtResource("7_ea874")
+dialog_intro = SubResource("Resource_4ul5r")
 sprite_frames = ExtResource("8_ht2pt")
 
 [node name="saida_planetario" type="Marker2D" parent="."]
 position = Vector2(640, 488)
-
-[node name="Porta" parent="." instance=ExtResource("5_mvnb1")]
-z_index = 1
-position = Vector2(640, 500)
-cena_destino_path = "res://Scenes/planetario.tscn"
-nome_ponto_entrada = "entrada_planetario"
-interior = true

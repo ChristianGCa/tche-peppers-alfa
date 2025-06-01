@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var speaker_label = $Panel/SpeakerLabel
-@onready var text_label = $Panel/TextLabel
-@onready var portrait = $Panel/Portrait
+@onready var speaker_label = $Panel/HBoxContainer/MarginContainer2/VBoxContainer/SpeakerLabel
+@onready var text_label = $Panel/HBoxContainer/MarginContainer2/VBoxContainer/TextLabel
+@onready var portrait = $Panel/HBoxContainer/MarginContainer/Portrait
 
 var dialog_data: DialogData
 var current_index := 0
