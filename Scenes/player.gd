@@ -9,33 +9,69 @@ enum STATE { WALKING, DIALOG }
 var state = STATE.WALKING
 var last_direction := "down"
 var dialogue_area = null
+var inventory: Array[String] = []
+var pending_quest_update := false
+var npc_current: NPC = null
+var can_interact_again := true
+
+
 
 func to_dialog():
 	state = STATE.DIALOG
-	dialogue_area = dialogue_area.get_node("..")
-	DialogManagement.start_dialog(dialogue_area.dialog_resource)
+
+	if dialogue_area == null:
+		push_warning("dialogue_area nula.")
+		return
+
+	if dialogue_area.has_meta("quest_npc"):
+		npc_current = dialogue_area.get_meta("quest_npc")
+	else:
+		push_warning("Área de diálogo sem meta 'quest_npc'.")
+		to_walking()
+		return
+
+	# ✅ ANTES de pegar o diálogo, atualiza para COMPLETED se já tiver o item
+	if npc_current.quest != null:
+		var quest = npc_current.quest
+		if quest.state == QuestData.QuestState.IN_PROGRESS and inventory.has(quest.item_required):
+			quest.state = QuestData.QuestState.COMPLETED
+			inventory.erase(quest.item_required)
+
+		# Marcar pendente se ainda for o primeiro diálogo
+		pending_quest_update = quest.state == QuestData.QuestState.NOT_STARTED
+
+	# Agora sim pega o diálogo certo
+	var dialog_data = npc_current.get_current_dialog()
+	DialogManagement.start_dialog(dialog_data)
 	DialogManagement.connect_finished(self, "to_walking")
 
 	velocity = Vector2.ZERO
-	anim_sprite.play("idle_" + last_direction)
+	_play_animation(Vector2.ZERO)
 
-func process_dialogue():
-	print("acesso errado")
-	pass
 
 func to_walking():
+	if npc_current != null and npc_current.quest != null:
+		if pending_quest_update:
+			npc_current.quest.state = QuestData.QuestState.IN_PROGRESS
+		elif npc_current.quest.state == QuestData.QuestState.IN_PROGRESS and inventory.has(npc_current.quest.item_required):
+			npc_current.quest.state = QuestData.QuestState.COMPLETED
+			inventory.erase(npc_current.quest.item_required)
+
 	state = STATE.WALKING
-	dialogue_area = null
+	pending_quest_update = false
+	npc_current = null
+
+	can_interact_again = false
+	await get_tree().create_timer(0.5).timeout
+	can_interact_again = true
+
 
 func process_walking():
-	if dialogue_area != null and Input.is_action_just_pressed("ok"):
-		# Verifica se o nó realmente tem a propriedade `dialog_resource`
+	if dialogue_area != null and Input.is_action_just_pressed("ok") and can_interact_again:
 		if dialogue_area.has_meta("dialog_valid"):
 			to_dialog()
 		return
-
 	var direction := Vector2.ZERO
-
 	if Input.is_action_pressed("up"):
 		direction.y -= 1
 	if Input.is_action_pressed("down"):
@@ -77,13 +113,13 @@ func _play_animation(direction: Vector2):
 func _physics_process(delta):
 	if state == STATE.WALKING:
 		process_walking()
+	else:
+		velocity = Vector2.ZERO
+		_play_animation(Vector2.ZERO) # Garante que fique parado com idle correto
 
 func _on_dialogue_detect_area_entered(area: Area2D) -> void:
-	print("Área detectada:", area)
 	if area.is_in_group("dialogue_area"):
 		dialogue_area = area
-		print("Área de diálogo definida:", dialogue_area)
-
 
 func _on_dialogue_detect_area_exited(area: Area2D) -> void:
 	if area == dialogue_area:

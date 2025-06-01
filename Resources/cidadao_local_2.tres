@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://yfryq1gwseg"]
+
+[ext_resource type="Texture2D" uid="uid://8optj1cj8m4o" path="res://Assets/Character/SpriteSheets/homem_camisa_branca_cabelo_castanho.png" id="1_cdlff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y7sd"]
+atlas = ExtResource("1_cdlff")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyd6x"]
+atlas = ExtResource("1_cdlff")
+region = Rect2(144, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y7sd")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_fyd6x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

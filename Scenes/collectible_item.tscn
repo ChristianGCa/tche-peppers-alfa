@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2pxhan0dtlwm"]
+
+[ext_resource type="Script" uid="uid://dku1g0ido63lc" path="res://Scenes/CollectibleItem.gd" id="1_a2pbx"]
+
+[node name="CollectibleItem" type="Area2D"]
+script = ExtResource("1_a2pbx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

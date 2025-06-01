@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cu5qihhwaxnv4"]
+[gd_scene load_steps=59 format=4 uid="uid://cu5qihhwaxnv4"]
 
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_joyk0"]
 [ext_resource type="Texture2D" uid="uid://clamrqxodudwr" path="res://Assets/tilemap/house/Roofs.png" id="2_irx2n"]
@@ -18,6 +18,14 @@
 [ext_resource type="Texture2D" uid="uid://dqng0cynlxkbf" path="res://Assets/Sprites/porta_catedral.png" id="15_sl7jc"]
 [ext_resource type="Texture2D" uid="uid://87a5ylmeayr8" path="res://Assets/Sprites/porta_catedral_aberta.png" id="16_rbvhp"]
 [ext_resource type="Texture2D" uid="uid://d2hjcp7g5wuvp" path="res://Assets/Sprites/escada.png" id="17_nkiih"]
+[ext_resource type="PackedScene" uid="uid://c8al8ppb6vohr" path="res://NPCs/NPC.tscn" id="19_qe0u2"]
+[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://DialogueSystem/DialogLine.gd" id="20_scqov"]
+[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://DialogueSystem/DialogData.gd" id="22_x1mch"]
+[ext_resource type="Texture2D" uid="uid://bde153dvc1cgf" path="res://Assets/Character/Portraits/cidadao_local2.png" id="23_56ccx"]
+[ext_resource type="Script" uid="uid://bl48iy1o2n0sf" path="res://Scripts/QuestData.gd" id="23_x1mch"]
+[ext_resource type="PackedScene" uid="uid://b2pxhan0dtlwm" path="res://Scenes/collectible_item.tscn" id="25_56ccx"]
+[ext_resource type="Texture2D" uid="uid://b5atremtbw22e" path="res://Assets/Sprites/relogio.png" id="26_3ssd7"]
+[ext_resource type="Texture2D" uid="uid://8optj1cj8m4o" path="res://Assets/Character/SpriteSheets/homem_camisa_branca_cabelo_castanho.png" id="26_x1mch"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ob8de"]
 texture = ExtResource("1_joyk0")
@@ -3846,6 +3854,73 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x1mch"]
+radius = 9.0
+
+[sub_resource type="Resource" id="Resource_56ccx"]
+script = ExtResource("20_scqov")
+speaker_name = "Gabriel"
+text = "Salve Amigo! Procura meu relógio"
+portrait = ExtResource("23_56ccx")
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_3ssd7"]
+script = ExtResource("22_x1mch")
+lines = Array[ExtResource("20_scqov")]([SubResource("Resource_56ccx")])
+metadata/_custom_type_script = "uid://d13f556ayg2wq"
+
+[sub_resource type="Resource" id="Resource_yfg6r"]
+script = ExtResource("20_scqov")
+speaker_name = "Gabriel"
+text = "Larga de preguiça e vai procurar"
+portrait = ExtResource("23_56ccx")
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_2sm4p"]
+script = ExtResource("22_x1mch")
+lines = Array[ExtResource("20_scqov")]([SubResource("Resource_yfg6r")])
+metadata/_custom_type_script = "uid://d13f556ayg2wq"
+
+[sub_resource type="Resource" id="Resource_23vqt"]
+script = ExtResource("20_scqov")
+speaker_name = "Gabriel"
+text = "Tamo junto colega."
+portrait = ExtResource("23_56ccx")
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_gkgo8"]
+script = ExtResource("22_x1mch")
+lines = Array[ExtResource("20_scqov")]([SubResource("Resource_23vqt")])
+metadata/_custom_type_script = "uid://d13f556ayg2wq"
+
+[sub_resource type="Resource" id="Resource_cbj3i"]
+script = ExtResource("23_x1mch")
+quest_name = "relogio"
+item_required = "Relógio"
+metadata/_custom_type_script = "uid://bl48iy1o2n0sf"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc0qi"]
+atlas = ExtResource("26_x1mch")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx1ov"]
+atlas = ExtResource("26_x1mch")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bo4cd"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_uc0qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx1ov")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="terreno" type="Node2D"]
 
 [node name="grama_asfalto" type="TileMapLayer" parent="."]
@@ -3895,7 +3970,7 @@ position = Vector2(788, 449)
 position = Vector2(271, 483)
 
 [node name="arvore_01-3" parent="decoracoes" instance=ExtResource("7_pykg7")]
-position = Vector2(587, 474)
+position = Vector2(579, 458)
 
 [node name="arvore_01-4" parent="decoracoes" instance=ExtResource("7_pykg7")]
 position = Vector2(513, 421)
@@ -3913,7 +3988,7 @@ polygon = PackedVector2Array(1, -7, 7, 0, 10, 3, 30, 38, 30, 50, -2, 58, -26, 14
 
 [node name="estatua_padre" parent="decoracoes" instance=ExtResource("9_nhukf")]
 z_as_relative = false
-position = Vector2(692, 421)
+position = Vector2(688, 435)
 collision_layer = 5
 collision_mask = 5
 
@@ -4004,6 +4079,26 @@ debug_color = Color(1, 1, 1, 0.42)
 position = Vector2(684, 135)
 cena_destino_path = "res://Scenes/interior_catedral.tscn"
 animacoes = SubResource("SpriteFrames_hie4d")
+
+[node name="Relogio" parent="decoracoes" instance=ExtResource("25_56ccx")]
+position = Vector2(560, 403)
+item_name = "Relógio"
+
+[node name="Sprite2D" type="Sprite2D" parent="decoracoes/Relogio"]
+position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(0.472973, 0.472973)
+texture = ExtResource("26_3ssd7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="decoracoes/Relogio"]
+shape = SubResource("CircleShape2D_x1mch")
+
+[node name="CharacterBody2D" parent="decoracoes" instance=ExtResource("19_qe0u2")]
+position = Vector2(259, 583)
+dialog_intro = SubResource("Resource_3ssd7")
+dialog_in_progress = SubResource("Resource_2sm4p")
+dialog_completed = SubResource("Resource_gkgo8")
+quest = SubResource("Resource_cbj3i")
+sprite_frames = SubResource("SpriteFrames_bo4cd")
 
 [connection signal="body_entered" from="decoracoes/estatua_padre/Area2D" to="decoracoes/estatua_padre" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="decoracoes/estatua_padre/Area2D" to="decoracoes/estatua_padre" method="_on_area_2d_body_exited"]
