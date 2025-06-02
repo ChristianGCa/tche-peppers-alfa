@@ -45,3 +45,46 @@ bbcode_enabled = true
 text = "hjhgjhgjhgjhg
 gjhgjh"
 fit_content = true
+
+[node name="OptionsCenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 2
+offset_left = 150.0
+offset_top = 89.0
+offset_right = 877.0
+offset_bottom = 152.0
+
+[node name="ChoiceContainer" type="HBoxContainer" parent="Panel/OptionsCenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="Panel/OptionsCenterContainer/ChoiceContainer"]
+layout_mode = 2
+text = "asdasdasdasdasd"
+
+[node name="Option2" type="Button" parent="Panel/OptionsCenterContainer/ChoiceContainer"]
+layout_mode = 2
+text = "asdfasdfasdfasdf"
+
+[node name="Option3" type="Button" parent="Panel/OptionsCenterContainer/ChoiceContainer"]
+layout_mode = 2
+text = "asdfasdfasdfasdfasdf"
+
+[node name="YourAnswerCenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 2
+offset_left = 398.0
+offset_top = -63.0
+offset_right = 506.0
+offset_bottom = -13.0
+
+[node name="YourAnswerContainer" type="VBoxContainer" parent="Panel/YourAnswerCenterContainer"]
+layout_mode = 2
+
+[node name="YourAnswer" type="Label" parent="Panel/YourAnswerCenterContainer/YourAnswerContainer"]
+visible = false
+layout_mode = 2
+text = "Sua resposta: "
+
+[node name="Translation" type="Label" parent="Panel/YourAnswerCenterContainer/YourAnswerContainer"]
+visible = false
+layout_mode = 2
+text = "Tradução"

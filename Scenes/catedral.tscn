@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://cu5qihhwaxnv4"]
+[gd_scene load_steps=60 format=4 uid="uid://cu5qihhwaxnv4"]
 
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_joyk0"]
 [ext_resource type="Texture2D" uid="uid://clamrqxodudwr" path="res://Assets/tilemap/house/Roofs.png" id="2_irx2n"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c8al8ppb6vohr" path="res://NPCs/NPC.tscn" id="19_qe0u2"]
 [ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://DialogueSystem/DialogLine.gd" id="20_scqov"]
 [ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://DialogueSystem/DialogData.gd" id="22_x1mch"]
+[ext_resource type="Script" uid="uid://cry6b72kahevs" path="res://DialogueSystem/ChoiceOption.gd" id="23_3ssd7"]
 [ext_resource type="Texture2D" uid="uid://bde153dvc1cgf" path="res://Assets/Character/Portraits/cidadao_local2.png" id="23_56ccx"]
 [ext_resource type="Script" uid="uid://bl48iy1o2n0sf" path="res://Scripts/QuestData.gd" id="23_x1mch"]
 [ext_resource type="PackedScene" uid="uid://b2pxhan0dtlwm" path="res://Scenes/collectible_item.tscn" id="25_56ccx"]
@@ -3862,6 +3863,7 @@ script = ExtResource("20_scqov")
 speaker_name = "Gabriel"
 text = "Salve Amigo! Procura meu relógio"
 portrait = ExtResource("23_56ccx")
+choices = Array[ExtResource("23_3ssd7")]([])
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_3ssd7"]
@@ -3874,6 +3876,7 @@ script = ExtResource("20_scqov")
 speaker_name = "Gabriel"
 text = "Larga de preguiça e vai procurar"
 portrait = ExtResource("23_56ccx")
+choices = Array[ExtResource("23_3ssd7")]([])
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_2sm4p"]
@@ -3886,6 +3889,7 @@ script = ExtResource("20_scqov")
 speaker_name = "Gabriel"
 text = "Tamo junto colega."
 portrait = ExtResource("23_56ccx")
+choices = Array[ExtResource("23_3ssd7")]([])
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_gkgo8"]
