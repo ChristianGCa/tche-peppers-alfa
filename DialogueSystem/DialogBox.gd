@@ -14,9 +14,18 @@ var dialog_data: DialogData
 var current_index := 0
 var is_typing := false
 var waiting_for_retry := false
+var waiting_for_choice_result := false
+var current_choices: Array[ChoiceOption] = []
+
 
 
 signal dialog_finished
+
+
+func _ready():
+	choice_button_1.pressed.connect(func(): _on_choice_button_pressed(0))
+	choice_button_2.pressed.connect(func(): _on_choice_button_pressed(1))
+	choice_button_3.pressed.connect(func(): _on_choice_button_pressed(2))
 
 func start(dialog: DialogData):
 	if dialog == null:
@@ -33,9 +42,11 @@ func start(dialog: DialogData):
 func show_line():
 	translation_label.text = ""
 	translation_label.visible = false
-	
 	your_answer.text = ""
 	your_answer.visible = false
+	choice_container.visible = false
+	waiting_for_retry = false
+	waiting_for_choice_result = false
 
 	if current_index >= dialog_data.lines.size():
 		hide()
@@ -47,13 +58,26 @@ func show_line():
 	text_label.text = ""
 	portrait.texture = line.portrait
 
+	if line.text != "":
+		type_text(line.text)
+	else:
+		check_if_should_show_choices()
+
+
+func type_text(text: String):
+	is_typing = true
+	text_label.text = text
+	is_typing = false
+	check_if_should_show_choices()
+
+func check_if_should_show_choices():
+	var line = dialog_data.lines[current_index]
 	if line.choices.size() > 0:
 		show_choices(line.choices)
-	else:
-		type_text(line.text)
 
 
 func show_choices(choices: Array[ChoiceOption]):
+	current_choices = choices
 	var buttons = [choice_button_1, choice_button_2, choice_button_3]
 
 	for i in buttons.size():
@@ -62,72 +86,62 @@ func show_choices(choices: Array[ChoiceOption]):
 			var choice = choices[i]
 			button.visible = true
 			button.text = choice.text_english
-
-			# Desconecta conexões antigas antes de conectar novamente
-			for conn in button.get_signal_connection_list("pressed"):
-				if typeof(conn) == TYPE_DICTIONARY and conn.has("method") and conn["method"] == "_on_choice_selected":
-					button.disconnect("pressed", Callable(conn["target"], conn["method"]))
-
-			button.connect("pressed", Callable(self, "_on_choice_selected").bind(choice))
 		else:
 			button.visible = false
 
 	choice_container.visible = true
+
+func _on_choice_button_pressed(index: int):
+	if index >= 0 and index < current_choices.size():
+		var choice = current_choices[index]
+		_on_choice_selected(choice)
 
 
 func _on_choice_selected(choice: ChoiceOption):
 	choice_container.visible = false
 	is_typing = false
 
-
 	your_answer.text = "Sua resposta: " + choice.text_english
 	your_answer.visible = true
 
 	translation_label.text = "Tradução: " + choice.text_portuguese
 	translation_label.visible = true
-	
 
-	# Reação do NPC
 	text_label.text = choice.npc_response
 	portrait.texture = choice.response_portrait if choice.response_portrait else portrait.texture
 
-	# Verifica se a escolha é correta
 	if choice.is_correct:
-		# Avança no diálogo (vai para a próxima linha depois que o jogador apertar E)
-		current_index += 1
+		waiting_for_choice_result = true  # Espera o jogador apertar E para prosseguir
 	else:
-		# Resposta errada: volta para mostrar as opções de novo,
-		# porém só depois que o jogador apertar "ok" para avançar a reação do NPC.
-		# Para isso, definimos uma flag para controlar este estado.
-		waiting_for_retry = true
-
-
-
-func type_text(text: String):
-	is_typing = true
-	text_label.text = text  # Mostra texto imediatamente (sem delay)
-	is_typing = false
+		waiting_for_retry = true  # Volta para tentar a escolha de novo
 
 
 func _unhandled_input(event):
 	if !visible: return
+	if !event.is_action_pressed("ok"): return
 
-	if event.is_action_pressed("ok"):
+	if is_typing:
+		text_label.text = dialog_data.lines[current_index].text
+		is_typing = false
+		return
 
-		# Se estiver mostrando opções para tentar de novo
-		if waiting_for_retry:
-			waiting_for_retry = false
-			translation_label.visible = false
-			show_choices(dialog_data.lines[current_index].choices)
-			return
+	if waiting_for_retry:
+		waiting_for_retry = false
+		translation_label.visible = false
+		your_answer.visible = false
+		show_choices(dialog_data.lines[current_index].choices)
+		return
 
-		if choice_container.visible:
-			# Ignorar avançar no diálogo se estiver mostrando escolhas
-			return
+	if waiting_for_choice_result:
+		waiting_for_choice_result = false
+		translation_label.visible = false
+		your_answer.visible = false
+		current_index += 1
+		show_line()
+		return
 
-		if is_typing:
-			text_label.text = dialog_data.lines[current_index].text
-			is_typing = false
-		else:
-			current_index += 1
-			show_line()
+	if choice_container.visible:
+		return  # Não avança se ainda está escolhendo
+
+	current_index += 1
+	show_line()

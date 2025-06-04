@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cpkiv5br2vwun"]
+
+[ext_resource type="Texture2D" uid="uid://b35lyemfcforr" path="res://Assets/Buttons/right.png" id="1_2u15n"]
+[ext_resource type="Texture2D" uid="uid://dvv4jv3mvqwv5" path="res://icon.svg" id="1_wwq0p"]
+[ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="2_4prq6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1n1rm"]
+texture = ExtResource("1_2u15n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ksbla"]
+texture = ExtResource("1_wwq0p")
+
+[resource]
+default_font = ExtResource("2_4prq6")
+Button/styles/hover = SubResource("StyleBoxTexture_1n1rm")
+Label/fonts/font = ExtResource("2_4prq6")
+Panel/styles/panel = SubResource("StyleBoxTexture_ksbla")
