@@ -1,17 +1,47 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cpkiv5br2vwun"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cpkiv5br2vwun"]
 
-[ext_resource type="Texture2D" uid="uid://b35lyemfcforr" path="res://Assets/Buttons/right.png" id="1_2u15n"]
-[ext_resource type="Texture2D" uid="uid://dvv4jv3mvqwv5" path="res://icon.svg" id="1_wwq0p"]
-[ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="2_4prq6"]
+[ext_resource type="Texture2D" uid="uid://bdmyb8k64rmm6" path="res://Assets/Interface/Buttons/choice_01_hover.png" id="1_4prq6"]
+[ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="1_wwq0p"]
+[ext_resource type="Texture2D" uid="uid://bv0to6630mg0h" path="res://Assets/Interface/Buttons/choice_01_normal.png" id="2_1n1rm"]
+[ext_resource type="Texture2D" uid="uid://bj8komdte52ma" path="res://Assets/Interface/Buttons/choice_01_press.png" id="3_75n24"]
+[ext_resource type="Texture2D" uid="uid://do5uusrjvei3d" path="res://Assets/Interface/Buttons/fundo_dialogo.png" id="5_1n1rm"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1n1rm"]
-texture = ExtResource("1_2u15n")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pxaqs"]
+texture = ExtResource("1_4prq6")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ksbla"]
-texture = ExtResource("1_wwq0p")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_agxos"]
+texture = ExtResource("2_1n1rm")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q8tyn"]
+texture = ExtResource("3_75n24")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_75n24"]
+texture = ExtResource("5_1n1rm")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [resource]
-default_font = ExtResource("2_4prq6")
-Button/styles/hover = SubResource("StyleBoxTexture_1n1rm")
-Label/fonts/font = ExtResource("2_4prq6")
-Panel/styles/panel = SubResource("StyleBoxTexture_ksbla")
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_wwq0p")
+Button/styles/hover = SubResource("StyleBoxTexture_pxaqs")
+Button/styles/normal = SubResource("StyleBoxTexture_agxos")
+Button/styles/pressed = SubResource("StyleBoxTexture_q8tyn")
+Label/font_sizes/font_size = 33
+Label/fonts/font = ExtResource("1_wwq0p")
+Panel/styles/panel = SubResource("StyleBoxTexture_75n24")
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/fonts/normal_font = ExtResource("1_wwq0p")

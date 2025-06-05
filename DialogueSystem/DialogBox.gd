@@ -18,9 +18,7 @@ var waiting_for_choice_result := false
 var current_choices: Array[ChoiceOption] = []
 
 
-
 signal dialog_finished
-
 
 func _ready():
 	choice_button_1.pressed.connect(func(): _on_choice_button_pressed(0))
@@ -37,7 +35,6 @@ func start(dialog: DialogData):
 	current_index = 0
 	show()
 	show_line()
-
 
 func show_line():
 	translation_label.text = ""
@@ -64,11 +61,21 @@ func show_line():
 		check_if_should_show_choices()
 
 
-func type_text(text: String):
+func type_text(text: String) -> void:
 	is_typing = true
-	text_label.text = text
+	text_label.clear()
+	
+	for i in text.length():
+		# Se o jogador apertar E, finaliza a digitação
+		if not is_typing:
+			text_label.text = text
+			break
+		
+		text_label.append_text(text[i])
+		await get_tree().create_timer(0.03).timeout
+
 	is_typing = false
-	check_if_should_show_choices()
+
 
 func check_if_should_show_choices():
 	var line = dialog_data.lines[current_index]
@@ -116,15 +123,23 @@ func _on_choice_selected(choice: ChoiceOption):
 		waiting_for_retry = true  # Volta para tentar a escolha de novo
 
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if !visible: return
-	if !event.is_action_pressed("ok"): return
+	if not event.is_action_pressed("ok"): return
 
+	# Caso 1: O jogador apertou E enquanto está digitando
 	if is_typing:
-		text_label.text = dialog_data.lines[current_index].text
-		is_typing = false
+		is_typing = false  # Interrompe o efeito e exibe o texto completo imediatamente
 		return
 
+	# Caso 2: Acertou uma resposta com reação, agora pode continuar
+	if waiting_for_choice_result:
+		waiting_for_choice_result = false
+		current_index += 1
+		show_line()
+		return
+
+	# Caso 3: Errou a resposta e vai tentar de novo
 	if waiting_for_retry:
 		waiting_for_retry = false
 		translation_label.visible = false
@@ -132,16 +147,7 @@ func _unhandled_input(event):
 		show_choices(dialog_data.lines[current_index].choices)
 		return
 
-	if waiting_for_choice_result:
-		waiting_for_choice_result = false
-		translation_label.visible = false
-		your_answer.visible = false
+	# Caso 4: Nada especial — segue o fluxo normal
+	if not choice_container.visible:
 		current_index += 1
 		show_line()
-		return
-
-	if choice_container.visible:
-		return  # Não avança se ainda está escolhendo
-
-	current_index += 1
-	show_line()
