@@ -42,8 +42,6 @@ func show_line():
 	your_answer.text = ""
 	your_answer.visible = false
 	choice_container.visible = false
-	waiting_for_retry = false
-	waiting_for_choice_result = false
 
 	if current_index >= dialog_data.lines.size():
 		hide()
@@ -55,26 +53,26 @@ func show_line():
 	text_label.text = ""
 	portrait.texture = line.portrait
 
-	if line.text != "":
-		type_text(line.text)
-	else:
-		check_if_should_show_choices()
+	await type_text(line.text)  # Espera terminar a digitação
+
+	if line.choices.size() > 0:
+		show_choices(line.choices)
+
 
 
 func type_text(text: String) -> void:
 	is_typing = true
 	text_label.clear()
-	
+
 	for i in text.length():
-		# Se o jogador apertar E, finaliza a digitação
 		if not is_typing:
 			text_label.text = text
 			break
-		
 		text_label.append_text(text[i])
 		await get_tree().create_timer(0.03).timeout
 
 	is_typing = false
+
 
 
 func check_if_should_show_choices():

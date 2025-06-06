@@ -12,6 +12,7 @@ func _ready():
 	$Area2D.add_to_group("dialogue_area")
 	$Area2D.set_meta("dialog_valid", true)
 	$Area2D.set_meta("quest_npc", self)
+	$DialogBaloon.visible = false
 
 func get_current_dialog() -> DialogData:
 	if quest == null:

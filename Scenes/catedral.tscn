@@ -4112,7 +4112,8 @@ shape = SubResource("RectangleShape2D_sl7jc")
 [node name="catedral" type="StaticBody2D" parent="decoracoes"]
 
 [node name="CatedralSprite2" type="Sprite2D" parent="decoracoes/catedral"]
-position = Vector2(684, 9)
+position = Vector2(685, 13)
+scale = Vector2(0.384277, 0.384277)
 texture = ExtResource("6_jxno4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decoracoes/catedral"]

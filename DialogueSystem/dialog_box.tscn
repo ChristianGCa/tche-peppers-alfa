@@ -28,6 +28,10 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("2_0k4bc")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
 [node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2

@@ -2520,7 +2520,7 @@ y_sort_origin = 18
 position = Vector2(352, 568)
 
 [node name="CidadaoLocal" parent="decoracoes" instance=ExtResource("10_e1nq0")]
-position = Vector2(390, 409)
+position = Vector2(394, 407)
 dialog_intro = ExtResource("11_sa5gy")
 sprite_frames = ExtResource("12_sqsfq")
 
