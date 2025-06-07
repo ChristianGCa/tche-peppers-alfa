@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7wcfdjx01eby"
-path="res://.godot/imported/dog_caminhando.png-35920260d2b7f4af9b0d330ab738cc31.ctex"
+uid="uid://cv1jerqarvi6k"
+path="res://.godot/imported/Brown_WAGON_CLEAN_All_000.png-e3eb5fadd35452145875ea646a188847.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/caramelo/dog_caminhando.png"
-dest_files=["res://.godot/imported/dog_caminhando.png-35920260d2b7f4af9b0d330ab738cc31.ctex"]
+source_file="res://Assets/Sprites/vehicles/Brown_WAGON_CLEAN_All_000.png"
+dest_files=["res://.godot/imported/Brown_WAGON_CLEAN_All_000.png-e3eb5fadd35452145875ea646a188847.ctex"]
 
 [params]
 

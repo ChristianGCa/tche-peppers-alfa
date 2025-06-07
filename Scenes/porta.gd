@@ -39,6 +39,7 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		print("Jogador entrou na área da porta")
 		if not interior:
+			$open.play()
 			print("Animação aberta")
 			$AnimatedSprite2D.play("out_opened")
 		jogador_na_area = true
@@ -47,6 +48,7 @@ func _on_body_exited(body):
 	if body.is_in_group("player"):
 		print("Jogador saiu da área da porta")
 		if not interior:
+			$close.play()
 			print("Animação fechada")
 			$AnimatedSprite2D.play("out_closed")
 		jogador_na_area = false

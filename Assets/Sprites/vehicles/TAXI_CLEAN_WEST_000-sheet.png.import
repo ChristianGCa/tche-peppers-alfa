@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clugmagkb5h7f"
-path="res://.godot/imported/dog_sentado.png-6d74f1ef49b480c5efdc09f1f76b3561.ctex"
+uid="uid://dtgapgu3jd8bq"
+path="res://.godot/imported/TAXI_CLEAN_WEST_000-sheet.png-fa1b9a6f3725e6f1839058f5334d4ad9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/caramelo/dog_sentado.png"
-dest_files=["res://.godot/imported/dog_sentado.png-6d74f1ef49b480c5efdc09f1f76b3561.ctex"]
+source_file="res://Assets/Sprites/vehicles/TAXI_CLEAN_WEST_000-sheet.png"
+dest_files=["res://.godot/imported/TAXI_CLEAN_WEST_000-sheet.png-fa1b9a6f3725e6f1839058f5334d4ad9.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://cu5qihhwaxnv4"]
+[gd_scene load_steps=72 format=4 uid="uid://cu5qihhwaxnv4"]
 
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_joyk0"]
 [ext_resource type="Texture2D" uid="uid://clamrqxodudwr" path="res://Assets/tilemap/house/Roofs.png" id="2_irx2n"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://b2pxhan0dtlwm" path="res://Scenes/collectible_item.tscn" id="25_56ccx"]
 [ext_resource type="Texture2D" uid="uid://b5atremtbw22e" path="res://Assets/Sprites/relogio.png" id="26_3ssd7"]
 [ext_resource type="Texture2D" uid="uid://8optj1cj8m4o" path="res://Assets/Character/SpriteSheets/homem_camisa_branca_cabelo_castanho.png" id="26_x1mch"]
+[ext_resource type="PackedScene" uid="uid://qawyu4ju6omy" path="res://Scenes/taxi_arrival.tscn" id="29_yfg6r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ob8de"]
 texture = ExtResource("1_joyk0")
@@ -4039,7 +4040,7 @@ dialog_intro = SubResource("Resource_b25yl")
 sprite_frames = SubResource("SpriteFrames_yfg6r")
 
 [node name="Player" parent="decoracoes" instance=ExtResource("9_605ht")]
-position = Vector2(80, 735)
+position = Vector2(364, 739)
 
 [node name="arvore_01-1" parent="decoracoes" instance=ExtResource("7_pykg7")]
 position = Vector2(372, 430)
@@ -4189,6 +4190,10 @@ quest = SubResource("Resource_cbj3i")
 sprite_frames = SubResource("SpriteFrames_bo4cd")
 
 [node name="StaticBody2D" parent="." instance=ExtResource("9_nhukf")]
+
+[node name="TaxiArrival" parent="." instance=ExtResource("29_yfg6r")]
+position = Vector2(314, 668)
+drive_direction = Vector2(-1, 0)
 
 [connection signal="body_entered" from="decoracoes/estatua_padre/Area2D" to="decoracoes/estatua_padre" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="decoracoes/estatua_padre/Area2D" to="decoracoes/estatua_padre" method="_on_area_2d_body_exited"]
