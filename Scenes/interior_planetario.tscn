@@ -1800,6 +1800,7 @@ tile_set = SubResource("TileSet_xslor")
 
 [node name="Porta" parent="decoracao" instance=ExtResource("5_mvnb1")]
 position = Vector2(640, 500)
+tecla_acao = "ok"
 cena_destino_path = "res://Scenes/planetario.tscn"
 nome_ponto_entrada = "entrada_planetario"
 interior = true
