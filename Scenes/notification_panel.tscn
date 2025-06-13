@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3tj64ox1uvov"]
+[gd_scene load_steps=6 format=3 uid="uid://b3tj64ox1uvov"]
 
 [ext_resource type="Script" uid="uid://cflwxlxnpouky" path="res://Scenes/notification_panel.gd" id="1_sb1ib"]
 [ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="2_eo56b"]
+[ext_resource type="Theme" uid="uid://cpkiv5br2vwun" path="res://themes/dialog_theme.tres" id="2_l6eqv"]
+[ext_resource type="Texture2D" uid="uid://do5uusrjvei3d" path="res://Assets/Interface/Buttons/fundo_dialogo.png" id="3_rucgw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w4x6h"]
 font = ExtResource("2_eo56b")
@@ -10,29 +12,32 @@ font_size = 30
 [node name="NotificationPanel" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 484.0
-offset_top = 324.0
-offset_right = 524.0
-offset_bottom = 364.0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_sb1ib")
 
-[node name="MarginBackground" type="MarginContainer" parent="."]
-clip_contents = true
+[node name="Center" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.725
-offset_bottom = 40.0
+offset_left = -335.0
+offset_top = -20.0
+offset_right = 266.0
+offset_bottom = 20.0
 
-[node name="ColorRect" type="ColorRect" parent="MarginBackground"]
+[node name="MarginContainer" type="MarginContainer" parent="Center"]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-color = Color(0.387778, 0.201168, 4.81308e-08, 1)
 
-[node name="MarginText" type="MarginContainer" parent="MarginBackground"]
+[node name="ColorRect" type="TextureRect" parent="Center/MarginContainer"]
+custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_right = 15
+theme = ExtResource("2_l6eqv")
+texture = ExtResource("3_rucgw")
+expand_mode = 1
 
-[node name="Text" type="Label" parent="MarginBackground/MarginText"]
+[node name="Text" type="Label" parent="Center/MarginContainer"]
 layout_mode = 2
+text = "1"
 label_settings = SubResource("LabelSettings_w4x6h")
 horizontal_alignment = 1

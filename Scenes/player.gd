@@ -52,15 +52,22 @@ func to_dialog():
 	velocity = Vector2.ZERO
 	_play_animation(Vector2.ZERO)
 
-
 func to_walking():
-	if npc_current != null and npc_current.quest != null:
-		if pending_quest_update:
-			npc_current.quest.state = QuestData.QuestState.IN_PROGRESS
-		elif npc_current.quest.state == QuestData.QuestState.IN_PROGRESS and inventory.has(npc_current.quest.item_required):
-			npc_current.quest.state = QuestData.QuestState.COMPLETED
-			inventory.erase(npc_current.quest.item_required)
+	if npc_current != null:
+		# Atualiza estado da quest, como já existia
+		if npc_current.quest != null:
+			if pending_quest_update:
+				npc_current.quest.state = QuestData.QuestState.IN_PROGRESS
+			elif npc_current.quest.state == QuestData.QuestState.IN_PROGRESS and inventory.has(npc_current.quest.item_required):
+				npc_current.quest.state = QuestData.QuestState.COMPLETED
+				inventory.erase(npc_current.quest.item_required)
+		if npc_current.dialog_flag_name != "":
+			GameState.set_flag(npc_current.dialog_flag_name)
+		else:
+			GameState.set_flag("dialog_finished_" + str(npc_current.name))
 
+		print("Flag adicionada: ", GameState.flags)
+	
 	state = STATE.WALKING
 	pending_quest_update = false
 	npc_current = null
@@ -68,6 +75,7 @@ func to_walking():
 	can_interact_again = false
 	await get_tree().create_timer(0.5).timeout
 	can_interact_again = true
+
 	
 
 
@@ -138,3 +146,4 @@ func _on_dialogue_detect_area_exited(area: Area2D) -> void:
 			var baloon = npc.get_node("DialogBaloon")
 			baloon.visible = false
 		dialogue_area = null
+		

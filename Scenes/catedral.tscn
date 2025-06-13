@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://cu5qihhwaxnv4"]
+[gd_scene load_steps=74 format=4 uid="uid://cu5qihhwaxnv4"]
 
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_joyk0"]
 [ext_resource type="Texture2D" uid="uid://clamrqxodudwr" path="res://Assets/tilemap/house/Roofs.png" id="2_irx2n"]
@@ -29,6 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://b5atremtbw22e" path="res://Assets/Sprites/relogio.png" id="26_3ssd7"]
 [ext_resource type="Texture2D" uid="uid://8optj1cj8m4o" path="res://Assets/Character/SpriteSheets/homem_camisa_branca_cabelo_castanho.png" id="26_x1mch"]
 [ext_resource type="PackedScene" uid="uid://qawyu4ju6omy" path="res://Scenes/taxi_arrival.tscn" id="29_yfg6r"]
+[ext_resource type="PackedScene" uid="uid://b3tj64ox1uvov" path="res://Scenes/notification_panel.tscn" id="30_23vqt"]
+[ext_resource type="PackedScene" uid="uid://cx8mobmc7mxvl" path="res://Scenes/objetivos.tscn" id="31_gkgo8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ob8de"]
 texture = ExtResource("1_joyk0")
@@ -3978,8 +3980,9 @@ metadata/_custom_type_script = "uid://d13f556ayg2wq"
 
 [sub_resource type="Resource" id="Resource_cbj3i"]
 script = ExtResource("23_x1mch")
-quest_name = "relogio"
-item_required = "Relógio"
+quest_name = ""
+item_required = ""
+objective_text = ""
 metadata/_custom_type_script = "uid://bl48iy1o2n0sf"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uc0qi"]
@@ -4040,7 +4043,7 @@ dialog_intro = SubResource("Resource_b25yl")
 sprite_frames = SubResource("SpriteFrames_yfg6r")
 
 [node name="Player" parent="decoracoes" instance=ExtResource("9_605ht")]
-position = Vector2(153, 299)
+position = Vector2(343, 656)
 
 [node name="arvore_01-1" parent="decoracoes" instance=ExtResource("7_pykg7")]
 position = Vector2(379, 418)
@@ -4192,6 +4195,12 @@ sprite_frames = SubResource("SpriteFrames_bo4cd")
 [node name="TaxiArrival" parent="." instance=ExtResource("29_yfg6r")]
 position = Vector2(314, 668)
 drive_direction = Vector2(-1, 0)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="NotificationPanel" parent="HUD" instance=ExtResource("30_23vqt")]
+
+[node name="Objetivos" parent="HUD" instance=ExtResource("31_gkgo8")]
 
 [connection signal="body_entered" from="decoracoes/estatua_padre/Area2D" to="decoracoes/estatua_padre" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="decoracoes/estatua_padre/Area2D" to="decoracoes/estatua_padre" method="_on_area_2d_body_exited"]

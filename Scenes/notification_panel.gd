@@ -2,7 +2,7 @@ extends Control
 
 @export var display_time := 2.0
 @export var fade_time := 0.3
-@onready var label := $MarginBackground/MarginText/Text
+@onready var label := $Center/MarginContainer/Text
 
 var is_showing := false
 
@@ -27,3 +27,4 @@ func show_message(text: String):
 
 	visible = false
 	is_showing = false
+	print("Mostrou mensagem")

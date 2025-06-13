@@ -4,7 +4,10 @@ extends Area2D
 @export var cena_destino_path: String = "" # Caminho da cena: ex. res://scenes/exterior.tscn
 @export var nome_ponto_entrada: String = "" # Nome do marcador de entrada
 @export var interior: bool = false  # TRUE se esta porta está dentro de um prédio
-@export var animacoes: SpriteFrames # ← aqui você arrasta o .tres
+@export var animacoes: SpriteFrames
+@export var flag_requerida: String = "" # ← Nome da flag que o jogador precisa ter (opcional)
+
+@onready var notificationPanel = $"../HUD/NotificationPanel"
 
 var jogador_na_area = false
 var cena_destino: PackedScene
@@ -25,7 +28,7 @@ func _ready():
 		print("Porta inicializada como EXTERIOR (out_closed)")
 		$AnimatedSprite2D.play("out_closed")
 
-	# Carrega a cena de destino a partir do caminho (String)
+	# Carrega a cena de destino a partir do caminho
 	if cena_destino_path != "":
 		cena_destino = load(cena_destino_path)
 		if cena_destino:
@@ -56,6 +59,13 @@ func _on_body_exited(body):
 func _process(_delta):
 	if jogador_na_area and Input.is_action_just_pressed(tecla_acao):
 		print("Tecla pressionada. Tentando mudar de cena...")
+
+		# Verifica a flag (se necessário)
+		if flag_requerida != "" and not GameState.get_flag(flag_requerida):
+			print("Flag necessária não encontrada:", flag_requerida)
+			notificationPanel.show_message("Parece trancado... fale com alguém primeiro!")
+			return
+
 		if cena_destino:
 			print("Cena destino válida:", cena_destino.resource_path)
 			print("Nome do marcador de entrada:", nome_ponto_entrada)
