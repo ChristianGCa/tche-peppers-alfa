@@ -8,6 +8,8 @@ class_name NPC
 @export var sprite_frames: SpriteFrames
 @export var dialog_flag_name: String = ""
 
+@onready var objetivos_ui = $"../../HUD/Objetivos"
+
 func _ready():
 	$AnimatedSprite2D.frames = sprite_frames
 	$Area2D.add_to_group("dialogue_area")
@@ -32,8 +34,6 @@ func get_current_dialog() -> DialogData:
 func _on_dialog_finished():
 	var flag_name = "talked_to_" + name
 	GameState.set_flag(flag_name)
-
-	var objetivos_ui = get_tree().root.get_node("Main/HUD/Objetivos")
 
 	if quest != null:
 		match quest.state:

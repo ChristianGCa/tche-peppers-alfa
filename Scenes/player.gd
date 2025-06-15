@@ -54,6 +54,8 @@ func to_dialog():
 
 func to_walking():
 	if npc_current != null:
+		npc_current._on_dialog_finished()  # <-- CHAMA A FUNÇÃO DO NPC
+
 		# Atualiza estado da quest, como já existia
 		if npc_current.quest != null:
 			if pending_quest_update:
@@ -61,10 +63,6 @@ func to_walking():
 			elif npc_current.quest.state == QuestData.QuestState.IN_PROGRESS and inventory.has(npc_current.quest.item_required):
 				npc_current.quest.state = QuestData.QuestState.COMPLETED
 				inventory.erase(npc_current.quest.item_required)
-		if npc_current.dialog_flag_name != "":
-			GameState.set_flag(npc_current.dialog_flag_name)
-		else:
-			GameState.set_flag("dialog_finished_" + str(npc_current.name))
 
 		print("Flag adicionada: ", GameState.flags)
 	

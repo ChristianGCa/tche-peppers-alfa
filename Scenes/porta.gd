@@ -41,20 +41,29 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		print("Jogador entrou na área da porta")
-		if not interior:
+		# Animação só toca se a flag for permitida
+		if not interior and (flag_requerida == "" or GameState.get_flag(flag_requerida)):
 			$open.play()
 			print("Animação aberta")
 			$AnimatedSprite2D.play("out_opened")
+		
 		jogador_na_area = true
+
+
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
 		print("Jogador saiu da área da porta")
-		if not interior:
-			$close.play()
-			print("Animação fechada")
-			$AnimatedSprite2D.play("out_closed")
+
+		# Só fecha se a flag estava OK
+		if flag_requerida == "" or GameState.get_flag(flag_requerida):
+			if not interior:
+				$close.play()
+				print("Animação fechada")
+				$AnimatedSprite2D.play("out_closed")
+		
 		jogador_na_area = false
+
 
 func _process(_delta):
 	if jogador_na_area and Input.is_action_just_pressed(tecla_acao):
