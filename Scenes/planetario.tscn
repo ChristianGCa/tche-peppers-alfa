@@ -3099,6 +3099,9 @@ speaker_name = "Edward"
 text = "Bom dia senhor, queria saber se ainda tem ingressos à venda para a excursão pelo planetário?"
 portrait = ExtResource("11_mb2i3")
 choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = true
+completes_objective = false
+objective_text = "Busque agua"
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_fts1d"]
@@ -3106,6 +3109,9 @@ script = ExtResource("9_t33ux")
 speaker_name = "Funcionário"
 text = "Buenas tchê, se tu tivesse vindo a umas horas atrás ainda teria uns sobrando."
 choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = true
+objective_text = "Busque agua"
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_7c2cw"]
@@ -3113,6 +3119,9 @@ script = ExtResource("9_t33ux")
 speaker_name = "Funcionário"
 text = "MAAAAAAS! Se tu achar uma lente do telescópio reserva que eu acabei perdendo, se me chefe descobrir que eu perdi ela eu to lascado, ele vai né dá de boia para os cusco daqui do planetário, então faz a boa ai para mim!!"
 choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = true
+completes_objective = false
+objective_text = "Procure a lente reserva do telescópio e entregue ao funcionário"
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_60q3a"]
@@ -3125,6 +3134,9 @@ script = ExtResource("9_t33ux")
 speaker_name = "Funcionário"
 text = "Não achastes guri?"
 choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_pdof0"]
@@ -3134,9 +3146,12 @@ metadata/_custom_type_script = "uid://d13f556ayg2wq"
 
 [sub_resource type="Resource" id="Resource_mbuve"]
 script = ExtResource("9_t33ux")
-speaker_name = "FUncionário"
+speaker_name = "Funcionário"
 text = "otimo"
 choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = true
+objective_text = "Procure a lente reserva do telescópio e entregue ao funcionário"
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_rhxjw"]

@@ -1,11 +1,7 @@
 extends Node2D
 
-var objectives: Array[String] = [
-	"Explore o lugar"
-]
-
 func _ready():
-	$HUD/Objetivos.set_objectives(objectives)
+	ObjectiveManagement.add_objective("Explore o local")
 	if Global.posicao_marcador != "":
 		var marcador = get_node_or_null(Global.posicao_marcador)
 		if marcador:

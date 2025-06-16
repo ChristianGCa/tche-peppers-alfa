@@ -1779,6 +1779,9 @@ script = ExtResource("7_65qgn")
 speaker_name = "Professor"
 text = "Ai"
 choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_4ul5r"]

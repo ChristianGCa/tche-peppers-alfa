@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://Autoloads/Global.gd"
 DialogManagement="*res://Autoloads/DialogManagement.gd"
 GameState="*res://Autoloads/GameState.gd"
+ObjectiveManagement="*res://Autoloads/ObjectiveManagement.gd"
 
 [display]
 

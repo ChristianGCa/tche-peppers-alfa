@@ -12,6 +12,9 @@ speaker_name = "Cidadão Local"
 text = "Buenas tchê. Precisa de ajuda?"
 portrait = ExtResource("4_g0dtq")
 choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_cb0v7"]
@@ -20,6 +23,9 @@ speaker_name = "Player"
 text = "Olá. É aqui que encontro o famoso Planetário?"
 portrait = ExtResource("3_6imep")
 choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_thko1"]
@@ -28,6 +34,9 @@ speaker_name = "Cidadão Local"
 text = "Oigatê guri! Claro que sim. Mas me diga, tu não parece ser brasileiro."
 portrait = ExtResource("4_g0dtq")
 choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_wt5kj"]
@@ -63,6 +72,9 @@ speaker_name = "PLayer"
 text = ""
 portrait = ExtResource("3_6imep")
 choices = Array[ExtResource("2_g0dtq")]([SubResource("Resource_wt5kj"), SubResource("Resource_yv8r1"), SubResource("Resource_787hg")])
+creates_objective = false
+completes_objective = false
+objective_text = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_awork"]
@@ -71,6 +83,9 @@ speaker_name = "Cidadão Local"
 text = "Fique a vontade para explorar o lugar"
 portrait = ExtResource("4_g0dtq")
 choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [resource]

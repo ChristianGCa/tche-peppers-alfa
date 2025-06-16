@@ -49,12 +49,22 @@ func show_line():
 		return
 
 	var line = dialog_data.lines[current_index]
+
+	# 🟡 NOVO BLOCO: Criar ou completar objetivos se necessário
+	if line.creates_objective and line.objective_text != "":
+		ObjectiveManagement.add_objective(line.objective_text)
+
+	if line.completes_objective and line.objective_text != "":
+		ObjectiveManagement.complete_objective(line.objective_text)
+
+
 	speaker_label.text = line.speaker_name
 	portrait.texture = line.portrait
 	await type_text(line.text)
 
 	if line.choices.size() > 0:
 		show_choices(line.choices)
+
 
 func type_text(text: String) -> void:
 	is_typing = true
