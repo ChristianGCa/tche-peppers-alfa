@@ -6,12 +6,14 @@ class_name NPC
 @export var dialog_completed: DialogData
 @export var quest: QuestData = null
 @export var sprite_frames: SpriteFrames
+@export var dialog_flag_name: String = ""
 
 func _ready():
 	$AnimatedSprite2D.frames = sprite_frames
 	$Area2D.add_to_group("dialogue_area")
 	$Area2D.set_meta("dialog_valid", true)
 	$Area2D.set_meta("quest_npc", self)
+	$DialogBaloon.visible = false
 
 func get_current_dialog() -> DialogData:
 	if quest == null:
@@ -26,3 +28,13 @@ func get_current_dialog() -> DialogData:
 			return dialog_completed
 
 	return dialog_intro
+
+func _on_dialog_finished():
+	var flag_name = "talked_to_" + name
+	GameState.set_flag(flag_name)
+
+	if quest != null and quest.state == QuestData.QuestState.IN_PROGRESS:
+		if quest.is_completed():
+			quest.state = QuestData.QuestState.COMPLETED
+			if quest.objective_text != "":
+				ObjectiveManagement.complete_objective(quest.objective_text)

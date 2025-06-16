@@ -29,6 +29,10 @@ func to_dialog():
 		push_warning("Área de diálogo sem meta 'quest_npc'.")
 		to_walking()
 		return
+	
+	if npc_current.has_node("DialogBaloon"):
+		var baloon = npc_current.get_node("DialogBaloon")
+		baloon.visible = false
 
 	# ✅ ANTES de pegar o diálogo, atualiza para COMPLETED se já tiver o item
 	if npc_current.quest != null:
@@ -48,15 +52,20 @@ func to_dialog():
 	velocity = Vector2.ZERO
 	_play_animation(Vector2.ZERO)
 
-
 func to_walking():
-	if npc_current != null and npc_current.quest != null:
-		if pending_quest_update:
-			npc_current.quest.state = QuestData.QuestState.IN_PROGRESS
-		elif npc_current.quest.state == QuestData.QuestState.IN_PROGRESS and inventory.has(npc_current.quest.item_required):
-			npc_current.quest.state = QuestData.QuestState.COMPLETED
-			inventory.erase(npc_current.quest.item_required)
+	if npc_current != null:
+		npc_current._on_dialog_finished()  # <-- CHAMA A FUNÇÃO DO NPC
 
+		# Atualiza estado da quest, como já existia
+		if npc_current.quest != null:
+			if pending_quest_update:
+				npc_current.quest.state = QuestData.QuestState.IN_PROGRESS
+			elif npc_current.quest.state == QuestData.QuestState.IN_PROGRESS and inventory.has(npc_current.quest.item_required):
+				npc_current.quest.state = QuestData.QuestState.COMPLETED
+				inventory.erase(npc_current.quest.item_required)
+
+		print("Flag adicionada: ", GameState.flags)
+	
 	state = STATE.WALKING
 	pending_quest_update = false
 	npc_current = null
@@ -64,6 +73,8 @@ func to_walking():
 	can_interact_again = false
 	await get_tree().create_timer(0.5).timeout
 	can_interact_again = true
+
+	
 
 
 func process_walking():
@@ -120,7 +131,17 @@ func _physics_process(delta):
 func _on_dialogue_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("dialogue_area"):
 		dialogue_area = area
+		var npc = area.get_meta("quest_npc")
+		if npc and npc.has_node("DialogBaloon"):
+			var baloon = npc.get_node("DialogBaloon")
+			baloon.visible = true
+			baloon.play("default")
 
 func _on_dialogue_detect_area_exited(area: Area2D) -> void:
 	if area == dialogue_area:
+		var npc = area.get_meta("quest_npc")
+		if npc and npc.has_node("DialogBaloon"):
+			var baloon = npc.get_node("DialogBaloon")
+			baloon.visible = false
 		dialogue_area = null
+		

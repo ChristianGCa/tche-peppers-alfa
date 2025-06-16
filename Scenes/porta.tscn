@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctosmvt47xi2o"]
+[gd_scene load_steps=6 format=3 uid="uid://ctosmvt47xi2o"]
 
 [ext_resource type="Script" uid="uid://6ug1uctwoyxl" path="res://Scenes/porta.gd" id="1_rwxfp"]
 [ext_resource type="SpriteFrames" uid="uid://bpi3axqkuid8s" path="res://Resources/porta_01.tres" id="2_5f6wt"]
+[ext_resource type="AudioStream" uid="uid://bneyp331ootnb" path="res://Audio/Door/door-close.mp3" id="3_shvlh"]
+[ext_resource type="AudioStream" uid="uid://cyajfhvg8jjrq" path="res://Audio/Door/door-open.mp3" id="4_f6k30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqm4t"]
 size = Vector2(35, 50)
@@ -15,12 +17,18 @@ nome_ponto_entrada = "porta_entrada"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_5f6wt")
-animation = &"out_closed"
+animation = &"out_opened"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_vqm4t")
 debug_color = Color(0, 0, 0, 0.42)
+
+[node name="close" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_shvlh")
+
+[node name="open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_f6k30")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

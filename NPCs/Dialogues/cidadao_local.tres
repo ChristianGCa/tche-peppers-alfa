@@ -1,25 +1,94 @@
-[gd_resource type="Resource" script_class="DialogData" load_steps=7 format=3 uid="uid://5woccpuj5swn"]
+[gd_resource type="Resource" script_class="DialogData" load_steps=14 format=3 uid="uid://5woccpuj5swn"]
 
 [ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://DialogueSystem/DialogLine.gd" id="1_dl8gl"]
 [ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://DialogueSystem/DialogData.gd" id="2_27lt5"]
-[ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Character/Portraits/npc1.png" id="2_s8vdl"]
+[ext_resource type="Script" uid="uid://cry6b72kahevs" path="res://DialogueSystem/ChoiceOption.gd" id="2_g0dtq"]
 [ext_resource type="Texture2D" uid="uid://dn5ji02a0a1dx" path="res://Assets/Character/Portraits/retrato_player.png" id="3_6imep"]
+[ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Character/Portraits/npc1.png" id="4_g0dtq"]
 
-[sub_resource type="Resource" id="Resource_few2m"]
+[sub_resource type="Resource" id="Resource_kv5xb"]
 script = ExtResource("1_dl8gl")
 speaker_name = "Cidadão Local"
-text = "Mas que barbaridade!"
-portrait = ExtResource("2_s8vdl")
+text = "Buenas tchê. Precisa de ajuda?"
+portrait = ExtResource("4_g0dtq")
+choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
-[sub_resource type="Resource" id="Resource_e8kib"]
+[sub_resource type="Resource" id="Resource_cb0v7"]
 script = ExtResource("1_dl8gl")
 speaker_name = "Player"
-text = "Olá. Vim conhecer a cidade"
+text = "Olá. É aqui que encontro o famoso Planetário?"
 portrait = ExtResource("3_6imep")
+choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_thko1"]
+script = ExtResource("1_dl8gl")
+speaker_name = "Cidadão Local"
+text = "Oigatê guri! Claro que sim. Mas me diga, tu não parece ser brasileiro."
+portrait = ExtResource("4_g0dtq")
+choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_wt5kj"]
+script = ExtResource("2_g0dtq")
+text_english = "I am american!"
+text_portuguese = "Eu sou americano!"
+is_correct = true
+npc_response = "Mas que barbaridade! É tri-legal ter gente de fora em nossa cidade"
+response_portrait = ExtResource("4_g0dtq")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_yv8r1"]
+script = ExtResource("2_g0dtq")
+text_english = "I like cheese!"
+text_portuguese = "Eu gosto de queijo!"
+is_correct = false
+npc_response = "Uhh.. mas que barbaridade"
+response_portrait = ExtResource("4_g0dtq")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_787hg"]
+script = ExtResource("2_g0dtq")
+text_english = "I am a car"
+text_portuguese = "Eu sou um carro"
+is_correct = false
+npc_response = "Guri, você está bem?"
+response_portrait = ExtResource("4_g0dtq")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_lg1wb"]
+script = ExtResource("1_dl8gl")
+speaker_name = "PLayer"
+text = ""
+portrait = ExtResource("3_6imep")
+choices = Array[ExtResource("2_g0dtq")]([SubResource("Resource_wt5kj"), SubResource("Resource_yv8r1"), SubResource("Resource_787hg")])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_awork"]
+script = ExtResource("1_dl8gl")
+speaker_name = "Cidadão Local"
+text = "Fique a vontade para explorar o lugar"
+portrait = ExtResource("4_g0dtq")
+choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [resource]
 script = ExtResource("2_27lt5")
-lines = Array[ExtResource("1_dl8gl")]([SubResource("Resource_few2m"), SubResource("Resource_e8kib")])
+lines = Array[ExtResource("1_dl8gl")]([SubResource("Resource_kv5xb"), SubResource("Resource_cb0v7"), SubResource("Resource_thko1"), SubResource("Resource_lg1wb"), SubResource("Resource_awork")])
 metadata/_custom_type_script = "uid://d13f556ayg2wq"

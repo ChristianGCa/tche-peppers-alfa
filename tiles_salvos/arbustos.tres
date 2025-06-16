@@ -12,6 +12,14 @@ texture = ExtResource("1_tux4d")
 10:0/0 = 0
 10:0/0/y_sort_origin = -4
 10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.35622, 10.8238, 0.503432, 9.81693, 4.11136, 11.495, 4.11136, 13.8444, 0.16781, 15.103, -3.77574, 13.7605)
+17:8/size_in_atlas = Vector2i(1, 2)
+17:8/0 = 0
+17:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 6, 0, 4, 6, 6, 6, 12, 0, 14, -6, 12)
+18:8/size_in_atlas = Vector2i(2, 2)
+18:8/0 = 0
+18:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, 0, 0, -4, 14, 0, 14, 10, 0, 14, -14, 10)
+15:0/0 = 0
+15:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [resource]
 physics_layer_0/collision_layer = 1
