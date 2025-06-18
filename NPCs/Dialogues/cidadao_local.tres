@@ -53,7 +53,7 @@ script = ExtResource("2_g0dtq")
 text_english = "I like cheese!"
 text_portuguese = "Eu gosto de queijo!"
 is_correct = false
-npc_response = "Uhh.. mas que barbaridade"
+npc_response = "Uhh.. mas que coisa"
 response_portrait = ExtResource("4_g0dtq")
 metadata/_custom_type_script = "uid://cry6b72kahevs"
 

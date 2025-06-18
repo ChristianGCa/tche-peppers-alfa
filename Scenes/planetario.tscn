@@ -3311,6 +3311,7 @@ position = Vector2(708, 312)
 
 [node name="DialogBox" parent="." instance=ExtResource("12_sa5gy")]
 visible = false
+script = null
 
 [node name="TaxiArrival" parent="." instance=ExtResource("16_ud7m4")]
 position = Vector2(187, 653)
