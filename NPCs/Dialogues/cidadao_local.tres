@@ -1,16 +1,14 @@
-[gd_resource type="Resource" script_class="DialogData" load_steps=14 format=3 uid="uid://5woccpuj5swn"]
+[gd_resource type="Resource" script_class="DialogData" load_steps=13 format=3 uid="uid://5woccpuj5swn"]
 
-[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://DialogueSystem/DialogLine.gd" id="1_dl8gl"]
-[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://DialogueSystem/DialogData.gd" id="2_27lt5"]
-[ext_resource type="Script" uid="uid://cry6b72kahevs" path="res://DialogueSystem/ChoiceOption.gd" id="2_g0dtq"]
-[ext_resource type="Texture2D" uid="uid://dn5ji02a0a1dx" path="res://Assets/Character/Portraits/retrato_player.png" id="3_6imep"]
-[ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Character/Portraits/npc1.png" id="4_g0dtq"]
+[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://HUD/DialogueSystem/DialogLine.gd" id="1_dl8gl"]
+[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://HUD/DialogueSystem/DialogData.gd" id="2_27lt5"]
+[ext_resource type="Script" uid="uid://cry6b72kahevs" path="res://HUD/DialogueSystem/ChoiceOption.gd" id="2_g0dtq"]
+[ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Characters/Portraits/npc_01.png" id="4_g0dtq"]
 
 [sub_resource type="Resource" id="Resource_kv5xb"]
 script = ExtResource("1_dl8gl")
-speaker_name = "Cidadão Local"
+speaker_type = 0
 text = "Buenas tchê. Precisa de ajuda?"
-portrait = ExtResource("4_g0dtq")
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
@@ -19,9 +17,8 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_cb0v7"]
 script = ExtResource("1_dl8gl")
-speaker_name = "Player"
+speaker_type = 1
 text = "Olá. É aqui que encontro o famoso Planetário?"
-portrait = ExtResource("3_6imep")
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
@@ -30,9 +27,8 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_thko1"]
 script = ExtResource("1_dl8gl")
-speaker_name = "Cidadão Local"
+speaker_type = 0
 text = "Oigatê guri! Claro que sim. Mas me diga, tu não parece ser brasileiro."
-portrait = ExtResource("4_g0dtq")
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
@@ -68,9 +64,8 @@ metadata/_custom_type_script = "uid://cry6b72kahevs"
 
 [sub_resource type="Resource" id="Resource_lg1wb"]
 script = ExtResource("1_dl8gl")
-speaker_name = "PLayer"
+speaker_type = 1
 text = ""
-portrait = ExtResource("3_6imep")
 choices = Array[ExtResource("2_g0dtq")]([SubResource("Resource_wt5kj"), SubResource("Resource_yv8r1"), SubResource("Resource_787hg")])
 creates_objective = false
 completes_objective = false
@@ -79,9 +74,8 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_awork"]
 script = ExtResource("1_dl8gl")
-speaker_name = "Cidadão Local"
+speaker_type = 0
 text = "Fique a vontade para explorar o lugar"
-portrait = ExtResource("4_g0dtq")
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false

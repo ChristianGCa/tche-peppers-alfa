@@ -2,6 +2,7 @@ extends Node
 class_name ObjectiveManager
 
 signal objectives_updated
+signal objective_completed(text: String)
 
 var current_objectives: Array[String] = []
 
@@ -13,7 +14,8 @@ func add_objective(text: String):
 func complete_objective(text: String):
 	if text in current_objectives:
 		current_objectives.erase(text)
-		emit_signal("objectives_updated")
+		emit_signal("objective_completed", text)  # ✅ apenas isso
+
 
 func get_objectives() -> Array[String]:
 	return current_objectives

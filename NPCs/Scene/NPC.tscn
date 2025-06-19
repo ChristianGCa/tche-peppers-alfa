@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8al8ppb6vohr"]
+
+[ext_resource type="Script" uid="uid://bf0avue3n1mgs" path="res://NPCs/Scene/NPC.gd" id="1_10bwf"]
+[ext_resource type="SpriteFrames" uid="uid://3l22jwmigeha" path="res://NPCs/SpriteFrames/cidadao_local.tres" id="2_d33j4"]
+[ext_resource type="Texture2D" uid="uid://uuvopcvmdgni" path="res://Assets/Sprites/dialog.png" id="3_yn0we"]
+[ext_resource type="Texture2D" uid="uid://claaw1cvhy8yt" path="res://Assets/Sprites/dialog1.png" id="4_3mprk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_klot4"]
+radius = 19.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ssy4p"]
+radius = 6.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu38x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yn0we")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3mprk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_10bwf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -19)
+sprite_frames = ExtResource("2_d33j4")
+autoplay = "default"
+frame_progress = 0.112683
+
+[node name="Area2D" type="Area2D" parent="." groups=["dialogue_area"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_klot4")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_ssy4p")
+
+[node name="DialogBaloon" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -39)
+sprite_frames = SubResource("SpriteFrames_pu38x")
+frame_progress = 0.734921
