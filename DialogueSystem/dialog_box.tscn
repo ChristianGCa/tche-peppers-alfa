@@ -9,22 +9,22 @@ script = ExtResource("1_on6d1")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 160.0
-offset_top = 544.0
+offset_top = 535.0
 offset_right = 1130.0
-offset_bottom = 695.0
+offset_bottom = 706.0
 theme = ExtResource("2_lttjw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 0
 offset_right = 968.0
-offset_bottom = 150.0
+offset_bottom = 171.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 
 [node name="Portrait" type="TextureRect" parent="Panel/HBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(170, 150)
 layout_mode = 2
 texture = ExtResource("2_0k4bc")
 
@@ -54,12 +54,12 @@ fit_content = true
 
 [node name="OptionsCenterContainer" type="CenterContainer" parent="Panel"]
 layout_mode = 2
-offset_left = 150.0
-offset_top = 89.0
-offset_right = 877.0
-offset_bottom = 152.0
+offset_left = 193.0
+offset_top = 41.0
+offset_right = 920.0
+offset_bottom = 165.0
 
-[node name="ChoiceContainer" type="HBoxContainer" parent="Panel/OptionsCenterContainer"]
+[node name="ChoiceContainer" type="VBoxContainer" parent="Panel/OptionsCenterContainer"]
 layout_mode = 2
 
 [node name="Option1" type="Button" parent="Panel/OptionsCenterContainer/ChoiceContainer"]
@@ -75,10 +75,11 @@ layout_mode = 2
 text = "asdfasdfasdfasdfasdf"
 
 [node name="YourAnswerCenterContainer" type="CenterContainer" parent="Panel"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-offset_left = 347.0
+offset_left = -10.0
 offset_top = -97.0
-offset_right = 530.0
+offset_right = 980.0
 offset_bottom = -21.0
 
 [node name="YourAnswerContainer" type="VBoxContainer" parent="Panel/YourAnswerCenterContainer"]
@@ -86,8 +87,12 @@ layout_mode = 2
 
 [node name="YourAnswer" type="Label" parent="Panel/YourAnswerCenterContainer/YourAnswerContainer"]
 layout_mode = 2
-text = "Sua resposta: "
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+text = "Sua resposta: asdasdasdasdasdxcvzxcvzxcvzxcvzxcvzxcvzxcvxczv"
 
 [node name="Translation" type="Label" parent="Panel/YourAnswerCenterContainer/YourAnswerContainer"]
 layout_mode = 2
-text = "Tradução"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+text = "Tradução: dskhfkashdfjsdgfkjhzsgdfkjhagsdf"

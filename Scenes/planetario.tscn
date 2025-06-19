@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://bmx8emouf4xbl"]
+[gd_scene load_steps=54 format=4 uid="uid://bmx8emouf4xbl"]
 
 [ext_resource type="Script" uid="uid://dcdvqjjyvsh4r" path="res://Scenes/planetario.gd" id="1_anyxf"]
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_qx4g2"]
@@ -3117,22 +3117,60 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_7c2cw"]
 script = ExtResource("9_t33ux")
 speaker_name = "Funcionário"
-text = "MAAAAAAS! Se tu achar uma lente do telescópio reserva que eu acabei perdendo, se me chefe descobrir que eu perdi ela eu to lascado, ele vai né dá de boia para os cusco daqui do planetário, então faz a boa ai para mim!!"
+text = "MAAAAAAS! Se tu achar uma lente do telescópio reserva que eu acabei perdendo enquanto saracoteava aí por fora, te deixo entrar."
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = true
 completes_objective = false
 objective_text = "Procure a lente reserva do telescópio e entregue ao funcionário"
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
+[sub_resource type="Resource" id="Resource_mb2i3"]
+script = ExtResource("10_0c5fv")
+text_english = "Where do you think you might have lost the lens?"
+text_portuguese = "Onde você acha que pode ter perdido a lente?"
+is_correct = true
+npc_response = "Acredito que atrás de alguma árvore, quando estava mateando na sombra"
+response_portrait = ExtResource("22_ogmoo")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_dkmty"]
+script = ExtResource("10_0c5fv")
+text_english = "Where do you think you might have lost the car?"
+text_portuguese = "Onde você acha que pode ter perdido o carro?"
+is_correct = false
+npc_response = "Carro? Não perdi nenhum carro."
+response_portrait = ExtResource("22_ogmoo")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_ogmoo"]
+script = ExtResource("10_0c5fv")
+text_english = "Where did you find the lens?"
+text_portuguese = "Onde você achou a lente?"
+is_correct = false
+npc_response = "Eu ainda não encontrei a lente."
+response_portrait = ExtResource("22_ogmoo")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_iqdcp"]
+script = ExtResource("9_t33ux")
+speaker_name = "Edward"
+text = ""
+choices = Array[ExtResource("10_0c5fv")]([SubResource("Resource_mb2i3"), SubResource("Resource_dkmty"), SubResource("Resource_ogmoo")])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
 [sub_resource type="Resource" id="Resource_60q3a"]
 script = ExtResource("10_1udyo")
-lines = Array[ExtResource("9_t33ux")]([SubResource("Resource_0bkgs"), SubResource("Resource_fts1d"), SubResource("Resource_7c2cw")])
+lines = Array[ExtResource("9_t33ux")]([SubResource("Resource_0bkgs"), SubResource("Resource_fts1d"), SubResource("Resource_7c2cw"), SubResource("Resource_iqdcp")])
 metadata/_custom_type_script = "uid://d13f556ayg2wq"
 
 [sub_resource type="Resource" id="Resource_nphuk"]
 script = ExtResource("9_t33ux")
 speaker_name = "Funcionário"
 text = "Não achastes guri?"
+portrait = ExtResource("22_ogmoo")
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = false
@@ -3235,7 +3273,7 @@ y_sort_origin = 18
 position = Vector2(231, 722)
 
 [node name="Funcionario" parent="decoracoes" instance=ExtResource("10_e1nq0")]
-position = Vector2(696, 321)
+position = Vector2(702, 391)
 dialog_intro = SubResource("Resource_60q3a")
 dialog_in_progress = SubResource("Resource_pdof0")
 dialog_completed = SubResource("Resource_rhxjw")

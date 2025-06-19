@@ -18,8 +18,8 @@ script = ExtResource("1_r7irx")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-offset_right = 320.0
-offset_bottom = 65.0
+offset_right = 324.0
+offset_bottom = 90.0
 theme_override_constants/margin_left = 0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
@@ -42,7 +42,7 @@ theme_override_constants/separation = 4
 
 [node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "asasdasdasda"
+text = "asasdasdasdaasdasdas"
 
 [node name="Label2" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
