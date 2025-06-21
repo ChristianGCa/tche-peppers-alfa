@@ -73,6 +73,9 @@ func to_walking():
 	await get_tree().create_timer(0.5).timeout
 	can_interact_again = true
 
+	refresh_dialog_icons() # <- Aqui
+
+
 	
 
 
@@ -119,6 +122,18 @@ func _play_animation(direction: Vector2):
 		else:
 			anim_sprite.play("walk_up")
 			last_direction = "up"
+			
+func refresh_dialog_icons():
+	if dialogue_area != null:
+		var npc = dialogue_area.get_meta("quest_npc")
+		if npc:
+			if npc.has_node("DialogBaloon"):
+				var baloon = npc.get_node("DialogBaloon")
+				baloon.visible = true
+				baloon.play("default")
+			if npc.has_node("Interaction"):
+				npc.get_node("Interaction").visible = false
+
 
 func _physics_process(delta):
 	if state == STATE.WALKING:
@@ -134,6 +149,7 @@ func _on_dialogue_detect_area_entered(area: Area2D) -> void:
 		if npc and npc.has_node("DialogBaloon"):
 			var baloon = npc.get_node("DialogBaloon")
 			baloon.visible = true
+			npc.get_node("Interaction").visible = false
 			baloon.play("default")
 
 func _on_dialogue_detect_area_exited(area: Area2D) -> void:
@@ -142,5 +158,6 @@ func _on_dialogue_detect_area_exited(area: Area2D) -> void:
 		if npc and npc.has_node("DialogBaloon"):
 			var baloon = npc.get_node("DialogBaloon")
 			baloon.visible = false
+			npc.get_node("Interaction").visible = true
 		dialogue_area = null
 		

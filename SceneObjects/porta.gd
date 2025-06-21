@@ -8,7 +8,7 @@ extends Area2D
 @export var flag_requerida: String = "" # ← Nome da flag que o jogador precisa ter (opcional)
 
 @onready var notificationPanel = $"../HUD/NotificationPanel"
-
+@onready var interaction_icon = $Interaction
 var jogador_na_area = false
 var cena_destino: PackedScene
 
@@ -27,8 +27,12 @@ func _ready():
 	else:
 		print("Porta inicializada como EXTERIOR (out_closed)")
 		$AnimatedSprite2D.play("out_closed")
+		# Começa com interação visível
+		if interaction_icon:
+			interaction_icon.visible = true
+			interaction_icon.play("interaction")
 
-	# Carrega a cena de destino a partir do caminho
+	# Carrega a cena de destino
 	if cena_destino_path != "":
 		cena_destino = load(cena_destino_path)
 		if cena_destino:
@@ -41,28 +45,43 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		print("Jogador entrou na área da porta")
-		# Animação só toca se a flag for permitida
-		if not interior and (flag_requerida == "" or GameState.get_flag(flag_requerida)):
-			$open.play()
-			print("Animação aberta")
-			$AnimatedSprite2D.play("out_opened")
-		
 		jogador_na_area = true
 
+		if flag_requerida != "" and not GameState.get_flag(flag_requerida):
+			return
 
+		if interior:
+			# Porta de saída de prédio → mostra "exit"
+			if interaction_icon:
+				interaction_icon.visible = true
+				interaction_icon.play("exit")
+		else:
+			# Porta de entrada (exterior) → anima porta abrindo e mostra "enter"
+			$open.play()
+			$AnimatedSprite2D.play("out_opened")
+			if interaction_icon:
+				interaction_icon.visible = true
+				interaction_icon.play("enter")
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
 		print("Jogador saiu da área da porta")
-
-		# Só fecha se a flag estava OK
-		if flag_requerida == "" or GameState.get_flag(flag_requerida):
-			if not interior:
-				$close.play()
-				print("Animação fechada")
-				$AnimatedSprite2D.play("out_closed")
-		
 		jogador_na_area = false
+
+		if flag_requerida != "" and not GameState.get_flag(flag_requerida):
+			return
+
+		if interior:
+			# Oculta o ícone quando sai de dentro do prédio
+			if interaction_icon:
+				interaction_icon.visible = false
+		else:
+			# Porta de entrada → toca som de fechar e volta para 'interaction'
+			$close.play()
+			$AnimatedSprite2D.play("out_closed")
+			if interaction_icon:
+				interaction_icon.visible = true
+				interaction_icon.play("interaction")
 
 
 func _process(_delta):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do5uusrjvei3d"
-path="res://.godot/imported/fundo_dialogo.png-b43069dd967c5ec8dccca1f90b0d33e3.ctex"
+uid="uid://jyhf8tr5cnm3"
+path="res://.godot/imported/exit_02.png-57abbbef8b4280d86ee309e0f80394c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Interface/Buttons/fundo_dialogo.png"
-dest_files=["res://.godot/imported/fundo_dialogo.png-b43069dd967c5ec8dccca1f90b0d33e3.ctex"]
+source_file="res://Assets/Interface/exit_02.png"
+dest_files=["res://.godot/imported/exit_02.png-57abbbef8b4280d86ee309e0f80394c0.ctex"]
 
 [params]
 

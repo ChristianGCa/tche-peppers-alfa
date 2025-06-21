@@ -44,6 +44,7 @@ func show_line():
 	your_answer.visible = false
 	choice_container.visible = false
 	text_label.text = ""
+	
 
 	if current_index >= dialog_data.lines.size():
 		hide()
@@ -78,16 +79,63 @@ func handle_objective(line: DialogLine):
 
 func type_text(text: String) -> void:
 	is_typing = true
-	full_text = text
-	text_label.text = ""
+	# Desliga BBCode temporariamente para garantir que não processe durante a digitação
+	text_label.bbcode_enabled = false
+	text_label.text = "" # Limpa o texto antes de começar a digitar
 	char_index = 0
 
-	while is_typing and char_index < full_text.length():
-		text_label.text += full_text[char_index]
+	full_text = _parse_glossary_tags(text)
+	var plain_text := _strip_bbcode(full_text) # Isso já remove as tags BBCode
+
+	while is_typing and char_index < plain_text.length():
+		# Adiciona apenas o caracter "limpo" (sem BBCode)
+		text_label.append_text(plain_text[char_index])
 		char_index += 1
 		await get_tree().create_timer(0.03).timeout
 
+	# Digitação terminou. Agora, habilita BBCode e atribui o texto completo com as tags
 	is_typing = false
+	text_label.bbcode_enabled = true
+	text_label.bbcode_text = full_text
+
+func _strip_bbcode(text: String) -> String:
+	var pattern := "\\[/?[a-zA-Z0-9=_]+\\]"
+	var regex := RegEx.new()
+	regex.compile(pattern)
+	return regex.sub(text, "", true)
+
+
+func _parse_glossary_tags(text: String) -> String:
+	var pattern := "\\[gloss:(.+?)\\|(.+?)\\]"
+	var regex = RegEx.new()
+	regex.compile(pattern)
+
+	var result := ""
+	var start := 0
+
+	for match in regex.search_all(text):
+		var range := match.get_start(0)
+		var end := match.get_end(0)
+
+		# Texto antes da gíria
+		result += text.substr(start, range - start)
+
+		var term := match.get_string(1)
+		var translation := match.get_string(2)
+
+		# Adiciona ao glossário
+		GlossaryManager.unlock_term(term, translation)
+
+		# Adiciona como BBCode com cor
+		result += "[color=yellow]" + term + "[/color]"
+
+		start = end
+
+	# Adiciona o que sobrou
+	result += text.substr(start)
+
+	return result
+
 
 func show_choices(choices: Array[ChoiceOption]):
 	# Garante que o texto principal suma

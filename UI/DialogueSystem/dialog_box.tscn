@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://viuryasit4gw"]
 
-[ext_resource type="Script" uid="uid://svah5s233gqw" path="res://HUD/DialogueSystem/DialogBox.gd" id="1_on6d1"]
+[ext_resource type="Script" uid="uid://svah5s233gqw" path="res://UI/DialogueSystem/DialogBox.gd" id="1_on6d1"]
 [ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Characters/Portraits/npc_01.png" id="2_0k4bc"]
 [ext_resource type="Theme" uid="uid://cpkiv5br2vwun" path="res://Themes/dialog_theme.tres" id="2_lttjw"]
 
@@ -48,8 +48,7 @@ text = "asdfvasdfasdefasdf"
 [node name="TextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "hjhgjhgjhgjhg
-gjhgjh"
+text = "hjhgjhgjhgjh"
 fit_content = true
 
 [node name="OptionsCenterContainer" type="CenterContainer" parent="Panel"]

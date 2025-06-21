@@ -2,7 +2,7 @@ extends Control
 
 @export var display_time := 2.0
 @export var fade_time := 0.3
-@onready var label := $Center/MarginContainer/Text
+@onready var label := $Center/MarginContainer/MarginContainer/Text
 
 var is_showing := false
 

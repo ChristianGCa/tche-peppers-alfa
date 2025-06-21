@@ -11,6 +11,7 @@ class_name NPC
 @export var portrait_texture: Texture
 
 
+
 func _ready():
 	$AnimatedSprite2D.frames = sprite_frames
 	$Area2D.add_to_group("dialogue_area")

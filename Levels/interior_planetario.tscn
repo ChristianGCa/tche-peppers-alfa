@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://jtww36vsobxf"]
+[gd_scene load_steps=28 format=4 uid="uid://jtww36vsobxf"]
 
 [ext_resource type="Texture2D" uid="uid://6r6lo06uvl2l" path="res://Assets/tilemap/interior/tile_interior.png" id="1_fmo4i"]
 [ext_resource type="Script" uid="uid://de788d3c3ogpr" path="res://Levels/interior_planetario.gd" id="1_n7m4a"]
@@ -7,11 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://dp1x6bmwoerk2" path="res://Player/player.tscn" id="3_mvnb1"]
 [ext_resource type="PackedScene" uid="uid://ctosmvt47xi2o" path="res://SceneObjects/porta.tscn" id="5_mvnb1"]
 [ext_resource type="PackedScene" uid="uid://c8al8ppb6vohr" path="res://NPCs/Scene/NPC.tscn" id="6_xiv3i"]
-[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://HUD/DialogueSystem/DialogLine.gd" id="7_65qgn"]
+[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://UI/DialogueSystem/DialogLine.gd" id="7_65qgn"]
 [ext_resource type="SpriteFrames" uid="uid://cf8gmm0hw0c8s" path="res://NPCs/SpriteFrames/professor.tres" id="8_ht2pt"]
-[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://HUD/DialogueSystem/DialogData.gd" id="8_rdkfc"]
-[ext_resource type="Script" uid="uid://cry6b72kahevs" path="res://HUD/DialogueSystem/ChoiceOption.gd" id="9_rdkfc"]
+[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://UI/DialogueSystem/DialogData.gd" id="8_rdkfc"]
+[ext_resource type="Script" uid="uid://cry6b72kahevs" path="res://UI/DialogueSystem/ChoiceOption.gd" id="9_rdkfc"]
 [ext_resource type="Texture2D" uid="uid://bfr2ycw8s4pkt" path="res://Assets/Characters/Portraits/npc_04.png" id="12_iucdi"]
+[ext_resource type="PackedScene" uid="uid://b3tj64ox1uvov" path="res://UI/NotificationPanel/notification_panel.tscn" id="13_iu621"]
+[ext_resource type="PackedScene" uid="uid://bk2eb0gwgtoko" path="res://UI/Glossary/glossary_button.tscn" id="14_jomcx"]
+[ext_resource type="PackedScene" uid="uid://cs6fofvxcfshf" path="res://UI/Glossary/glossary_book.tscn" id="15_6ced5"]
+[ext_resource type="PackedScene" uid="uid://cx8mobmc7mxvl" path="res://UI/ObjectivesSystem/Objectives.tscn" id="16_oa0l6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e7mdf"]
 texture = ExtResource("1_fmo4i")
@@ -1825,14 +1829,8 @@ tile_set = SubResource("TileSet_pljqk")
 
 [node name="decoracao" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAwABIAAAAEAA0AAAAwABMAAAAEAA0AAAAwABQAAAAEAA0AAAAwABUAAAAEAA0AAAAwABYAAAAEAA0AAAAwABcAAAAEAA0AAAAwABgAAAAEAA0AAAAwABkAAAAEAA0AAAAvABoAAAADAA4AAAAuABsAAAADAA4AAAAtABwAAAADAA4AAAAsAB0AAAADAA4AAAAtAB0AAAAEAA4AAAAuABwAAAAEAA4AAAAvABsAAAAEAA4AAAAwABoAAAAEAA4AAAAsAB4AAAAEAA4AAAAkAB4AAAACAA8AAAAlAB4AAAACAA8AAAAmAB4AAAABAA4AAAApAB4AAAADAA4AAAAqAB4AAAACAA8AAAArAB4AAAACAA8AAAAiAB0AAAABAA8AAAAjAB0AAAABAA4AAAAjAB4AAAABAA8AAAAhABwAAAABAA8AAAAiABwAAAABAA4AAAAgABsAAAABAA8AAAAhABsAAAABAA4AAAAfABoAAAAAAA4AAAAgABoAAAABAA4AAAAfABIAAAAAAA0AAAAfABMAAAAAAA0AAAAfABQAAAAAAA0AAAAfABUAAAAAAA0AAAAfABYAAAAAAA0AAAAfABcAAAAAAA0AAAAfABgAAAAAAA0AAAAfABkAAAAAAA0AAAAmAB8AAAAAAA0AAAApAB8AAAAEAA0AAAApACAAAAADAA8AAAAmACAAAAABAA8AAAAnACAAAAACAA8AAAAoACAAAAACAA8AAAAfABEAAAAAAA0AAAAfABAAAAAAAA0AAAAfAA8AAAAAAAwAAAAgAA8AAAABAAwAAAAhAA4AAAABAAwAAAAiAA0AAAABAAwAAAAjAAwAAAABAAwAAAAkAAsAAAACAAsAAAAlAAsAAAACAAsAAAAmAAsAAAACAAsAAAAnAAsAAAACAAsAAAAoAAsAAAACAAsAAAApAAsAAAACAAsAAAAqAAsAAAACAAsAAAArAAsAAAACAAsAAAAsAAwAAAADAAwAAAAtAA0AAAADAAwAAAAuAA4AAAADAAwAAAAvAA8AAAADAAwAAAAwABAAAAAEAA0AAAAwABEAAAAEAA0AAAAwAA8AAAADAAsAAAAvAA4AAAADAAsAAAAuAA0AAAADAAsAAAAtAAwAAAADAAsAAAAsAAsAAAADAAsAAAAjAAsAAAABAAsAAAAiAAwAAAABAAsAAAAhAA0AAAABAAsAAAAiABMAAAAqAAUAAAAiABUAAAAqAAUAAAAiABcAAAAqAAUAAAAiABkAAAAqAAUAAAAkABQAAAAqAAUAAAAkABYAAAAqAAUAAAAkABgAAAAqAAUAAAAkABEAAAAoAAUAAAAmABEAAAAoAAUAAAApABEAAAAoAAUAAAArABEAAAAoAAUAAAAmABMAAAAoAAUAAAApABMAAAAoAAUAAAAkABsAAAArAAUAAAAmABsAAAArAAUAAAApABsAAAArAAUAAAArABsAAAArAAUAAAAmABkAAAArAAUAAAApABkAAAArAAUAAAArABQAAAApAAUAAAArABYAAAApAAUAAAArABgAAAApAAUAAAAtABkAAAApAAUAAAAtABcAAAApAAUAAAAtABUAAAApAAUAAAAtABMAAAApAAUAAAAgAA4AAAABAAsAAAAoABUABwABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAwABIAAAAEAA0AAAAwABMAAAAEAA0AAAAwABQAAAAEAA0AAAAwABUAAAAEAA0AAAAwABYAAAAEAA0AAAAwABcAAAAEAA0AAAAwABgAAAAEAA0AAAAwABkAAAAEAA0AAAAvABoAAAADAA4AAAAuABsAAAADAA4AAAAtABwAAAADAA4AAAAsAB0AAAADAA4AAAAtAB0AAAAEAA4AAAAuABwAAAAEAA4AAAAvABsAAAAEAA4AAAAwABoAAAAEAA4AAAAsAB4AAAAEAA4AAAAkAB4AAAACAA8AAAAlAB4AAAACAA8AAAAmAB4AAAABAA4AAAApAB4AAAADAA4AAAAqAB4AAAACAA8AAAArAB4AAAACAA8AAAAiAB0AAAABAA8AAAAjAB0AAAABAA4AAAAjAB4AAAABAA8AAAAhABwAAAABAA8AAAAiABwAAAABAA4AAAAgABsAAAABAA8AAAAhABsAAAABAA4AAAAfABoAAAAAAA4AAAAgABoAAAABAA4AAAAfABIAAAAAAA0AAAAfABMAAAAAAA0AAAAfABQAAAAAAA0AAAAfABUAAAAAAA0AAAAfABYAAAAAAA0AAAAfABcAAAAAAA0AAAAfABgAAAAAAA0AAAAfABkAAAAAAA0AAAAmAB8AAAAAAA0AAAApAB8AAAAEAA0AAAApACAAAAADAA8AAAAmACAAAAABAA8AAAAnACAAAAACAA8AAAAoACAAAAACAA8AAAAfABEAAAAAAA0AAAAfABAAAAAAAA0AAAAfAA8AAAAAAAwAAAAgAA8AAAABAAwAAAAhAA4AAAABAAwAAAAiAA0AAAABAAwAAAAjAAwAAAABAAwAAAAkAAsAAAACAAsAAAAlAAsAAAACAAsAAAAmAAsAAAACAAsAAAAnAAsAAAACAAsAAAAoAAsAAAACAAsAAAApAAsAAAACAAsAAAAqAAsAAAACAAsAAAArAAsAAAACAAsAAAAsAAwAAAADAAwAAAAtAA0AAAADAAwAAAAuAA4AAAADAAwAAAAvAA8AAAADAAwAAAAwABAAAAAEAA0AAAAwABEAAAAEAA0AAAAwAA8AAAADAAsAAAAvAA4AAAADAAsAAAAuAA0AAAADAAsAAAAtAAwAAAADAAsAAAAsAAsAAAADAAsAAAAjAAsAAAABAAsAAAAiAAwAAAABAAsAAAAhAA0AAAABAAsAAAAiABMAAAAqAAUAAAAiABUAAAAqAAUAAAAiABcAAAAqAAUAAAAiABkAAAAqAAUAAAAkABQAAAAqAAUAAAAkABYAAAAqAAUAAAAkABgAAAAqAAUAAAAkABEAAAAoAAUAAAAmABEAAAAoAAUAAAApABEAAAAoAAUAAAArABEAAAAoAAUAAAAmABMAAAAoAAUAAAApABMAAAAoAAUAAAAkABsAAAArAAUAAAAmABsAAAArAAUAAAApABsAAAArAAUAAAArABsAAAArAAUAAAAmABkAAAArAAUAAAApABkAAAArAAUAAAArABQAAAApAAUAAAArABYAAAApAAUAAAArABgAAAApAAUAAAAtABkAAAApAAUAAAAtABcAAAApAAUAAAAtABUAAAApAAUAAAAtABMAAAApAAUAAAAgAA4AAAABAAsAAAAoABUABwABAAEAAAAlAAwAAAAKAAgAAAAlAA0AAAAKAAkAAAAmAAwAAAALAAgAAAAmAA0AAAALAAkAAAApAA0AAAANAAoAAAApAA4AAAANAAsAAAAqAAwAAAAcAA0AAAAqAA0AAAAcAA4AAAA=")
 tile_set = SubResource("TileSet_xslor")
-
-[node name="Porta" parent="decoracao" instance=ExtResource("5_mvnb1")]
-position = Vector2(640, 500)
-cena_destino_path = "res://Scenes/planetario.tscn"
-nome_ponto_entrada = "entrada_planetario"
-interior = true
 
 [node name="Player" parent="decoracao" instance=ExtResource("3_mvnb1")]
 position = Vector2(639, 484)
@@ -1847,3 +1845,19 @@ portrait_texture = ExtResource("12_iucdi")
 
 [node name="saida_planetario" type="Marker2D" parent="."]
 position = Vector2(640, 488)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="NotificationPanel" parent="HUD" instance=ExtResource("13_iu621")]
+
+[node name="GlossaryButton" parent="HUD" instance=ExtResource("14_jomcx")]
+
+[node name="GlossaryBook" parent="HUD" instance=ExtResource("15_6ced5")]
+
+[node name="Objetivos" parent="HUD" instance=ExtResource("16_oa0l6")]
+
+[node name="Porta" parent="." instance=ExtResource("5_mvnb1")]
+position = Vector2(640, 500)
+cena_destino_path = "res://Levels/planetario.tscn"
+nome_ponto_entrada = "entrada_planetario"
+interior = true
