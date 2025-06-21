@@ -4,11 +4,12 @@ extends CanvasLayer
 @onready var text_label = $Panel/HBoxContainer/MarginContainer2/VBoxContainer/TextLabel
 @onready var portrait = $Panel/HBoxContainer/MarginContainer/Portrait
 @onready var choice_container = $Panel/OptionsCenterContainer/ChoiceContainer
-@onready var your_answer = $Panel/YourAnswerCenterContainer/YourAnswerContainer/YourAnswer
-@onready var translation_label = $Panel/YourAnswerCenterContainer/YourAnswerContainer/Translation
+@onready var your_answer = $Panel/YourAnswerCenterContainer/MarginContainer/MarginContainer/YourAnswerContainer/YourAnswer
+@onready var translation_label = $Panel/YourAnswerCenterContainer/MarginContainer/MarginContainer/YourAnswerContainer/Translation
 @onready var choice_button_1 = $Panel/OptionsCenterContainer/ChoiceContainer/Option1
 @onready var choice_button_2 = $Panel/OptionsCenterContainer/ChoiceContainer/Option2
 @onready var choice_button_3 = $Panel/OptionsCenterContainer/ChoiceContainer/Option3
+@onready var your_answer_container = $Panel/YourAnswerCenterContainer
 
 var dialog_data: DialogData
 var current_index := 0
@@ -40,8 +41,8 @@ func start(dialog: DialogData, npc: NPC):
 	show_line()
 
 func show_line():
-	translation_label.visible = false
-	your_answer.visible = false
+	
+	your_answer_container.visible = false
 	choice_container.visible = false
 	text_label.text = ""
 	
@@ -167,10 +168,9 @@ func _on_choice_selected(choice: ChoiceOption):
 	is_typing = false
 
 	your_answer.text = "Sua resposta: " + choice.text_english
-	your_answer.visible = true
-
 	translation_label.text = "Tradução: " + choice.text_portuguese
-	translation_label.visible = true
+
+	your_answer_container.visible = true
 
 	# Mostra resposta do NPC
 	speaker_label.text = speaker_owner.npc_name
