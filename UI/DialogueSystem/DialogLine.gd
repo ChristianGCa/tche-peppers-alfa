@@ -1,10 +1,9 @@
-extends Resource
 class_name DialogLine
+extends Resource
 
 enum SpeakerType { NPC, PLAYER }
 
 @export var speaker_type: SpeakerType = SpeakerType.NPC
-
 @export var text: String
 @export var choices: Array[ChoiceOption] = []
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx8mobmc7mxvl"]
+[gd_scene load_steps=6 format=3 uid="uid://cx8mobmc7mxvl"]
 
-[ext_resource type="Texture2D" uid="uid://do5uusrjvei3d" path="res://Assets/Interface/Buttons/fundo_dialogo.png" id="1_0lofm"]
+[ext_resource type="Texture2D" uid="uid://do5uusrjvei3d" path="res://Assets/Interface/fundo_dialogo.png" id="1_0lofm"]
 [ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="1_ohsd8"]
-[ext_resource type="Script" uid="uid://ug7c6a5wecw7" path="res://HUD/ObjectivesSystem/Objectives.gd" id="1_r7irx"]
+[ext_resource type="Script" uid="uid://ug7c6a5wecw7" path="res://UI/ObjectivesSystem/Objectives.gd" id="1_r7irx"]
+[ext_resource type="Texture2D" uid="uid://cualf5qf0xj4q" path="res://Assets/Interface/notification.png" id="3_13kq6"]
 
 [sub_resource type="Theme" id="Theme_8ahh7"]
 Label/font_sizes/font_size = 28
@@ -11,20 +12,38 @@ Label/fonts/font = ExtResource("1_ohsd8")
 [node name="Objetivos" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 324.0
+offset_bottom = 127.0
 theme = SubResource("Theme_8ahh7")
 script = ExtResource("1_r7irx")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 324.0
+offset_bottom = 37.0
+texture = ExtResource("3_13kq6")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 33.0
+text = "OBJETIVOS"
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+offset_top = 37.0
 offset_right = 324.0
-offset_bottom = 90.0
+offset_bottom = 88.0
 theme_override_constants/margin_left = 0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
 texture = ExtResource("1_0lofm")
+expand_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -43,9 +62,5 @@ theme_override_constants/separation = 4
 [node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "asasdasdasdaasdasdas"
-
-[node name="Label2" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "asasdasdasda"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

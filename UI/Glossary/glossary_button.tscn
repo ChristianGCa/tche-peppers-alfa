@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk2eb0gwgtoko"]
+
+[ext_resource type="Texture2D" uid="uid://be3pprupok44w" path="res://Assets/Interface/glossary_book.png" id="1_s1t8x"]
+[ext_resource type="Script" uid="uid://cvo6dejow8g8p" path="res://UI/Glossary/glossary_button.gd" id="2_vjrtj"]
+[ext_resource type="Texture2D" uid="uid://dnkmrnwigdja2" path="res://Assets/Interface/new.png" id="3_sanwk"]
+
+[node name="GlossaryButton" type="TextureButton"]
+offset_right = 65.0
+offset_bottom = 78.0
+texture_normal = ExtResource("1_s1t8x")
+texture_pressed = ExtResource("1_s1t8x")
+texture_hover = ExtResource("1_s1t8x")
+stretch_mode = 0
+script = ExtResource("2_vjrtj")
+
+[node name="NewTermIndicator" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 1.0
+offset_right = 84.0
+offset_bottom = 41.0
+texture = ExtResource("3_sanwk")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

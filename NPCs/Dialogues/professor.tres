@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogData" load_steps=7 format=3 uid="uid://badr6t7n6jlrq"]
 
-[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://HUD/DialogueSystem/DialogLine.gd" id="1_vh7vo"]
+[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://UI/DialogueSystem/DialogLine.gd" id="1_vh7vo"]
 [ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Characters/Portraits/npc_01.png" id="2_e0kei"]
 [ext_resource type="Texture2D" uid="uid://dn5ji02a0a1dx" path="res://Assets/Characters/Portraits/player.png" id="3_u1xgu"]
-[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://HUD/DialogueSystem/DialogData.gd" id="4_yl2am"]
+[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://UI/DialogueSystem/DialogData.gd" id="4_yl2am"]
 
 [sub_resource type="Resource" id="Resource_few2m"]
 script = ExtResource("1_vh7vo")

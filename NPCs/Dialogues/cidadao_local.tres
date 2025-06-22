@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="DialogData" load_steps=13 format=3 uid="uid://5woccpuj5swn"]
 
-[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://HUD/DialogueSystem/DialogLine.gd" id="1_dl8gl"]
-[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://HUD/DialogueSystem/DialogData.gd" id="2_27lt5"]
-[ext_resource type="Script" uid="uid://cry6b72kahevs" path="res://HUD/DialogueSystem/ChoiceOption.gd" id="2_g0dtq"]
+[ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://UI/DialogueSystem/DialogLine.gd" id="1_dl8gl"]
+[ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://UI/DialogueSystem/DialogData.gd" id="2_27lt5"]
+[ext_resource type="Script" uid="uid://cry6b72kahevs" path="res://UI/DialogueSystem/ChoiceOption.gd" id="2_g0dtq"]
 [ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Characters/Portraits/npc_01.png" id="4_g0dtq"]
 
 [sub_resource type="Resource" id="Resource_kv5xb"]
 script = ExtResource("1_dl8gl")
 speaker_type = 0
-text = "Buenas tchê. Precisa de ajuda?"
+text = "Bah, [gloss:TRI|Awesome] esse chimarrão!"
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_thko1"]
 script = ExtResource("1_dl8gl")
 speaker_type = 0
-text = "Oigatê guri! Claro que sim. Mas me diga, tu não parece ser brasileiro."
+text = "[gloss:Oigatê|Wow] guri! Claro que sim. Mas me diga, tu não parece ser brasileiro."
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false

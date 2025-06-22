@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8al8ppb6vohr"]
+[gd_scene load_steps=13 format=3 uid="uid://c8al8ppb6vohr"]
 
 [ext_resource type="Script" uid="uid://bf0avue3n1mgs" path="res://NPCs/Scene/NPC.gd" id="1_10bwf"]
 [ext_resource type="SpriteFrames" uid="uid://3l22jwmigeha" path="res://NPCs/SpriteFrames/cidadao_local.tres" id="2_d33j4"]
-[ext_resource type="Texture2D" uid="uid://uuvopcvmdgni" path="res://Assets/Sprites/dialog.png" id="3_yn0we"]
-[ext_resource type="Texture2D" uid="uid://claaw1cvhy8yt" path="res://Assets/Sprites/dialog1.png" id="4_3mprk"]
+[ext_resource type="Texture2D" uid="uid://cgk7we62wiah2" path="res://Assets/Interface/dialog_02.png" id="3_lcp06"]
+[ext_resource type="Texture2D" uid="uid://cvs0ijoj62lho" path="res://Assets/Interface/dialog_01.png" id="4_psplr"]
+[ext_resource type="Texture2D" uid="uid://cpa2oeaykdow1" path="res://Assets/Interface/interaction_01.png" id="5_lcp06"]
+[ext_resource type="Texture2D" uid="uid://c0gqend51fk3g" path="res://Assets/Interface/interaction_02.png" id="6_psplr"]
+[ext_resource type="Texture2D" uid="uid://b4qonqk1qp5tr" path="res://Assets/Interface/interaction_03.png" id="7_4o6lx"]
+[ext_resource type="Texture2D" uid="uid://bd64uxu35yreg" path="res://Assets/Interface/interaction_04.png" id="8_12a5x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_klot4"]
 radius = 19.0
@@ -15,14 +19,34 @@ radius = 6.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_yn0we")
+"texture": ExtResource("3_lcp06")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_3mprk")
+"texture": ExtResource("4_psplr")
 }],
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcp06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lcp06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_psplr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4o6lx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_12a5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
@@ -50,6 +74,11 @@ position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_ssy4p")
 
 [node name="DialogBaloon" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -39)
+position = Vector2(0, -47)
 sprite_frames = SubResource("SpriteFrames_pu38x")
 frame_progress = 0.734921
+
+[node name="Interaction" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -41)
+sprite_frames = SubResource("SpriteFrames_lcp06")
+autoplay = "default"

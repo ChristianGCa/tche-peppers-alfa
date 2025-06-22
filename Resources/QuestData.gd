@@ -19,3 +19,10 @@ func try_progress(inventory: Array[String]) -> bool:
 		inventory.erase(item_required)
 		return true
 	return false
+
+signal quest_state_changed(new_state)
+
+func set_state(new_state: QuestState):
+	if state != new_state:
+		state = new_state
+		emit_signal("quest_state_changed", state)

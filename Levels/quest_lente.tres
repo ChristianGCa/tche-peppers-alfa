@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=2 format=3 uid="uid://yddcvjhhx1qd"]
+
+[ext_resource type="Script" uid="uid://bl48iy1o2n0sf" path="res://Resources/QuestData.gd" id="1_q6e0l"]
+
+[resource]
+script = ExtResource("1_q6e0l")
+item_required = "lente"
+objective_text = "AAi"
+state = 0
+metadata/_custom_type_script = "uid://bl48iy1o2n0sf"

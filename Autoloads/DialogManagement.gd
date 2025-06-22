@@ -1,7 +1,7 @@
 extends Node
 class_name DialogManager
 
-var dialog_box_scene := preload("res://HUD/DialogueSystem/dialog_box.tscn")
+var dialog_box_scene := preload("res://UI/DialogueSystem/dialog_box.tscn")
 var dialog_box_instance: Node = null
 
 func _ready():
