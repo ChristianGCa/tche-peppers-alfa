@@ -3818,6 +3818,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_kx1ov"]
@@ -3846,6 +3848,8 @@ choices = Array[ExtResource("7_jkjtw")]([SubResource("Resource_kx1ov"), SubResou
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_ctpde"]
@@ -3856,6 +3860,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_1pl6h"]
@@ -3866,6 +3872,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_b25yl"]
@@ -3954,6 +3962,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_3ssd7"]
@@ -3969,6 +3979,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_2sm4p"]
@@ -3984,6 +3996,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_gkgo8"]
@@ -4062,7 +4076,7 @@ position = Vector2(343, 656)
 position = Vector2(379, 418)
 
 [node name="arvore_01-2" parent="decoracoes" instance=ExtResource("13_ohfrl")]
-position = Vector2(1105, 438)
+position = Vector2(1095, 393)
 
 [node name="arvore_02-1" parent="decoracoes" instance=ExtResource("14_1xr5p")]
 position = Vector2(873, 426)

@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://djfynmn8jpl0l"]
+
+[ext_resource type="Script" uid="uid://rpclifqw21sc" path="res://minigame.gd" id="1_80ohy"]
+[ext_resource type="Theme" uid="uid://dxnlppmy2wqak" path="res://Themes/minigame_theme.tres" id="1_auvxj"]
+[ext_resource type="Texture2D" uid="uid://4lx0tysrrbci" path="res://Minigame/fundo_minigame.png" id="2_7llvh"]
+
+[node name="Minigame" type="CanvasLayer"]
+script = ExtResource("1_80ohy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 385.0
+offset_top = 197.0
+offset_right = 784.0
+offset_bottom = 461.0
+theme = ExtResource("1_auvxj")
+texture = ExtResource("2_7llvh")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 386.0
+offset_bottom = 251.0
+
+[node name="LabelPhrase" type="RichTextLabel" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "English phraseasdaasdasdasdasdas"
+scroll_active = false
+
+[node name="LabelTranslation" type="RichTextLabel" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "Translation phrase"
+scroll_active = false
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "option 1"
+
+[node name="Button2" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "option 2"
+
+[node name="Button3" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "option3"

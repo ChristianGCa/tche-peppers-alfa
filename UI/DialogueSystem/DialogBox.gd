@@ -16,7 +16,7 @@ var current_index := 0
 var is_typing := false
 var waiting_for_retry := false
 var waiting_for_choice_result := false
-var current_choices: Array[ChoiceOption] = []
+var current_choices: Array = []
 var full_text := ""
 var char_index := 0
 var speaker_owner: NPC = null
@@ -41,11 +41,9 @@ func start(dialog: DialogData, npc: NPC):
 	show_line()
 
 func show_line():
-	
 	your_answer_container.visible = false
 	choice_container.visible = false
 	text_label.text = ""
-	
 
 	if current_index >= dialog_data.lines.size():
 		hide()
@@ -53,26 +51,69 @@ func show_line():
 		return
 
 	var line: DialogLine = dialog_data.lines[current_index]
+
+	# Se a linha inicia minigame, pausa diálogo e inicia o minigame
+	if line.triggers_minigame:
+		hide()
+		_start_minigame_from_line(line)
+		return
+
+	# Processa objetivo se houver
 	handle_objective(line)
 
 	match line.speaker_type:
-		DialogLine.SpeakerType.NPC:
+		0: # NPC
 			speaker_label.text = speaker_owner.npc_name
 			portrait.texture = speaker_owner.portrait_texture
-		DialogLine.SpeakerType.PLAYER:
+		1: # PLAYER
 			speaker_label.text = GameState.player_name
 			portrait.texture = GameState.player_portrait
 
-	# 🔒 Verificação antecipada de escolhas
 	if line.choices.size() > 0:
 		is_typing = false
 		full_text = ""
-		text_label.text = ""  # Garante que o texto desapareça antes
+		text_label.text = ""
 		show_choices(line.choices)
 	else:
 		await type_text(line.text)
 
-func handle_objective(line: DialogLine):
+func _start_minigame_from_line(line: DialogLine) -> void:
+	var minigame_scene = preload("res://Minigame/minigame.tscn")
+	var minigame = minigame_scene.instantiate()
+	get_tree().get_root().add_child(minigame)
+
+	var json_data = _load_json_data(line.minigame_json_path)
+	if json_data:
+		minigame.set_data_from_dict(json_data)
+		minigame.finished.connect(_on_minigame_finished_continue_dialog)
+	else:
+		push_error("JSON não pôde ser carregado da linha: " + line.minigame_json_path)
+
+func _on_minigame_finished_continue_dialog() -> void:
+	show()
+	current_index += 1
+	show_line()
+
+func _load_json_data(path: String) -> Dictionary:
+	var file = FileAccess.open(path, FileAccess.READ)
+	if file:
+		var content = file.get_as_text()
+		# JSON.parse_string() retorna o valor parseado diretamente, ou null em caso de erro.
+		var parsed_data = JSON.parse_string(content)
+
+		# Verifica se o parsing foi bem-sucedido e se o resultado é um dicionário.
+		if parsed_data == null:
+			push_error("JSON inválido ou mal formatado em: " + path)
+			return {}
+		elif typeof(parsed_data) == TYPE_DICTIONARY:
+			return parsed_data
+		else:
+			push_error("JSON em: " + path + " não retornou um dicionário.")
+	else:
+		push_error("Erro ao abrir arquivo JSON em: " + path)
+	return {}
+
+func handle_objective(line: DialogLine) -> void:
 	if line.creates_objective:
 		ObjectiveManagement.add_objective(line.objective_text)
 	elif line.completes_objective:
@@ -200,8 +241,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if waiting_for_retry:
 		waiting_for_retry = false
-		translation_label.visible = false
-		your_answer.visible = false
+		your_answer_container.visible = false
 		show_choices(dialog_data.lines[current_index].choices)
 		return
 

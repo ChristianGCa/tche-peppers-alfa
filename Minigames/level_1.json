@@ -1,0 +1,26 @@
+{
+	"phrases": [
+		{
+			"english": "The cat sat on the ___.",
+			"portuguese": "O gato sentou no ___."
+		},
+		{
+			"english": "She likes to ___ books.",
+			"portuguese": "Ela gosta de ___ livros."
+		},
+		{
+			"english": "What is the capital of ___?",
+			"portuguese": "Qual é a capital do ___?"
+		}
+	],
+	"options": [
+		["mat", "hat", "dog"],
+		["read", "sing", "eat"],
+		["Brazil", "France", "Japan"]
+	],
+	"correct_answers": [
+		"mat",
+		"read",
+		"Brazil"
+	]
+}

@@ -1787,6 +1787,8 @@ choices = Array[ExtResource("9_rdkfc")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = true
+minigame_json_path = "res://Minigames/level_1.json"
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_sunul"]
@@ -1813,6 +1815,8 @@ choices = Array[ExtResource("9_rdkfc")]([SubResource("Resource_sunul"), SubResou
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_4ul5r"]

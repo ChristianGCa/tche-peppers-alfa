@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dxnlppmy2wqak"]
+
+[ext_resource type="Texture2D" uid="uid://crcwoy0538cj5" path="res://Assets/Interface/minigame_button_hover.png" id="1_gwdp3"]
+[ext_resource type="Texture2D" uid="uid://8osornynnwsh" path="res://Assets/Interface/minigame_button_normal.png" id="2_irqgh"]
+[ext_resource type="Texture2D" uid="uid://2k6uaxta5dk3" path="res://Assets/Interface/minigame_button_pressed.png" id="3_yad0q"]
+[ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="4_ggcr4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxj54"]
+texture = ExtResource("1_gwdp3")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ow0r0"]
+texture = ExtResource("2_irqgh")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4y78g"]
+texture = ExtResource("3_yad0q")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_bxj54")
+Button/styles/normal = SubResource("StyleBoxTexture_ow0r0")
+Button/styles/pressed = SubResource("StyleBoxTexture_4y78g")
+RichTextLabel/font_sizes/normal_font_size = 26
+RichTextLabel/fonts/normal_font = ExtResource("4_ggcr4")

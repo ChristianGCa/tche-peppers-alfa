@@ -3110,6 +3110,8 @@ choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = true
 completes_objective = false
 objective_text = "Busque agua"
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_fts1d"]
@@ -3120,6 +3122,8 @@ choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = true
 objective_text = "Busque agua"
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_7c2cw"]
@@ -3130,6 +3134,8 @@ choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_mb2i3"]
@@ -3167,6 +3173,8 @@ choices = Array[ExtResource("10_0c5fv")]([SubResource("Resource_mb2i3"), SubReso
 creates_objective = true
 completes_objective = false
 objective_text = "Procure a lente reserva do telescópio e entregue ao funcionário"
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_60q3a"]
@@ -3182,6 +3190,8 @@ choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_pdof0"]
@@ -3197,6 +3207,8 @@ choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = true
 objective_text = "Procure a lente reserva do telescópio e entregue ao funcionário"
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_rhxjw"]
