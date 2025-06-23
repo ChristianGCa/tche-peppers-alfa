@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b12o0g5gfun3y" path="res://SceneObjects/FadeOnOverLap.tscn" id="16_y2xe8"]
 [ext_resource type="Texture2D" uid="uid://bm7exabn0b8od" path="res://Assets/Sprites/Estatua padre.png" id="17_labhs"]
 [ext_resource type="Texture2D" uid="uid://dw4htfgpcxxu3" path="res://Assets/Sprites/vehicles/Red_SUV_CLEAN_All_012.png" id="18_02hah"]
-[ext_resource type="Texture2D" uid="uid://biuxawijjcmdl" path="res://Assets/Sprites/catedral_sprite.png" id="19_71u8h"]
+[ext_resource type="Texture2D" uid="uid://biuxawijjcmdl" path="res://Assets/Sprites/Catedral/catedral_sprite.png" id="19_71u8h"]
 [ext_resource type="Texture2D" uid="uid://yaucqxkebs5" path="res://Assets/Sprites/Taxi.png" id="20_f0qm4"]
 [ext_resource type="Texture2D" uid="uid://blsy6re0lv3oa" path="res://Assets/Sprites/Parquimetro.png" id="21_rxope"]
 [ext_resource type="PackedScene" uid="uid://ctosmvt47xi2o" path="res://SceneObjects/porta.tscn" id="22_8sivm"]

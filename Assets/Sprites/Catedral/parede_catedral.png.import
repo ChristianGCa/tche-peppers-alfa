@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biuxawijjcmdl"
-path="res://.godot/imported/catedral_sprite.png-b641bb0ed5e1d9029490b488c94f492f.ctex"
+uid="uid://b8sqier0cfdqf"
+path="res://.godot/imported/parede_catedral.png-50d35baa649bd1854d854e4327906386.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/catedral_sprite.png"
-dest_files=["res://.godot/imported/catedral_sprite.png-b641bb0ed5e1d9029490b488c94f492f.ctex"]
+source_file="res://Assets/Sprites/Catedral/parede_catedral.png"
+dest_files=["res://.godot/imported/parede_catedral.png-50d35baa649bd1854d854e4327906386.ctex"]
 
 [params]
 
