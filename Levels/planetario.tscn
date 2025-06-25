@@ -3090,7 +3090,7 @@ texture = ExtResource("1_qx4g2")
 [sub_resource type="TileSet" id="TileSet_06sga"]
 sources/0 = SubResource("TileSetAtlasSource_sqsfq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csdg6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wnxbn"]
 texture = ExtResource("3_onvjq")
 1:4/size_in_atlas = Vector2i(23, 16)
 1:4/0 = 0
@@ -3099,7 +3099,7 @@ texture = ExtResource("3_onvjq")
 
 [sub_resource type="TileSet" id="TileSet_wwh5e"]
 physics_layer_0/collision_layer = 1
-sources/4 = SubResource("TileSetAtlasSource_csdg6")
+sources/4 = SubResource("TileSetAtlasSource_wnxbn")
 
 [sub_resource type="Resource" id="Resource_0bkgs"]
 script = ExtResource("9_t33ux")
