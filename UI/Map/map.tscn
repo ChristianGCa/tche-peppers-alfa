@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://lj3m72hmrxb6"]
+
+[ext_resource type="Texture2D" uid="uid://b46dfygqd70n5" path="res://UI/Map/mapa_santa_maria.png" id="1_aykfp"]
+[ext_resource type="Script" uid="uid://ct2ocam014g2p" path="res://UI/Map/map.gd" id="1_hkkqg"]
+[ext_resource type="Texture2D" uid="uid://lj8p8tblgey" path="res://UI/Map/planetario_miniatura.png" id="2_4oaai"]
+[ext_resource type="Texture2D" uid="uid://c3qnamsmqeqk1" path="res://UI/Map/planetario_miniatura_pressed.png" id="3_hkkqg"]
+[ext_resource type="Texture2D" uid="uid://dwv46mbot67fy" path="res://UI/Map/planetario_miniatura_hover.png" id="4_4fsbn"]
+[ext_resource type="Texture2D" uid="uid://bwldi8pcxevbv" path="res://UI/Map/catedral_miniatura.png" id="5_xgwbs"]
+[ext_resource type="Texture2D" uid="uid://betl2n8dsbcg6" path="res://UI/Map/catedral_miniatura_pressed.png" id="6_783jd"]
+[ext_resource type="Texture2D" uid="uid://cdmfh02rdf0qh" path="res://UI/Map/catedral_miniatura_hover.png" id="7_ysqor"]
+[ext_resource type="Texture2D" uid="uid://yk661l3w82ka" path="res://UI/Map/cadeado.png" id="8_hfjv1"]
+[ext_resource type="Texture2D" uid="uid://bh4i15utdxovu" path="res://UI/Map/base_miniatura.png" id="9_civn7"]
+[ext_resource type="Texture2D" uid="uid://bl6kdxt4u8bly" path="res://UI/Map/base_miniatura_pressed.png" id="10_05n6e"]
+[ext_resource type="Texture2D" uid="uid://djbq6k0mkfyr8" path="res://UI/Map/base_miniatura_hover.png" id="11_yshux"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_hkkqg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640.055, 359.75)
+scale = Vector2(0.666609, 0.66713)
+texture = ExtResource("1_aykfp")
+
+[node name="planetarioButton" type="TextureButton" parent="."]
+offset_left = 29.0
+offset_top = 196.0
+offset_right = 229.0
+offset_bottom = 396.0
+texture_normal = ExtResource("2_4oaai")
+texture_pressed = ExtResource("3_hkkqg")
+texture_hover = ExtResource("4_4fsbn")
+
+[node name="catedralButton" type="TextureButton" parent="."]
+offset_left = 922.0
+offset_top = 48.0
+offset_right = 1122.0
+offset_bottom = 248.0
+texture_normal = ExtResource("5_xgwbs")
+texture_pressed = ExtResource("6_783jd")
+texture_hover = ExtResource("7_ysqor")
+
+[node name="cadeado" type="TextureRect" parent="catedralButton"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 58.0
+offset_right = 129.0
+offset_bottom = 123.0
+texture = ExtResource("8_hfjv1")
+
+[node name="baseAereaButton" type="TextureButton" parent="."]
+offset_left = 979.0
+offset_top = 444.0
+offset_right = 1179.0
+offset_bottom = 644.0
+texture_normal = ExtResource("9_civn7")
+texture_pressed = ExtResource("10_05n6e")
+texture_hover = ExtResource("11_yshux")
+
+[node name="cadeado" type="TextureRect" parent="baseAereaButton"]
+offset_left = 64.0
+offset_top = 62.0
+offset_right = 129.0
+offset_bottom = 127.0
+texture = ExtResource("8_hfjv1")
+
+[node name="Voltar" type="Button" parent="."]
+offset_left = 59.0
+offset_top = 638.0
+offset_right = 217.0
+offset_bottom = 669.0
+text = "Voltar para o menu"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 55.0
+offset_top = 37.0
+offset_right = 168.0
+offset_bottom = 60.0
+text = "Escolha a fase:"
+
+[connection signal="pressed" from="planetarioButton" to="." method="_on_planetario_button_pressed"]
+[connection signal="pressed" from="catedralButton" to="." method="_on_catedral_button_pressed"]
+[connection signal="pressed" from="baseAereaButton" to="." method="_on_base_aerea_button_pressed"]

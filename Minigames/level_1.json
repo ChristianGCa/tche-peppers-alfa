@@ -11,16 +11,21 @@
 		{
 			"english": "What is the capital of ___?",
 			"portuguese": "Qual é a capital do ___?"
-		}
+		},
+		{	"english": "Gabriel is very ___ !",
+			"portuguese": "Gabriel é muito bonito!"
+			}
 	],
 	"options": [
 		["mat", "hat", "dog"],
 		["read", "sing", "eat"],
-		["Brazil", "France", "Japan"]
+		["Brazil", "France", "Japan"],
+		["Beautiful", "Cartucho", "Motoniveladora John Deere 620G ano 2022 com 6920 horas"]
 	],
 	"correct_answers": [
 		"mat",
 		"read",
-		"Brazil"
+		"Brazil",
+		"Beautiful"
 	]
 }

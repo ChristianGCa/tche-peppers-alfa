@@ -1846,6 +1846,7 @@ sprite_frames = ExtResource("8_ht2pt")
 dialog_flag_name = "professor"
 npc_name = "Professor"
 portrait_texture = ExtResource("12_iucdi")
+level_id = "planetario"
 
 [node name="saida_planetario" type="Marker2D" parent="."]
 position = Vector2(640, 488)

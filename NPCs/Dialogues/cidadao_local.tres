@@ -13,6 +13,8 @@ choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_cb0v7"]
@@ -23,6 +25,8 @@ choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_thko1"]
@@ -33,6 +37,8 @@ choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_wt5kj"]
@@ -70,6 +76,8 @@ choices = Array[ExtResource("2_g0dtq")]([SubResource("Resource_wt5kj"), SubResou
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_awork"]
@@ -80,6 +88,8 @@ choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [resource]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b46dfygqd70n5"
-path="res://.godot/imported/mapa_santa_maria.png-659d79f520bdb0f4d061b519c3c0cf2a.ctex"
+uid="uid://djbq6k0mkfyr8"
+path="res://.godot/imported/base_miniatura_hover.png-6b9967bb31dd945cff7cd3bd8ec4f1d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/mapa_santa_maria.png"
-dest_files=["res://.godot/imported/mapa_santa_maria.png-659d79f520bdb0f4d061b519c3c0cf2a.ctex"]
+source_file="res://UI/Map/base_miniatura_hover.png"
+dest_files=["res://.godot/imported/base_miniatura_hover.png-6b9967bb31dd945cff7cd3bd8ec4f1d3.ctex"]
 
 [params]
 

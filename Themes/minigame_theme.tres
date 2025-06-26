@@ -30,5 +30,5 @@ texture_margin_bottom = 5.0
 Button/styles/hover = SubResource("StyleBoxTexture_bxj54")
 Button/styles/normal = SubResource("StyleBoxTexture_ow0r0")
 Button/styles/pressed = SubResource("StyleBoxTexture_4y78g")
-RichTextLabel/font_sizes/normal_font_size = 26
+RichTextLabel/font_sizes/normal_font_size = 32
 RichTextLabel/fonts/normal_font = ExtResource("4_ggcr4")

@@ -1672,7 +1672,7 @@ tile_map_data = PackedByteArray("AAAkABIAAAAAAAEAAAAkABMAAAAAAAIAAAAkABQAAAAAAAM
 tile_set = SubResource("TileSet_jqfh2")
 
 [node name="Player" parent="decoracoes" instance=ExtResource("3_jwv41")]
-position = Vector2(606, 119)
+position = Vector2(641, 642)
 
 [node name="InteriorCatedral" type="Sprite2D" parent="."]
 position = Vector2(639, 116)

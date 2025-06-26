@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://bmx8emouf4xbl"]
+[gd_scene load_steps=59 format=4 uid="uid://bmx8emouf4xbl"]
 
 [ext_resource type="Script" uid="uid://dcdvqjjyvsh4r" path="res://Levels/planetario.gd" id="1_anyxf"]
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_qx4g2"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Characters/Portraits/npc_01.png" id="22_ogmoo"]
 [ext_resource type="PackedScene" uid="uid://cx8mobmc7mxvl" path="res://UI/ObjectivesSystem/Objectives.tscn" id="23_60q3a"]
 [ext_resource type="Texture2D" uid="uid://cicv1lb425cea" path="res://Assets/Interface/close_pressed.png" id="24_nxnxp"]
+[ext_resource type="Texture2D" uid="uid://bt51y0t4kiup6" path="res://Assets/Sprites/relogio_sol.png" id="25_i8w03"]
 [ext_resource type="PackedScene" uid="uid://cs6fofvxcfshf" path="res://UI/Glossary/glossary_book.tscn" id="27_d7ovn"]
 [ext_resource type="PackedScene" uid="uid://bk2eb0gwgtoko" path="res://UI/Glossary/glossary_button.tscn" id="28_21v0f"]
 [ext_resource type="Texture2D" uid="uid://cu7o1lxychlhy" path="res://Assets/Interface/glossary_book_hover.png" id="30_wnxbn"]
@@ -3253,7 +3254,7 @@ position = Vector2(706, 288)
 cena_destino_path = "res://Levels/interior_planetario.tscn"
 nome_ponto_entrada = "entrada_planetario"
 animacoes = ExtResource("3_8oc8m")
-flag_requerida = "falou_com_funcionario"
+flags_requeridas = Array[String](["falou_com_cidadao_local", "falou_com_funcionario"])
 
 [node name="grama" type="TileMapLayer" parent="."]
 position = Vector2(-14, 1)
@@ -3361,6 +3362,22 @@ shape = SubResource("CircleShape2D_iqdcp")
 
 [node name="Sprite2D" type="Sprite2D" parent="decoracoes/lente"]
 texture = ExtResource("24_nxnxp")
+
+[node name="Relogio_sol" type="StaticBody2D" parent="decoracoes"]
+y_sort_enabled = true
+position = Vector2(14, -1)
+
+[node name="RelogioSol" type="Sprite2D" parent="decoracoes/Relogio_sol"]
+y_sort_enabled = true
+position = Vector2(1075, 444)
+scale = Vector2(0.34875, 0.34875)
+texture = ExtResource("25_i8w03")
+offset = Vector2(-3.22583, -54.8387)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="decoracoes/Relogio_sol"]
+position = Vector2(1080.49, 436.625)
+scale = Vector2(0.518024, 0.475961)
+polygon = PackedVector2Array(-75.7578, 27.2727, -12.1216, 0, 21.2119, 0, 42.4238, 6.06055, 54.5452, 39.3939, -15.1519, 36.3636)
 
 [node name="entrada_planetario" type="Marker2D" parent="."]
 position = Vector2(708, 312)
