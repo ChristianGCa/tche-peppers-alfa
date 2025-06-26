@@ -38,20 +38,24 @@ bbcode_enabled = true
 text = "Translation phrase"
 scroll_active = false
 
-[node name="CenterContainer" type="CenterContainer" parent="TextureRect/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect"]
+layout_mode = 2
+offset_left = 60.0
+offset_top = 203.0
+offset_right = 991.0
+offset_bottom = 236.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/CenterContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer/CenterContainer"]
-layout_mode = 2
-
-[node name="Button1" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Button1" type="Button" parent="TextureRect/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "option 1"
 
-[node name="Button2" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Button2" type="Button" parent="TextureRect/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "option 2"
 
-[node name="Button3" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Button3" type="Button" parent="TextureRect/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "option3"

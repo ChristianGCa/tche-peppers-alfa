@@ -136,11 +136,19 @@ func refresh_dialog_icons():
 
 
 func _physics_process(delta):
+	
 	if state == STATE.WALKING:
 		process_walking()
 	else:
 		velocity = Vector2.ZERO
-		_play_animation(Vector2.ZERO) # Garante que fique parado com idle correto
+		_play_animation(Vector2.ZERO)
+
+	# 🐞 Printar flags registradas (debug)
+	if Input.is_action_just_pressed("debug_print_flags"):
+		print("📋 FLAGS REGISTRADAS:")
+		for flag in GameState.flags.keys():
+			print("- ", flag, ": ", GameState.flags[flag])
+
 
 func _on_dialogue_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("dialogue_area"):

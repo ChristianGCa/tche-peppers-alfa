@@ -3254,7 +3254,7 @@ position = Vector2(706, 288)
 cena_destino_path = "res://Levels/interior_planetario.tscn"
 nome_ponto_entrada = "entrada_planetario"
 animacoes = ExtResource("3_8oc8m")
-flags_requeridas = Array[String](["falou_com_cidadao_local", "falou_com_funcionario"])
+flags_requeridas = Array[String](["falou_com_funcionario"])
 
 [node name="grama" type="TileMapLayer" parent="."]
 position = Vector2(-14, 1)
@@ -3296,6 +3296,7 @@ sprite_frames = SubResource("SpriteFrames_n07o7")
 dialog_flag_name = "falou_com_funcionario"
 npc_name = "Funcionário"
 portrait_texture = ExtResource("16_qx2u2")
+auto_hide_after_dialogue = true
 
 [node name="CidadaoLocal" parent="decoracoes" instance=ExtResource("10_e1nq0")]
 position = Vector2(266, 596)
@@ -3304,6 +3305,8 @@ sprite_frames = ExtResource("12_sqsfq")
 dialog_flag_name = "falou_com_cidadao_local"
 npc_name = "Cidadão Local"
 portrait_texture = ExtResource("22_ogmoo")
+show_only_if_flag = true
+required_flag_to_show = "talked_to_Professor"
 
 [node name="arvore_01-1" parent="decoracoes" instance=ExtResource("5_anyxf")]
 position = Vector2(776, 402)

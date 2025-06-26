@@ -1843,7 +1843,6 @@ position = Vector2(639, 484)
 position = Vector2(637, 249)
 dialog_intro = SubResource("Resource_4ul5r")
 sprite_frames = ExtResource("8_ht2pt")
-dialog_flag_name = "professor"
 npc_name = "Professor"
 portrait_texture = ExtResource("12_iucdi")
 level_id = "planetario"

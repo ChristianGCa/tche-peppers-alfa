@@ -57,6 +57,7 @@ texture_pressed = ExtResource("10_05n6e")
 texture_hover = ExtResource("11_yshux")
 
 [node name="cadeado" type="TextureRect" parent="baseAereaButton"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 62.0
 offset_right = 129.0

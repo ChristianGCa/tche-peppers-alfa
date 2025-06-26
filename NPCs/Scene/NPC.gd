@@ -11,18 +11,45 @@ class_name NPC
 @export var portrait_texture: Texture
 @export var minigame_json_path: String = ""
 @export var has_minigame: bool = false
-@export var level_id: String = "" # Ex: "planetario", "catedral", etc.
+@export var level_id: String = ""  # Ex: "planetario", "catedral", etc.
+
+# ✅ Novos parâmetros de controle de visibilidade
+@export var auto_hide_after_dialogue: bool = false
+@export var show_only_if_flag: bool = false
+@export var required_flag_to_show: String = ""
 
 
 var minigame_started := false
 
 func _ready():
 	print("👤 NPC pronto:", npc_name)
+
+	# Ocultar se deve esperar flag específica para aparecer
+	if show_only_if_flag and required_flag_to_show != "":
+		if not GameState.get_flag(required_flag_to_show):
+			print("🙈 NPC ocultado pois falta flag:", required_flag_to_show)
+			queue_free()
+			return
+
+	# Ocultar se a flag de diálogo já foi registrada e estiver marcado para esconder depois
+	if auto_hide_after_dialogue:
+		var flag_name = _get_dialog_flag_name()
+		if GameState.get_flag(flag_name):
+			print("🙈 NPC ocultado após diálogo (flag registrada):", flag_name)
+			queue_free()
+			return
+
+	# Inicialização visual e de grupos
 	$AnimatedSprite2D.frames = sprite_frames
 	$Area2D.add_to_group("dialogue_area")
 	$Area2D.set_meta("dialog_valid", true)
 	$Area2D.set_meta("quest_npc", self)
 	$DialogBaloon.visible = false
+
+
+func _get_dialog_flag_name() -> String:
+	return dialog_flag_name if dialog_flag_name != "" else "talked_to_" + name
+
 
 func get_current_dialog() -> DialogData:
 	if quest == null:
@@ -38,18 +65,16 @@ func get_current_dialog() -> DialogData:
 
 	return dialog_intro
 
+
 func _on_dialog_finished():
 	print("💬 Diálogo finalizado com NPC:", name)
 
-	# Se tiver quest:
 	if quest != null:
-		# Se a quest já estiver concluída, seta a flag (ex: depois do minigame)
 		if quest.state == QuestData.QuestState.COMPLETED:
 			_register_flag()
 		else:
 			print("⏳ Quest ainda não foi concluída, não será criada flag ainda.")
 	else:
-		# Sem quest → seta a flag normalmente
 		_register_flag()
 
 	if quest != null and quest.state == QuestData.QuestState.IN_PROGRESS:
@@ -64,8 +89,9 @@ func _on_dialog_finished():
 		minigame_started = true
 		call_deferred("_start_minigame")
 
+
 func _register_flag():
-	var flag_name = dialog_flag_name if dialog_flag_name != "" else "talked_to_" + name
+	var flag_name = _get_dialog_flag_name()
 	GameState.set_flag(flag_name)
 	print("✅ Flag registrada:", flag_name)
 
@@ -83,10 +109,12 @@ func _start_minigame():
 	else:
 		push_error("❌ Minigame JSON inválido")
 
+
 func _on_minigame_finished():
 	print("🎉 Minigame finalizado com sucesso")
 	var dialog_data = dialog_completed if quest == null else get_current_dialog()
 	DialogManagement.start_dialog(dialog_data, self)
+
 
 func _load_json_data(path: String) -> Dictionary:
 	var file = FileAccess.open(path, FileAccess.READ)
@@ -100,24 +128,3 @@ func _load_json_data(path: String) -> Dictionary:
 	else:
 		push_error("❌ Falha ao abrir: " + path)
 	return {}
-
-func _complete_level():
-	if level_id == "":
-		print("⚠️ level_id não definido para NPC", name)
-		return
-
-	print("🏁 Marcando level como completo:", level_id)
-
-	var save_path = "user://progress.save"
-	var progress = {}
-
-	if FileAccess.file_exists(save_path):
-		var file = FileAccess.open(save_path, FileAccess.READ)
-		if file.get_length() > 0:
-			progress = file.get_var()
-
-	progress[level_id] = true
-
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(progress)
-	file.flush()
