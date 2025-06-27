@@ -1843,8 +1843,8 @@ position = Vector2(639, 484)
 position = Vector2(637, 249)
 dialog_intro = SubResource("Resource_4ul5r")
 sprite_frames = ExtResource("8_ht2pt")
-npc_name = "Professor"
 portrait_texture = ExtResource("12_iucdi")
+npc_name = "Professor"
 level_id = "planetario"
 
 [node name="saida_planetario" type="Marker2D" parent="."]
