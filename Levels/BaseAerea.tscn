@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://yo77btld3l27"]
+[gd_scene load_steps=14 format=4 uid="uid://yo77btld3l27"]
 
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_akg04"]
 [ext_resource type="PackedScene" uid="uid://dp1x6bmwoerk2" path="res://Player/player.tscn" id="2_dh5lp"]
 [ext_resource type="Texture2D" uid="uid://5ok3v2lqovv2" path="res://Assets/Sprites/Base.png" id="3_dh5lp"]
 [ext_resource type="Texture2D" uid="uid://bmwvqhebjdn63" path="res://Assets/Sprites/Base telhado.png" id="4_kko7j"]
+[ext_resource type="Texture2D" uid="uid://b472ese88nqb4" path="res://Assets/Sprites/hangar.png" id="5_hiv0k"]
 [ext_resource type="PackedScene" uid="uid://qawyu4ju6omy" path="res://SceneObjects/taxi_arrival.tscn" id="5_sxv6g"]
+[ext_resource type="Texture2D" uid="uid://dekqqvvotognj" path="res://Assets/Sprites/Base Comando.png" id="7_v38kv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j2m40"]
 texture = ExtResource("1_akg04")
@@ -1828,28 +1830,51 @@ tile_set = SubResource("TileSet_hiv0k")
 [node name="Player" parent="decoracoes" instance=ExtResource("2_dh5lp")]
 position = Vector2(125, 551)
 
-[node name="Baseaerea" type="StaticBody2D" parent="decoracoes"]
+[node name="entrada" type="StaticBody2D" parent="decoracoes"]
 
-[node name="BaseTelhado" type="Sprite2D" parent="decoracoes/Baseaerea"]
+[node name="BaseTelhado" type="Sprite2D" parent="decoracoes/entrada"]
 position = Vector2(1136.25, 297.4)
 scale = Vector2(5.22727, 0.933335)
 texture = ExtResource("4_kko7j")
 
-[node name="Base" type="Sprite2D" parent="decoracoes/Baseaerea"]
+[node name="Base" type="Sprite2D" parent="decoracoes/entrada"]
 position = Vector2(632.5, 384)
 scale = Vector2(1.1781, 0.908831)
 texture = ExtResource("3_dh5lp")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="decoracoes/Baseaerea"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="decoracoes/entrada"]
 position = Vector2(632.897, 383.264)
 scale = Vector2(1.18512, 0.920483)
 polygon = PackedVector2Array(34.3773, 1.10028, 35.2261, 3.3009, 36.0749, 4.40121, 36.0749, 36.3103, -36.1964, 36.6502, -36.1964, 5.14499, -31.8307, -6.10352e-05, -24.1913, -6.10352e-05, -24.3833, -29.6194, -26.9146, -29.6194, -26.9146, -37.2241, -19.9473, -48.4139, 18.2497, -48.4139, 24.557, -38.3105, 24.557, -29.6194, 21.1818, -29.6194, 21.645, -6.10352e-05, 32.6796, -6.10352e-05)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="decoracoes/Baseaerea"]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="decoracoes/entrada"]
 polygon = PackedVector2Array(529, 325, 529, 404, 466, 404, 466, 381, 422, 380, 422, 401, 0, 401, 0, 320, 271, 320, 271, 326, 277, 325, 284, 296, 432, 296, 432, 324, 445, 323, 444, 314, 448, 311, 462, 311, 465, 314, 465, 319, 463, 320, 463, 325, 472, 325, 472, 344, 499, 344, 524, 344, 524, 325, 526, 323, 528, 323, 528, 324)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decoracoes/Baseaerea"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decoracoes/entrada"]
 polygon = PackedVector2Array(780, 344, 868, 344, 868, 313, 865, 310, 864, 298, 875, 290, 1280, 290, 1280, 400, 969, 401, 735, 404, 735, 376, 735, 322, 740, 322, 740, 344)
+
+[node name="aviao" type="StaticBody2D" parent="decoracoes"]
+position = Vector2(398, 81)
+scale = Vector2(0.185547, 0.169922)
+
+[node name="Hangar" type="Sprite2D" parent="decoracoes/aviao"]
+position = Vector2(-5.38964, 153.012)
+scale = Vector2(1, 1)
+texture = ExtResource("5_hiv0k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decoracoes/aviao"]
+position = Vector2(-10.7791, 153.012)
+polygon = PackedVector2Array(21.5579, 329.563, -16.1685, 329.563, -48.5054, 223.632, -161.684, 158.897, -215.579, 129.471, -220.969, 76.5058, -366.484, 76.5058, -393.432, 76.5058, -490.442, 76.5058, -495.832, 76.5058, -501.221, -247.172, -420.379, -247.172, -420.379, -411.954, 5.3894, -494.345, 431.158, -406.069, 431.158, -247.172, 512, -247.172, 512, 70.6207, 371.874, 76.5058, 247.916, 82.3908, 199.41, 129.471, 107.789, 182.437, 53.8948, 217.747)
 
 [node name="TaxiArrival" parent="decoracoes" instance=ExtResource("5_sxv6g")]
 position = Vector2(86, 564)
+
+[node name="comando" type="StaticBody2D" parent="decoracoes"]
+
+[node name="BaseComando" type="Sprite2D" parent="decoracoes/comando"]
+position = Vector2(1044.1, 138.5)
+scale = Vector2(0.298642, 0.307617)
+texture = ExtResource("7_v38kv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decoracoes/comando"]
+polygon = PackedVector2Array(1000, 206, 985, 205, 984, 172, 938, 172, 937, 163, 911, 163, 910, 55, 925, 54, 925, 24, 944, 24, 943, 18, 1143, 18, 1143, 23, 1164, 23, 1165, 55, 1178, 55, 1177, 163, 1152, 163, 1152, 171, 1105, 171, 1105, 205, 1058, 206, 1058, 201, 1030, 201, 1030, 205)
