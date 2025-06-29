@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://viuryasit4gw" path="res://UI/DialogueSystem/dialog_box.tscn" id="12_sa5gy"]
 [ext_resource type="SpriteFrames" uid="uid://3l22jwmigeha" path="res://NPCs/SpriteFrames/cidadao_local.tres" id="12_sqsfq"]
 [ext_resource type="Texture2D" uid="uid://ydk3d1yhep2w" path="res://Assets/Sprites/vehicles/Brown_WAGON_CLEAN_All_024.png" id="13_3g0eg"]
-[ext_resource type="Resource" uid="uid://yddcvjhhx1qd" path="res://Levels/quest_lente.tres" id="14_qx2u2"]
+[ext_resource type="Resource" uid="uid://yddcvjhhx1qd" path="res://Minigames/quest_lente.tres" id="14_qx2u2"]
 [ext_resource type="Texture2D" uid="uid://b64mwlxnw8p5c" path="res://Assets/Sprites/vehicles/Black_SEDAN_CLEAN_All_024.png" id="14_ud7m4"]
 [ext_resource type="Texture2D" uid="uid://ce1wxwp40wayi" path="res://Assets/Characters/Portraits/npc_10.png" id="16_qx2u2"]
 [ext_resource type="PackedScene" uid="uid://qawyu4ju6omy" path="res://SceneObjects/taxi_arrival.tscn" id="16_ud7m4"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://djfynmn8jpl0l"]
 
-[ext_resource type="Script" uid="uid://rpclifqw21sc" path="res://minigame.gd" id="1_80ohy"]
+[ext_resource type="Script" uid="uid://rpclifqw21sc" path="res://Minigame/minigame.gd" id="1_80ohy"]
 [ext_resource type="Theme" uid="uid://dxnlppmy2wqak" path="res://Themes/minigame_theme.tres" id="1_auvxj"]
 [ext_resource type="Texture2D" uid="uid://4lx0tysrrbci" path="res://Minigame/fundo_minigame.png" id="2_7llvh"]
 
