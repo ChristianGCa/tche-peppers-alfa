@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biuxawijjcmdl"
-path="res://.godot/imported/catedral_sprite.png-b641bb0ed5e1d9029490b488c94f492f.ctex"
+uid="uid://8osornynnwsh"
+path="res://.godot/imported/minigame_button_normal.png-1daa3593b93526456e3878a51cd01c9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/catedral_sprite.png"
-dest_files=["res://.godot/imported/catedral_sprite.png-b641bb0ed5e1d9029490b488c94f492f.ctex"]
+source_file="res://Assets/Interface/minigame_button_normal.png"
+dest_files=["res://.godot/imported/minigame_button_normal.png-1daa3593b93526456e3878a51cd01c9a.ctex"]
 
 [params]
 

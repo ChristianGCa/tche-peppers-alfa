@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed_running: float = 200.0
-@export var speed_walking: float = 300.0
+@export var speed_walking: float = 600.0
 @onready var anim_sprite = $AnimatedSprite2D
 
 enum STATE { WALKING, DIALOG }
@@ -136,11 +136,19 @@ func refresh_dialog_icons():
 
 
 func _physics_process(delta):
+	
 	if state == STATE.WALKING:
 		process_walking()
 	else:
 		velocity = Vector2.ZERO
-		_play_animation(Vector2.ZERO) # Garante que fique parado com idle correto
+		_play_animation(Vector2.ZERO)
+
+	# 🐞 Printar flags registradas (debug)
+	if Input.is_action_just_pressed("debug_print_flags"):
+		print("📋 FLAGS REGISTRADAS:")
+		for flag in GameState.flags.keys():
+			print("- ", flag, ": ", GameState.flags[flag])
+
 
 func _on_dialogue_detect_area_entered(area: Area2D) -> void:
 	if area.is_in_group("dialogue_area"):

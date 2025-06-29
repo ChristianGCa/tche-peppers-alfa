@@ -9,11 +9,16 @@ extends Node2D
 @onready var timer: Timer = $Timer
 @onready var accelerating_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+@export var flag_required_to_not_spawn: String = ""  # Ex: "taxi_cena1_concluido"
+
 var moving := false
 var current_speed := 0.0
 
 func _ready():
-	# Escolhe a animação com base na direção
+	if flag_required_to_not_spawn != "" and GameState.get_flag(flag_required_to_not_spawn):
+		print("🚕 Táxi removido: flag já registrada:", flag_required_to_not_spawn)
+		queue_free()
+		return
 	if drive_direction.x < 0:
 		sprite.play("stop_left")
 	else:
@@ -21,6 +26,7 @@ func _ready():
 
 	timer.wait_time = wait_time
 	timer.start()
+
 
 func _process(delta):
 	if moving:

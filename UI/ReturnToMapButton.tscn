@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://boyeo8g7x1prr"]
+
+[ext_resource type="Script" uid="uid://clbls6rftyqm7" path="res://UI/ReturnToMapButton.gd" id="1_17ugu"]
+
+[node name="ReturnToMapButton" type="Button"]
+offset_left = 39.0
+offset_top = 38.0
+offset_right = 159.0
+offset_bottom = 69.0
+text = "Return to map"
+script = ExtResource("1_17ugu")

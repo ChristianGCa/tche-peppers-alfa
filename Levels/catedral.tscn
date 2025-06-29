@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b12o0g5gfun3y" path="res://SceneObjects/FadeOnOverLap.tscn" id="16_y2xe8"]
 [ext_resource type="Texture2D" uid="uid://bm7exabn0b8od" path="res://Assets/Sprites/Estatua padre.png" id="17_labhs"]
 [ext_resource type="Texture2D" uid="uid://dw4htfgpcxxu3" path="res://Assets/Sprites/vehicles/Red_SUV_CLEAN_All_012.png" id="18_02hah"]
-[ext_resource type="Texture2D" uid="uid://biuxawijjcmdl" path="res://Assets/Sprites/catedral_sprite.png" id="19_71u8h"]
+[ext_resource type="Texture2D" uid="uid://biuxawijjcmdl" path="res://Assets/Sprites/Catedral/catedral_sprite.png" id="19_71u8h"]
 [ext_resource type="Texture2D" uid="uid://yaucqxkebs5" path="res://Assets/Sprites/Taxi.png" id="20_f0qm4"]
 [ext_resource type="Texture2D" uid="uid://blsy6re0lv3oa" path="res://Assets/Sprites/Parquimetro.png" id="21_rxope"]
 [ext_resource type="PackedScene" uid="uid://ctosmvt47xi2o" path="res://SceneObjects/porta.tscn" id="22_8sivm"]
@@ -3819,6 +3819,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_kx1ov"]
@@ -3847,6 +3849,8 @@ choices = Array[ExtResource("7_jkjtw")]([SubResource("Resource_kx1ov"), SubResou
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_ctpde"]
@@ -3857,6 +3861,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_1pl6h"]
@@ -3867,6 +3873,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_b25yl"]
@@ -3952,6 +3960,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_3ssd7"]
@@ -3967,6 +3977,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_2sm4p"]
@@ -3982,6 +3994,8 @@ choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_gkgo8"]
@@ -4060,7 +4074,7 @@ position = Vector2(343, 656)
 position = Vector2(379, 418)
 
 [node name="arvore_01-2" parent="decoracoes" instance=ExtResource("13_ohfrl")]
-position = Vector2(1105, 438)
+position = Vector2(1095, 393)
 
 [node name="arvore_02-1" parent="decoracoes" instance=ExtResource("14_1xr5p")]
 position = Vector2(873, 426)

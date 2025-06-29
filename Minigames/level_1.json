@@ -1,0 +1,31 @@
+{
+	"phrases": [
+		{
+			"english": "The cat sat on the ___.",
+			"portuguese": "O gato sentou no ___."
+		},
+		{
+			"english": "She likes to ___ books.",
+			"portuguese": "Ela gosta de ___ livros."
+		},
+		{
+			"english": "What is the capital of ___?",
+			"portuguese": "Qual é a capital do ___?"
+		},
+		{	"english": "Gabriel is very ___ !",
+			"portuguese": "Gabriel é muito bonito!"
+			}
+	],
+	"options": [
+		["mat", "hat", "dog"],
+		["read", "sing", "eat"],
+		["Brazil", "France", "Japan"],
+		["Beautiful", "Cartucho", "Motoniveladora John Deere 620G ano 2022 com 6920 horas"]
+	],
+	"correct_answers": [
+		"mat",
+		"read",
+		"Brazil",
+		"Beautiful"
+	]
+}

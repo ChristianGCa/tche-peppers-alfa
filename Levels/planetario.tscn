@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://bmx8emouf4xbl"]
+[gd_scene load_steps=60 format=4 uid="uid://bmx8emouf4xbl"]
 
 [ext_resource type="Script" uid="uid://dcdvqjjyvsh4r" path="res://Levels/planetario.gd" id="1_anyxf"]
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_qx4g2"]
@@ -27,9 +27,12 @@
 [ext_resource type="PackedScene" uid="uid://b2pxhan0dtlwm" path="res://SceneObjects/collectible_item.tscn" id="21_dkmty"]
 [ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Characters/Portraits/npc_01.png" id="22_ogmoo"]
 [ext_resource type="PackedScene" uid="uid://cx8mobmc7mxvl" path="res://UI/ObjectivesSystem/Objectives.tscn" id="23_60q3a"]
+[ext_resource type="Texture2D" uid="uid://cicv1lb425cea" path="res://Assets/Interface/close_pressed.png" id="24_nxnxp"]
+[ext_resource type="Texture2D" uid="uid://bt51y0t4kiup6" path="res://Assets/Sprites/relogio_sol.png" id="25_i8w03"]
 [ext_resource type="PackedScene" uid="uid://cs6fofvxcfshf" path="res://UI/Glossary/glossary_book.tscn" id="27_d7ovn"]
 [ext_resource type="PackedScene" uid="uid://bk2eb0gwgtoko" path="res://UI/Glossary/glossary_button.tscn" id="28_21v0f"]
 [ext_resource type="Texture2D" uid="uid://cu7o1lxychlhy" path="res://Assets/Interface/glossary_book_hover.png" id="30_wnxbn"]
+[ext_resource type="PackedScene" uid="uid://boyeo8g7x1prr" path="res://UI/ReturnToMapButton.tscn" id="33_gwwm5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44wwh"]
 texture = ExtResource("1_qx4g2")
@@ -3109,16 +3112,20 @@ choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = true
 completes_objective = false
 objective_text = "Busque agua"
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_fts1d"]
 script = ExtResource("9_t33ux")
 speaker_type = 0
-text = "Buenas tchê, se tu tivesse vindo a umas horas atrás ainda teria uns sobrando."
+text = "[gloss:Buenas Tchê|Hello friend] , se tu tivesse vindo a umas horas atrás ainda teria uns sobrando."
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = true
 objective_text = "Busque agua"
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_7c2cw"]
@@ -3129,6 +3136,8 @@ choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_mb2i3"]
@@ -3166,6 +3175,8 @@ choices = Array[ExtResource("10_0c5fv")]([SubResource("Resource_mb2i3"), SubReso
 creates_objective = true
 completes_objective = false
 objective_text = "Procure a lente reserva do telescópio e entregue ao funcionário"
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_60q3a"]
@@ -3181,6 +3192,8 @@ choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_pdof0"]
@@ -3188,19 +3201,21 @@ script = ExtResource("10_1udyo")
 lines = Array[ExtResource("9_t33ux")]([SubResource("Resource_nphuk")])
 metadata/_custom_type_script = "uid://d13f556ayg2wq"
 
-[sub_resource type="Resource" id="Resource_mbuve"]
+[sub_resource type="Resource" id="Resource_nxnxp"]
 script = ExtResource("9_t33ux")
 speaker_type = 0
-text = "otimo"
+text = "Muito obrigado tchê! Pode adentrar o planetário!"
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = true
 objective_text = "Procure a lente reserva do telescópio e entregue ao funcionário"
+triggers_minigame = false
+minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_rhxjw"]
 script = ExtResource("10_1udyo")
-lines = Array[ExtResource("9_t33ux")]([SubResource("Resource_mbuve")])
+lines = Array[ExtResource("9_t33ux")]([SubResource("Resource_nxnxp")])
 metadata/_custom_type_script = "uid://d13f556ayg2wq"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0c5fv"]
@@ -3240,7 +3255,7 @@ position = Vector2(706, 288)
 cena_destino_path = "res://Levels/interior_planetario.tscn"
 nome_ponto_entrada = "entrada_planetario"
 animacoes = ExtResource("3_8oc8m")
-flag_requerida = "falou_com_cidadao_local"
+flags_requeridas = Array[String](["talked_to_Funcionario"])
 
 [node name="grama" type="TileMapLayer" parent="."]
 position = Vector2(-14, 1)
@@ -3279,16 +3294,20 @@ dialog_in_progress = SubResource("Resource_pdof0")
 dialog_completed = SubResource("Resource_rhxjw")
 quest = ExtResource("14_qx2u2")
 sprite_frames = SubResource("SpriteFrames_n07o7")
-npc_name = "Funcionário"
 portrait_texture = ExtResource("16_qx2u2")
+npc_name = "Funcionário"
+dialog_flag_name = "talked_to_Funcionario"
+auto_hide_after_dialogue = true
 
 [node name="CidadaoLocal" parent="decoracoes" instance=ExtResource("10_e1nq0")]
 position = Vector2(266, 596)
 dialog_intro = ExtResource("11_sa5gy")
 sprite_frames = ExtResource("12_sqsfq")
-dialog_flag_name = "falou_com_cidadao_local"
-npc_name = "Cidadão Local"
 portrait_texture = ExtResource("22_ogmoo")
+npc_name = "Cidadão Local"
+level_id = "planetario"
+dialog_flag_name = "falou_com_cidadao_local"
+required_flag_to_show = "talked_to_Professor"
 
 [node name="arvore_01-1" parent="decoracoes" instance=ExtResource("5_anyxf")]
 position = Vector2(776, 402)
@@ -3338,16 +3357,31 @@ position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_3v7jm")
 
 [node name="lente" parent="decoracoes" instance=ExtResource("21_dkmty")]
+position = Vector2(562, 63)
 item_name = "lente"
 related_quest = ExtResource("14_qx2u2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="decoracoes/lente"]
-position = Vector2(341, 303)
 shape = SubResource("CircleShape2D_iqdcp")
 
 [node name="Sprite2D" type="Sprite2D" parent="decoracoes/lente"]
-position = Vector2(349, 302)
-texture = ExtResource("22_ogmoo")
+texture = ExtResource("24_nxnxp")
+
+[node name="Relogio_sol" type="StaticBody2D" parent="decoracoes"]
+y_sort_enabled = true
+position = Vector2(14, -1)
+
+[node name="RelogioSol" type="Sprite2D" parent="decoracoes/Relogio_sol"]
+y_sort_enabled = true
+position = Vector2(1075, 444)
+scale = Vector2(0.34875, 0.34875)
+texture = ExtResource("25_i8w03")
+offset = Vector2(-3.22583, -54.8387)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="decoracoes/Relogio_sol"]
+position = Vector2(1080.49, 436.625)
+scale = Vector2(0.518024, 0.475961)
+polygon = PackedVector2Array(-75.7578, 27.2727, -12.1216, 0, 21.2119, 0, 42.4238, 6.06055, 54.5452, 39.3939, -15.1519, 36.3636)
 
 [node name="entrada_planetario" type="Marker2D" parent="."]
 position = Vector2(708, 312)
@@ -3358,6 +3392,7 @@ script = null
 
 [node name="TaxiArrival" parent="." instance=ExtResource("16_ud7m4")]
 position = Vector2(187, 653)
+flag_required_to_not_spawn = "talked_to_Funcionario"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -3380,3 +3415,10 @@ offset_right = 1248.0
 offset_bottom = 95.0
 texture_pressed = ExtResource("30_wnxbn")
 texture_hover = ExtResource("30_wnxbn")
+
+[node name="ReturnToMapButton" parent="HUD" instance=ExtResource("33_gwwm5")]
+visible = false
+offset_left = 1095.0
+offset_top = 622.0
+offset_right = 1215.0
+offset_bottom = 653.0
