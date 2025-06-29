@@ -2,8 +2,10 @@ extends Node2D
 
 @onready var return_button: Button = $HUD/ReturnToMapButton
 @export var this_level_id: String = "planetario" # Mantenha se ainda usar em _level_was_completed
+@onready var music = $AudioStreamPlayer2D
 
 func _ready():
+	music.play()
 	ObjectiveManagement.add_objective("Fale com o cidadão local")
 
 	return_button.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://bmx8emouf4xbl"]
+[gd_scene load_steps=76 format=4 uid="uid://bmx8emouf4xbl"]
 
 [ext_resource type="Script" uid="uid://dcdvqjjyvsh4r" path="res://Levels/planetario.gd" id="1_anyxf"]
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_qx4g2"]
@@ -14,13 +14,15 @@
 [ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://UI/DialogueSystem/DialogLine.gd" id="9_t33ux"]
 [ext_resource type="Script" uid="uid://cry6b72kahevs" path="res://UI/DialogueSystem/ChoiceOption.gd" id="10_0c5fv"]
 [ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://UI/DialogueSystem/DialogData.gd" id="10_1udyo"]
+[ext_resource type="Texture2D" uid="uid://1q5w6hu62vox" path="res://Assets/Characters/SpriteSheets/npc_09_spritesheet.png" id="10_50i17"]
 [ext_resource type="PackedScene" uid="uid://c8al8ppb6vohr" path="res://NPCs/Scene/NPC.tscn" id="10_e1nq0"]
 [ext_resource type="Resource" uid="uid://5woccpuj5swn" path="res://NPCs/Dialogues/cidadao_local.tres" id="11_sa5gy"]
 [ext_resource type="Texture2D" uid="uid://b57v1le4dsq14" path="res://Assets/Characters/SpriteSheets/npc_10_spritesheet.png" id="12_1udyo"]
 [ext_resource type="PackedScene" uid="uid://viuryasit4gw" path="res://UI/DialogueSystem/dialog_box.tscn" id="12_sa5gy"]
 [ext_resource type="SpriteFrames" uid="uid://3l22jwmigeha" path="res://NPCs/SpriteFrames/cidadao_local.tres" id="12_sqsfq"]
 [ext_resource type="Texture2D" uid="uid://ydk3d1yhep2w" path="res://Assets/Sprites/vehicles/Brown_WAGON_CLEAN_All_024.png" id="13_3g0eg"]
-[ext_resource type="Resource" uid="uid://yddcvjhhx1qd" path="res://Minigames/quest_lente.tres" id="14_qx2u2"]
+[ext_resource type="Texture2D" uid="uid://c2i2dr0nu282p" path="res://Assets/Characters/Portraits/npc_09.png" id="14_7pg1g"]
+[ext_resource type="Resource" uid="uid://bb1q4r6sg164f" path="res://Minigames/quest_radio.tres" id="14_gwwm5"]
 [ext_resource type="Texture2D" uid="uid://b64mwlxnw8p5c" path="res://Assets/Sprites/vehicles/Black_SEDAN_CLEAN_All_024.png" id="14_ud7m4"]
 [ext_resource type="Texture2D" uid="uid://ce1wxwp40wayi" path="res://Assets/Characters/Portraits/npc_10.png" id="16_qx2u2"]
 [ext_resource type="PackedScene" uid="uid://qawyu4ju6omy" path="res://SceneObjects/taxi_arrival.tscn" id="16_ud7m4"]
@@ -33,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://bk2eb0gwgtoko" path="res://UI/Glossary/glossary_button.tscn" id="28_21v0f"]
 [ext_resource type="Texture2D" uid="uid://cu7o1lxychlhy" path="res://Assets/Interface/glossary_book_hover.png" id="30_wnxbn"]
 [ext_resource type="PackedScene" uid="uid://boyeo8g7x1prr" path="res://UI/ReturnToMapButton.tscn" id="33_gwwm5"]
+[ext_resource type="AudioStream" uid="uid://bmy5vrugflydw" path="res://Audio/Music/accordion_ambience.mp3" id="34_v3gky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44wwh"]
 texture = ExtResource("1_qx4g2")
@@ -3104,34 +3107,10 @@ texture = ExtResource("3_onvjq")
 physics_layer_0/collision_layer = 1
 sources/4 = SubResource("TileSetAtlasSource_csdg6")
 
-[sub_resource type="Resource" id="Resource_0bkgs"]
-script = ExtResource("9_t33ux")
-speaker_type = 1
-text = "Bom dia senhor, queria saber se ainda tem ingressos à venda para a excursão pelo planetário?"
-choices = Array[ExtResource("10_0c5fv")]([])
-creates_objective = true
-completes_objective = false
-objective_text = "Busque agua"
-triggers_minigame = false
-minigame_json_path = ""
-metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
-
-[sub_resource type="Resource" id="Resource_fts1d"]
+[sub_resource type="Resource" id="Resource_orrcu"]
 script = ExtResource("9_t33ux")
 speaker_type = 0
-text = "[gloss:Buenas Tchê|Hello friend] , se tu tivesse vindo a umas horas atrás ainda teria uns sobrando."
-choices = Array[ExtResource("10_0c5fv")]([])
-creates_objective = false
-completes_objective = true
-objective_text = "Busque agua"
-triggers_minigame = false
-minigame_json_path = ""
-metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
-
-[sub_resource type="Resource" id="Resource_7c2cw"]
-script = ExtResource("9_t33ux")
-speaker_type = 0
-text = "MAAAAAAS! Se tu achar uma lente do telescópio reserva que eu acabei perdendo enquanto saracoteava aí por fora, te deixo entrar."
+text = "Buenas, vivente! Vi que tu veio do planetário, né? Sou o professor Rafael, da Hey Peppers — uma marca que mistura tecnologia, sustentabilidade e aquele tempero gaúcho que a gente adora!"
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = false
@@ -3140,48 +3119,207 @@ triggers_minigame = false
 minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
-[sub_resource type="Resource" id="Resource_mb2i3"]
-script = ExtResource("10_0c5fv")
-text_english = "Where do you think you might have lost the lens?"
-text_portuguese = "Onde você acha que pode ter perdido a lente?"
-is_correct = true
-npc_response = "Acredito que atrás de alguma árvore, quando estava mateando na sombra"
-response_portrait = ExtResource("22_ogmoo")
-metadata/_custom_type_script = "uid://cry6b72kahevs"
+[sub_resource type="Resource" id="Resource_d5xou"]
+script = ExtResource("9_t33ux")
+speaker_type = 1
+text = "Opa! Que legal, professor Rafael. Nunca ouvi falar da Hey Peppers. O que vocês fazem?"
+choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
-[sub_resource type="Resource" id="Resource_dkmty"]
-script = ExtResource("10_0c5fv")
-text_english = "Where do you think you might have lost the car?"
-text_portuguese = "Onde você acha que pode ter perdido o carro?"
-is_correct = false
-npc_response = "Carro? Não perdi nenhum carro."
-response_portrait = ExtResource("22_ogmoo")
-metadata/_custom_type_script = "uid://cry6b72kahevs"
+[sub_resource type="Resource" id="Resource_qg8px"]
+script = ExtResource("9_t33ux")
+speaker_type = 0
+text = "Na Hey Peppers a gente cria soluções inteligentes para o campo e a cidade, sempre com respeito pela natureza e cultura regional."
+choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
-[sub_resource type="Resource" id="Resource_ogmoo"]
-script = ExtResource("10_0c5fv")
-text_english = "Where did you find the lens?"
-text_portuguese = "Onde você achou a lente?"
-is_correct = false
-npc_response = "Eu ainda não encontrei a lente."
-response_portrait = ExtResource("22_ogmoo")
-metadata/_custom_type_script = "uid://cry6b72kahevs"
+[sub_resource type="Resource" id="Resource_qgxd8"]
+script = ExtResource("9_t33ux")
+speaker_type = 1
+text = "Bacana demais! Isso combina muito com meu jeito de aprender. Vou querer conhecer melhor."
+choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_80vfw"]
+script = ExtResource("9_t33ux")
+speaker_type = 0
+text = "Então fica de olho! E depois passa lá na nossa base pra tomar um chimarrão com a gente."
+choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_sd6de"]
+script = ExtResource("9_t33ux")
+speaker_type = 0
+text = "Pode deixar, professor! Valeu pela dica."
+choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_onruw"]
+script = ExtResource("10_1udyo")
+lines = Array[ExtResource("9_t33ux")]([SubResource("Resource_orrcu"), SubResource("Resource_d5xou"), SubResource("Resource_qg8px"), SubResource("Resource_qgxd8"), SubResource("Resource_80vfw"), SubResource("Resource_sd6de")])
+metadata/_custom_type_script = "uid://d13f556ayg2wq"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pg1g"]
+atlas = ExtResource("10_50i17")
+region = Rect2(48, 0, 48, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6s4u"]
+atlas = ExtResource("10_50i17")
+region = Rect2(144, 0, 48, 54)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b5wkc"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_7pg1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6s4u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_0bkgs"]
+script = ExtResource("9_t33ux")
+speaker_type = 1
+text = "Bom dia senhor. Posso entrar no planerário?"
+choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = true
+objective_text = "Fale com João, um funcionário do local."
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_fts1d"]
+script = ExtResource("9_t33ux")
+speaker_type = 0
+text = "Buenas, [gloss:guri|boy]! Tá querendo entrar, tchê? Mas não tá na hora da visita ainda..."
+choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_7c2cw"]
+script = ExtResource("9_t33ux")
+speaker_type = 0
+text = "Só que eu perdi meu rádio lá atrás, perto daquelas árvores. Se tu me ajudar a achar, eu deixo tu entrar mais cedo."
+choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_iqdcp"]
 script = ExtResource("9_t33ux")
+speaker_type = 1
+text = "Claro, posso ajudar. Onde exatamente está o rádio?"
+choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_gwwm5"]
+script = ExtResource("9_t33ux")
 speaker_type = 0
+text = "Deve estar atrás de alguma árvore. Estava ouvindo a [gloss:peleia|briga, confusão] que deu no GRENAL."
+choices = Array[ExtResource("10_0c5fv")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_v3gky"]
+script = ExtResource("10_0c5fv")
+text_english = "I don’t want to help."
+text_portuguese = "Eu não quero ajudar."
+is_correct = false
+npc_response = "Ah, [gloss:capaz|no way]! Tu não sabe o que tá perdendo, guri..."
+response_portrait = ExtResource("16_qx2u2")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_50i17"]
+script = ExtResource("10_0c5fv")
+text_english = "I’ll find the radio for you."
+text_portuguese = "Eu vou achar o rádio pra você."
+is_correct = true
+npc_response = "[gloss:Tri-legal|Very cool] guri! Vai lá."
+response_portrait = ExtResource("16_qx2u2")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_7pg1g"]
+script = ExtResource("10_0c5fv")
+text_english = "Can I enter now without finding it?"
+text_portuguese = "Posso entrar agora sem procurar?"
+is_correct = false
+npc_response = "Entrar sem ajudar? Capaz! Aqui as coisas são certas, [gloss:vivente|guy, dude]!"
+response_portrait = ExtResource("16_qx2u2")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_k6s4u"]
+script = ExtResource("9_t33ux")
+speaker_type = 1
 text = ""
-choices = Array[ExtResource("10_0c5fv")]([SubResource("Resource_mb2i3"), SubResource("Resource_dkmty"), SubResource("Resource_ogmoo")])
+choices = Array[ExtResource("10_0c5fv")]([SubResource("Resource_v3gky"), SubResource("Resource_50i17"), SubResource("Resource_7pg1g")])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_b5wkc"]
+script = ExtResource("9_t33ux")
+speaker_type = 1
+text = "Espero encontrar"
+choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = true
 completes_objective = false
-objective_text = "Procure a lente reserva do telescópio e entregue ao funcionário"
+objective_text = "Procure o rádio e entregue a João"
 triggers_minigame = false
 minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_60q3a"]
 script = ExtResource("10_1udyo")
-lines = Array[ExtResource("9_t33ux")]([SubResource("Resource_0bkgs"), SubResource("Resource_fts1d"), SubResource("Resource_7c2cw"), SubResource("Resource_iqdcp")])
+lines = Array[ExtResource("9_t33ux")]([SubResource("Resource_0bkgs"), SubResource("Resource_fts1d"), SubResource("Resource_7c2cw"), SubResource("Resource_iqdcp"), SubResource("Resource_gwwm5"), SubResource("Resource_k6s4u"), SubResource("Resource_b5wkc")])
 metadata/_custom_type_script = "uid://d13f556ayg2wq"
 
 [sub_resource type="Resource" id="Resource_nphuk"]
@@ -3208,7 +3346,7 @@ text = "Muito obrigado tchê! Pode adentrar o planetário!"
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = true
-objective_text = "Procure a lente reserva do telescópio e entregue ao funcionário"
+objective_text = "Procure o rádio e entregue a João"
 triggers_minigame = false
 minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
@@ -3287,15 +3425,25 @@ y_sort_origin = 18
 [node name="Player" parent="decoracoes" instance=ExtResource("4_yk1bj")]
 position = Vector2(231, 722)
 
+[node name="ProfessorHeyPeppers" parent="decoracoes" instance=ExtResource("10_e1nq0")]
+position = Vector2(1011, 463)
+dialog_intro = SubResource("Resource_onruw")
+sprite_frames = SubResource("SpriteFrames_b5wkc")
+portrait_texture = ExtResource("14_7pg1g")
+npc_name = "Rafael"
+level_id = "planetario"
+show_only_if_flag = true
+required_flag_to_show = "talked_to_Professor"
+
 [node name="Funcionario" parent="decoracoes" instance=ExtResource("10_e1nq0")]
 position = Vector2(702, 391)
 dialog_intro = SubResource("Resource_60q3a")
 dialog_in_progress = SubResource("Resource_pdof0")
 dialog_completed = SubResource("Resource_rhxjw")
-quest = ExtResource("14_qx2u2")
+quest = ExtResource("14_gwwm5")
 sprite_frames = SubResource("SpriteFrames_n07o7")
 portrait_texture = ExtResource("16_qx2u2")
-npc_name = "Funcionário"
+npc_name = "João"
 dialog_flag_name = "talked_to_Funcionario"
 auto_hide_after_dialogue = true
 
@@ -3356,15 +3504,16 @@ texture = ExtResource("14_ud7m4")
 position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_3v7jm")
 
-[node name="lente" parent="decoracoes" instance=ExtResource("21_dkmty")]
+[node name="radio" parent="decoracoes" instance=ExtResource("21_dkmty")]
+visible = false
 position = Vector2(562, 63)
-item_name = "lente"
-related_quest = ExtResource("14_qx2u2")
+item_name = "radio"
+related_quest = ExtResource("14_gwwm5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="decoracoes/lente"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="decoracoes/radio"]
 shape = SubResource("CircleShape2D_iqdcp")
 
-[node name="Sprite2D" type="Sprite2D" parent="decoracoes/lente"]
+[node name="Sprite2D" type="Sprite2D" parent="decoracoes/radio"]
 texture = ExtResource("24_nxnxp")
 
 [node name="Relogio_sol" type="StaticBody2D" parent="decoracoes"]
@@ -3422,3 +3571,8 @@ offset_left = 1095.0
 offset_top = 622.0
 offset_right = 1215.0
 offset_bottom = 653.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("34_v3gky")
+
+[connection signal="body_exited" from="decoracoes/radio" to="decoracoes/radio" method="_on_body_exited"]

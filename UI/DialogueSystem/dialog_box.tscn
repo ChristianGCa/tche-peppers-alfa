@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://viuryasit4gw"]
+[gd_scene load_steps=6 format=3 uid="uid://viuryasit4gw"]
 
 [ext_resource type="Script" uid="uid://svah5s233gqw" path="res://UI/DialogueSystem/DialogBox.gd" id="1_on6d1"]
 [ext_resource type="Texture2D" uid="uid://bifv78ymtytpf" path="res://Assets/Characters/Portraits/npc_01.png" id="2_0k4bc"]
 [ext_resource type="Theme" uid="uid://cpkiv5br2vwun" path="res://Themes/dialog_theme.tres" id="2_lttjw"]
 [ext_resource type="Texture2D" uid="uid://do5uusrjvei3d" path="res://Assets/Interface/fundo_dialogo.png" id="4_8l00y"]
+[ext_resource type="AudioStream" uid="uid://c04h31wovdf7o" path="res://Audio/Feedback/click_2.wav" id="5_tn7pp"]
 
 [node name="DialogBox" type="CanvasLayer"]
 script = ExtResource("1_on6d1")
@@ -108,3 +109,6 @@ text = "Sua resposta: asdasdasdasdasdxcvzxcvzxcvzxcvzxcvzxcvzxcvxczv"
 [node name="Translation" type="Label" parent="Panel/YourAnswerCenterContainer/MarginContainer/MarginContainer/YourAnswerContainer"]
 layout_mode = 2
 text = "Tradução: dskhfkashdfjsdgfkjhzsgdfkjhagsdf"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tn7pp")

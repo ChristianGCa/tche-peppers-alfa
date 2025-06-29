@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed_running: float = 200.0
 @export var speed_walking: float = 600.0
 @onready var anim_sprite = $AnimatedSprite2D
+@onready var audio_click = $AudioStreamPlayer2D
 
 enum STATE { WALKING, DIALOG }
 
@@ -82,6 +83,7 @@ func to_walking():
 func process_walking():
 	if dialogue_area != null and Input.is_action_just_pressed("ok") and can_interact_again:
 		if dialogue_area.has_meta("dialog_valid"):
+			audio_click.play()
 			to_dialog()
 		return
 	var direction := Vector2.ZERO

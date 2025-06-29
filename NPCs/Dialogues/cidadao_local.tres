@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogData" load_steps=13 format=3 uid="uid://5woccpuj5swn"]
+[gd_resource type="Resource" script_class="DialogData" load_steps=17 format=3 uid="uid://5woccpuj5swn"]
 
 [ext_resource type="Script" uid="uid://ckvrtwvkogy3w" path="res://UI/DialogueSystem/DialogLine.gd" id="1_dl8gl"]
 [ext_resource type="Script" uid="uid://d13f556ayg2wq" path="res://UI/DialogueSystem/DialogData.gd" id="2_27lt5"]
@@ -8,11 +8,11 @@
 [sub_resource type="Resource" id="Resource_kv5xb"]
 script = ExtResource("1_dl8gl")
 speaker_type = 0
-text = "Bah, [gloss:TRI|Awesome] esse chimarrão!"
+text = "[gloss:Buenas|Howdy], guri! Tá perdido ou só dando uma banda pela cidade?"
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
-completes_objective = false
-objective_text = ""
+completes_objective = true
+objective_text = "Fale com o cidadão local"
 triggers_minigame = false
 minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_cb0v7"]
 script = ExtResource("1_dl8gl")
 speaker_type = 1
-text = "Olá. É aqui que encontro o famoso Planetário?"
+text = "Oi! Eu sou o Edward. Tô conhecendo Santa Maria, meu avô nasceu aqui."
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_thko1"]
 script = ExtResource("1_dl8gl")
 speaker_type = 0
-text = "[gloss:Oigatê|Wow] guri! Claro que sim. Mas me diga, tu não parece ser brasileiro."
+text = "Ah, coisa boa! E já viu esse prédio bonito aí? É o planetário da universidade!"
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
@@ -41,38 +41,11 @@ triggers_minigame = false
 minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
-[sub_resource type="Resource" id="Resource_wt5kj"]
-script = ExtResource("2_g0dtq")
-text_english = "I am american!"
-text_portuguese = "Eu sou americano!"
-is_correct = true
-npc_response = "Mas que barbaridade! É tri-legal ter gente de fora em nossa cidade"
-response_portrait = ExtResource("4_g0dtq")
-metadata/_custom_type_script = "uid://cry6b72kahevs"
-
-[sub_resource type="Resource" id="Resource_yv8r1"]
-script = ExtResource("2_g0dtq")
-text_english = "I like cheese!"
-text_portuguese = "Eu gosto de queijo!"
-is_correct = false
-npc_response = "Uhh.. mas que coisa"
-response_portrait = ExtResource("4_g0dtq")
-metadata/_custom_type_script = "uid://cry6b72kahevs"
-
-[sub_resource type="Resource" id="Resource_787hg"]
-script = ExtResource("2_g0dtq")
-text_english = "I am a car"
-text_portuguese = "Eu sou um carro"
-is_correct = false
-npc_response = "Guri, você está bem?"
-response_portrait = ExtResource("4_g0dtq")
-metadata/_custom_type_script = "uid://cry6b72kahevs"
-
 [sub_resource type="Resource" id="Resource_lg1wb"]
 script = ExtResource("1_dl8gl")
 speaker_type = 1
-text = ""
-choices = Array[ExtResource("2_g0dtq")]([SubResource("Resource_wt5kj"), SubResource("Resource_yv8r1"), SubResource("Resource_787hg")])
+text = "Eu vi de longe, mas não sei muito sobre ele..."
+choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
@@ -83,7 +56,82 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_awork"]
 script = ExtResource("1_dl8gl")
 speaker_type = 0
-text = "Fique a vontade para explorar o lugar"
+text = "E tu sabe pra que serve um planetário?"
+choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_10gtt"]
+script = ExtResource("2_g0dtq")
+text_english = "It's a place to learn about stars and space."
+text_portuguese = "É um lugar para aprender sobre estrelas e o espaço."
+is_correct = true
+npc_response = "[gloss:Bah|Wow], acertou na mosca, vivente! Ali dentro tu vê até o céu de outro país!"
+response_portrait = ExtResource("4_g0dtq")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_g0dtq"]
+script = ExtResource("2_g0dtq")
+text_english = "It's where people plant trees."
+text_portuguese = "É onde as pessoas plantam árvores."
+is_correct = false
+npc_response = "Plantar árvore? [gloss:Mas que viagem|What nonsense], guri! Isso é planetário, não horta!"
+response_portrait = ExtResource("4_g0dtq")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_r43g8"]
+script = ExtResource("2_g0dtq")
+text_english = "It's a place to watch football matches."
+text_portuguese = "É um lugar para assistir partidas de futebol."
+is_correct = false
+npc_response = "Futebol? [gloss:Capaz|No way]! Isso aqui é pra olhar estrela, não chuteira!"
+response_portrait = ExtResource("4_g0dtq")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_76rhe"]
+script = ExtResource("1_dl8gl")
+speaker_type = 1
+text = ""
+choices = Array[ExtResource("2_g0dtq")]([SubResource("Resource_10gtt"), SubResource("Resource_g0dtq"), SubResource("Resource_r43g8")])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_wt5kj"]
+script = ExtResource("1_dl8gl")
+speaker_type = 1
+text = "Parece muito legal! Será que posso visitar?"
+choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_yv8r1"]
+script = ExtResource("1_dl8gl")
+speaker_type = 0
+text = "Claro que pode! Vai lá e procura o João. Ele vive contando história bonita sobre as constelações e o céu do sul. Ele trabalha aqui."
+choices = Array[ExtResource("2_g0dtq")]([])
+creates_objective = true
+completes_objective = false
+objective_text = "Fale com João, um funcionário do local."
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_787hg"]
+script = ExtResource("1_dl8gl")
+speaker_type = 1
+text = "Obrigado pela dica!"
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = false
 completes_objective = false
@@ -94,5 +142,5 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [resource]
 script = ExtResource("2_27lt5")
-lines = Array[ExtResource("1_dl8gl")]([SubResource("Resource_kv5xb"), SubResource("Resource_cb0v7"), SubResource("Resource_thko1"), SubResource("Resource_lg1wb"), SubResource("Resource_awork")])
+lines = Array[ExtResource("1_dl8gl")]([SubResource("Resource_kv5xb"), SubResource("Resource_cb0v7"), SubResource("Resource_thko1"), SubResource("Resource_lg1wb"), SubResource("Resource_awork"), SubResource("Resource_76rhe"), SubResource("Resource_wt5kj"), SubResource("Resource_yv8r1"), SubResource("Resource_787hg")])
 metadata/_custom_type_script = "uid://d13f556ayg2wq"

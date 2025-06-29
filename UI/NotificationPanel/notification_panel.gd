@@ -6,6 +6,7 @@ extends Control
 
 var is_showing := false
 
+
 func show_message(text: String):
 	if is_showing:
 		return

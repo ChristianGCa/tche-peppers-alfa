@@ -1,31 +1,38 @@
 {
 	"phrases": [
 		{
-			"english": "The cat sat on the ___.",
-			"portuguese": "O gato sentou no ___."
+			"english": "The telescope helps us see distant ___.",
+			"portuguese": "O telescópio nos ajuda a ver objetos distantes."
 		},
 		{
-			"english": "She likes to ___ books.",
-			"portuguese": "Ela gosta de ___ livros."
+			"english": "We watched a show about the solar ___.",
+			"portuguese": "Assistimos a um show sobre o sistema solar."
 		},
 		{
-			"english": "What is the capital of ___?",
-			"portuguese": "Qual é a capital do ___?"
+			"english": "At night, the sky is full of shining ___.",
+			"portuguese": "À noite, o céu está cheio de estrelas brilhantes."
 		},
-		{	"english": "Gabriel is very ___ !",
-			"portuguese": "Gabriel é muito bonito!"
-			}
+		{
+			"english": "The moon goes around the ___.",
+			"portuguese": "A lua gira ao redor da Terra."
+		}
 	],
 	"options": [
-		["mat", "hat", "dog"],
-		["read", "sing", "eat"],
-		["Brazil", "France", "Japan"],
-		["Beautiful", "Cartucho", "Motoniveladora John Deere 620G ano 2022 com 6920 horas"]
+		["stars", "tables", "animals"],
+		["system", "sandwich", "stadium"],
+		["stars", "umbrellas", "candles"],
+		["Earth", "Sun", "Telescope"]
 	],
 	"correct_answers": [
-		"mat",
-		"read",
-		"Brazil",
-		"Beautiful"
+		"stars",
+		"system",
+		"stars",
+		"Earth"
+	],
+	"option_translations": [
+		["estrelas", "mesas", "animais"],
+		["sistema", "sanduíche", "estádio"],
+		["estrelas", "guarda-chuvas", "velas"],
+		["Terra", "Sol", "Telescópio"]
 	]
 }

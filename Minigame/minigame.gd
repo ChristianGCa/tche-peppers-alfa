@@ -6,15 +6,16 @@ var phrases_english: Array[String] = []
 var phrases_portuguese: Array[String] = []
 var options: Array = []
 var correct_answers: Array = []
+var option_translations: Array = []
 
 var current_index: int = 0
 
 @onready var label_phrase = $TextureRect/VBoxContainer/LabelPhrase as RichTextLabel
 @onready var label_translation = $TextureRect/VBoxContainer/LabelTranslation
 @onready var option_buttons = [
-	$TextureRect/CenterContainer/HBoxContainer/Button1,
-	$TextureRect/CenterContainer/HBoxContainer/Button2,
-	$TextureRect/CenterContainer/HBoxContainer/Button3
+	$TextureRect/VBoxContainer/CenterContainer/HBoxContainer/Button1,
+	$TextureRect/VBoxContainer/CenterContainer/HBoxContainer/Button2,
+	$TextureRect/VBoxContainer/CenterContainer/HBoxContainer/Button3
 ]
 
 func set_data_from_dict(data: Dictionary):
@@ -23,6 +24,7 @@ func set_data_from_dict(data: Dictionary):
 		phrases_portuguese.append(phrase.get("portuguese", ""))
 	options = data.get("options", [])
 	correct_answers = data.get("correct_answers", [])
+	option_translations = data.get("option_translations", [])
 
 	show_phrase()
 
@@ -50,33 +52,37 @@ func _ready():
 		option_buttons[i].pressed.connect(func(): _on_option_pressed(i))
 
 func _on_option_pressed(index: int):
+	$AudioStreamPlayer2D.play()
 	var selected = option_buttons[index].text
 	var correct = correct_answers[current_index]
 
+	for button in option_buttons:
+		button.disabled = true
+
+	var original = phrases_english[current_index]
+	label_phrase.bbcode_enabled = true
+
+	var filled: String
 	if selected == correct:
-		for button in option_buttons:
-			button.disabled = true
-
-		# ✅ Insere a resposta na frase com cor verde
-		var original = phrases_english[current_index]
-		var filled = original.replace("___", "[color=green]" + correct + "[/color]")
-		label_phrase.bbcode_enabled = true
-		label_phrase.bbcode_text = filled
-
-		label_translation.text = "Tradução: " + phrases_portuguese[current_index]
-		label_translation.visible = true
-
-		await get_tree().create_timer(2.0).timeout
-
-		current_index += 1
-		show_phrase()
+		filled = original.replace("___", "[color=green]" + correct + "[/color]")
 	else:
-		label_phrase.bbcode_enabled = false
-		label_phrase.text = "Tente novamente!"
-		for button in option_buttons:
-			button.disabled = true
-		await get_tree().create_timer(1.5).timeout
-		show_phrase()
+		filled = original.replace("___", "[color=red]" + selected + "[/color]")
+
+	label_phrase.bbcode_text = filled
+	label_translation.text = "Tradução: " + phrases_portuguese[current_index]
+	label_translation.visible = true
+
+	# Trocar texto do botão para a tradução
+	if current_index < option_translations.size() and index < option_translations[current_index].size():
+		var translation = option_translations[current_index][index]
+		option_buttons[index].text = translation
+
+	await get_tree().create_timer(4.0).timeout
+
+	if selected == correct:
+		current_index += 1
+
+	show_phrase()
 
 func end_minigame():
 	hide()

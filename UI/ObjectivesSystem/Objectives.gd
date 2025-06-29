@@ -1,6 +1,7 @@
 extends Control
 
 @onready var vbox := $MarginContainer/MarginContainer/VBoxContainer
+@onready var audio_completed = $AudioStreamPlayer2D
 
 func _ready():
 	ObjectiveManagement.connect("objectives_updated", Callable(self, "update_objectives"))
@@ -28,17 +29,27 @@ func update_objectives():
 
 
 func animate_removal(text: String):
+	audio_completed.play()
+
 	for label in vbox.get_children():
 		if label.text.contains(text):
 			var tween = create_tween()
-			tween.tween_property(label, "modulate", Color(0, 1, 0), 0.3)
+			
+			# Pulsar escala maior e voltar
+			tween.tween_property(label, "scale", Vector2(1.3, 1.3), 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+			tween.tween_property(label, "modulate", Color(0, 1.2, 0, 1), 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+			
+			# Pulsar de volta pro normal (menor e cor normal)
+			tween.tween_property(label, "scale", Vector2(1, 1), 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+			tween.tween_property(label, "modulate", Color(0, 1, 0, 1), 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+			
+			# Fade out com delay pra dar tempo de ver a animação
 			tween.tween_property(label, "modulate:a", 0.0, 0.4).set_delay(0.3)
+
 			await tween.finished
 			if is_instance_valid(label):
 				label.queue_free()
-			break  # Evita repetir
-
-
+			break
 
 func create_animated_objective(text: String):
 	var label = Label.new()

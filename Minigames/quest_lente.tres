@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_q6e0l")
-item_required = "lente"
-objective_text = "AAi"
+item_required = "radio"
+objective_text = ""
 state = 0
 metadata/_custom_type_script = "uid://bl48iy1o2n0sf"

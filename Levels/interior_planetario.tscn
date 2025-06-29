@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://jtww36vsobxf"]
+[gd_scene load_steps=37 format=4 uid="uid://jtww36vsobxf"]
 
 [ext_resource type="Texture2D" uid="uid://6r6lo06uvl2l" path="res://Assets/tilemap/interior/tile_interior.png" id="1_fmo4i"]
 [ext_resource type="Script" uid="uid://de788d3c3ogpr" path="res://Levels/interior_planetario.gd" id="1_n7m4a"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bk2eb0gwgtoko" path="res://UI/Glossary/glossary_button.tscn" id="14_jomcx"]
 [ext_resource type="PackedScene" uid="uid://cs6fofvxcfshf" path="res://UI/Glossary/glossary_book.tscn" id="15_6ced5"]
 [ext_resource type="PackedScene" uid="uid://cx8mobmc7mxvl" path="res://UI/ObjectivesSystem/Objectives.tscn" id="16_oa0l6"]
+[ext_resource type="AudioStream" uid="uid://c481k46dmbbrv" path="res://Audio/Music/baladinha_soft.mp3" id="17_jomcx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e7mdf"]
 texture = ExtResource("1_fmo4i")
@@ -1782,7 +1783,103 @@ sources/7 = SubResource("TileSetAtlasSource_7ou5g")
 [sub_resource type="Resource" id="Resource_fvq0i"]
 script = ExtResource("7_65qgn")
 speaker_type = 0
-text = "Seja bem-vindo ao planetário da UFSM. Ficamos felizes com sua visita."
+text = "Ah, você deve ser o rapaz que o João comentou. Seja bem-vindo ao planetário da UFSM."
+choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = true
+objective_text = "Fale com o professor"
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_v1hjr"]
+script = ExtResource("7_65qgn")
+speaker_type = 1
+text = "Obrigado! Meu nome é Edward. Meu avô me falou muito desse lugar. Ele se chamava Otávio Duarte."
+choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_jomcx"]
+script = ExtResource("7_65qgn")
+speaker_type = 0
+text = "Otávio? [gloss:Mas que barbaridade|Unbelievable! / What the heck!]Fomos colegas de universidade. Ele vinha aqui olhar as estrelas toda semana."
+choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_6ced5"]
+script = ExtResource("7_65qgn")
+speaker_type = 1
+text = "Ele me falava muito sobre isso. Queria entender por que ele gostava tanto daqui."
+choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_oa0l6"]
+script = ExtResource("7_65qgn")
+speaker_type = 0
+text = "Ele dizia que olhar o céu era como escutar uma música sem som — cada estrela contava uma história."
+choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_quk5y"]
+script = ExtResource("7_65qgn")
+speaker_type = 0
+text = "E você, sabe alguma coisa de inglês astronômico?"
+choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_yuxgf"]
+script = ExtResource("7_65qgn")
+speaker_type = 1
+text = "Estou tentando aprender. Acho que sei o básico..."
+choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_w30py"]
+script = ExtResource("7_65qgn")
+speaker_type = 0
+text = "Que tal um desafio? Quero ver se tu é mesmo neto do Otávio! Vou te mostrar umas frases em inglês com palavras faltando. Complete elas."
+choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_eerm8"]
+script = ExtResource("7_65qgn")
+speaker_type = 1
+text = "Vamos lá"
 choices = Array[ExtResource("9_rdkfc")]([])
 creates_objective = false
 completes_objective = false
@@ -1791,27 +1888,35 @@ triggers_minigame = true
 minigame_json_path = "res://Minigames/level_1.json"
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
-[sub_resource type="Resource" id="Resource_sunul"]
-script = ExtResource("9_rdkfc")
-text_english = "Hello! My father is Edward."
-text_portuguese = "Olá! Meu pai á Edward"
-is_correct = false
-npc_response = "Seu pai?"
-metadata/_custom_type_script = "uid://cry6b72kahevs"
+[sub_resource type="Resource" id="Resource_rctjt"]
+script = ExtResource("7_65qgn")
+speaker_type = 0
+text = "O [gloss:piá|boy] mandou bem! Até parecia o Otávio jovem de novo aqui dentro hahaha."
+choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
-[sub_resource type="Resource" id="Resource_mopwr"]
-script = ExtResource("9_rdkfc")
-text_english = "Hello! My name is Edward. I'm from the USA"
-text_portuguese = "Olá! Meu nome é Edward. Eu sou dos EUA."
-is_correct = true
-npc_response = "Prazer em conhecé-lo."
-metadata/_custom_type_script = "uid://cry6b72kahevs"
-
-[sub_resource type="Resource" id="Resource_v1hjr"]
+[sub_resource type="Resource" id="Resource_gyvxe"]
 script = ExtResource("7_65qgn")
 speaker_type = 1
-text = ""
-choices = Array[ExtResource("9_rdkfc")]([SubResource("Resource_sunul"), SubResource("Resource_mopwr")])
+text = "Obrigado, professor. Foi bem interessante conhecer mais sobre esse lugar. Mas agora vou andando. Tenho outros lugares para visitar."
+choices = Array[ExtResource("9_rdkfc")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+triggers_minigame = false
+minigame_json_path = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_2lo3n"]
+script = ExtResource("7_65qgn")
+speaker_type = 0
+text = "Fica à vontade. Até mais guri."
+choices = Array[ExtResource("9_rdkfc")]([])
 creates_objective = false
 completes_objective = false
 objective_text = ""
@@ -1821,7 +1926,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_4ul5r"]
 script = ExtResource("8_rdkfc")
-lines = Array[ExtResource("7_65qgn")]([SubResource("Resource_fvq0i"), SubResource("Resource_v1hjr")])
+lines = Array[ExtResource("7_65qgn")]([SubResource("Resource_fvq0i"), SubResource("Resource_v1hjr"), SubResource("Resource_jomcx"), SubResource("Resource_6ced5"), SubResource("Resource_oa0l6"), SubResource("Resource_quk5y"), SubResource("Resource_yuxgf"), SubResource("Resource_w30py"), SubResource("Resource_eerm8"), SubResource("Resource_rctjt"), SubResource("Resource_gyvxe"), SubResource("Resource_2lo3n")])
 metadata/_custom_type_script = "uid://d13f556ayg2wq"
 
 [node name="planetario_interior" type="Node2D"]
@@ -1837,7 +1942,7 @@ tile_map_data = PackedByteArray("AAAwABIAAAAEAA0AAAAwABMAAAAEAA0AAAAwABQAAAAEAA0
 tile_set = SubResource("TileSet_xslor")
 
 [node name="Player" parent="decoracao" instance=ExtResource("3_mvnb1")]
-position = Vector2(639, 484)
+position = Vector2(641, 482)
 
 [node name="Professor" parent="decoracao" instance=ExtResource("6_xiv3i")]
 position = Vector2(637, 249)
@@ -1845,7 +1950,7 @@ dialog_intro = SubResource("Resource_4ul5r")
 sprite_frames = ExtResource("8_ht2pt")
 portrait_texture = ExtResource("12_iucdi")
 npc_name = "Professor"
-level_id = "planetario"
+dialog_flag_name = "talked_to_Professor"
 
 [node name="saida_planetario" type="Marker2D" parent="."]
 position = Vector2(640, 488)
@@ -1853,15 +1958,30 @@ position = Vector2(640, 488)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="NotificationPanel" parent="HUD" instance=ExtResource("13_iu621")]
+visible = false
+offset_left = 619.0
+offset_top = 244.0
+offset_right = 659.0
+offset_bottom = 284.0
 
 [node name="GlossaryButton" parent="HUD" instance=ExtResource("14_jomcx")]
+offset_left = 1171.0
+offset_top = 26.0
+offset_right = 1236.0
+offset_bottom = 104.0
 
 [node name="GlossaryBook" parent="HUD" instance=ExtResource("15_6ced5")]
+visible = false
 
 [node name="Objetivos" parent="HUD" instance=ExtResource("16_oa0l6")]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_jomcx")
+parameters/looping = true
+
 [node name="Porta" parent="." instance=ExtResource("5_mvnb1")]
-position = Vector2(640, 500)
+position = Vector2(640, 529)
 cena_destino_path = "res://Levels/planetario.tscn"
 nome_ponto_entrada = "entrada_planetario"
 interior = true
+flags_requeridas = Array[String](["talked_to_Professor"])

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://djfynmn8jpl0l"]
+[gd_scene load_steps=5 format=3 uid="uid://djfynmn8jpl0l"]
 
 [ext_resource type="Script" uid="uid://rpclifqw21sc" path="res://Minigame/minigame.gd" id="1_80ohy"]
 [ext_resource type="Theme" uid="uid://dxnlppmy2wqak" path="res://Themes/minigame_theme.tres" id="1_auvxj"]
 [ext_resource type="Texture2D" uid="uid://4lx0tysrrbci" path="res://Minigame/fundo_minigame.png" id="2_7llvh"]
+[ext_resource type="AudioStream" uid="uid://c04h31wovdf7o" path="res://Audio/Feedback/click_2.wav" id="4_8c64t"]
 
 [node name="Minigame" type="CanvasLayer"]
 script = ExtResource("1_80ohy")
@@ -38,24 +39,23 @@ bbcode_enabled = true
 text = "Translation phrase"
 scroll_active = false
 
-[node name="CenterContainer" type="CenterContainer" parent="TextureRect"]
-layout_mode = 2
-offset_left = 60.0
-offset_top = 203.0
-offset_right = 991.0
-offset_bottom = 236.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button1" type="Button" parent="TextureRect/CenterContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "option 1"
 
-[node name="Button2" type="Button" parent="TextureRect/CenterContainer/HBoxContainer"]
+[node name="Button2" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "option 2"
 
-[node name="Button3" type="Button" parent="TextureRect/CenterContainer/HBoxContainer"]
+[node name="Button3" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "option3"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8c64t")

@@ -200,6 +200,7 @@ func show_choices(choices: Array[ChoiceOption]):
 	choice_container.visible = true
 
 func _on_choice_button_pressed(index: int):
+	$AudioStreamPlayer2D.play()
 	if index >= 0 and index < current_choices.size():
 		var choice = current_choices[index]
 		_on_choice_selected(choice)
@@ -227,6 +228,7 @@ func _on_choice_selected(choice: ChoiceOption):
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible: return
 	if not event.is_action_pressed("ok"): return
+	$AudioStreamPlayer2D.play()
 
 	if is_typing:
 		is_typing = false
