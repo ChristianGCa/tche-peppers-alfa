@@ -1859,7 +1859,6 @@ scale = Vector2(0.185547, 0.169922)
 
 [node name="Hangar" type="Sprite2D" parent="decoracoes/aviao"]
 position = Vector2(-5.38964, 153.012)
-scale = Vector2(1, 1)
 texture = ExtResource("5_hiv0k")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decoracoes/aviao"]
