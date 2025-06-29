@@ -1952,6 +1952,13 @@ portrait_texture = ExtResource("12_iucdi")
 npc_name = "Professor"
 dialog_flag_name = "talked_to_Professor"
 
+[node name="Porta" parent="decoracao" instance=ExtResource("5_mvnb1")]
+position = Vector2(640, 529)
+cena_destino_path = "res://Levels/planetario.tscn"
+nome_ponto_entrada = "entrada_planetario"
+interior = true
+flags_requeridas = Array[String](["talked_to_Professor"])
+
 [node name="saida_planetario" type="Marker2D" parent="."]
 position = Vector2(640, 488)
 
@@ -1978,10 +1985,3 @@ visible = false
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_jomcx")
 parameters/looping = true
-
-[node name="Porta" parent="." instance=ExtResource("5_mvnb1")]
-position = Vector2(640, 529)
-cena_destino_path = "res://Levels/planetario.tscn"
-nome_ponto_entrada = "entrada_planetario"
-interior = true
-flags_requeridas = Array[String](["talked_to_Professor"])

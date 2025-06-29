@@ -76,10 +76,6 @@ func to_walking():
 
 	refresh_dialog_icons() # <- Aqui
 
-
-	
-
-
 func process_walking():
 	if dialogue_area != null and Input.is_action_just_pressed("ok") and can_interact_again:
 		if dialogue_area.has_meta("dialog_valid"):
