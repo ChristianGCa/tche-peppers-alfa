@@ -1,12 +1,11 @@
 extends Node
 
-# As variáveis globais devem vir depois do class_name
 var flags := {}
+var is_full_completed = false
 
 var player_name: String = "Você"
 var player_portrait: Texture = preload("res://Assets/Characters/Portraits/player.png") # substitua pelo caminho correto
 
-# NOVO SINAL: Emite quando um nível é marcado como completo
 signal level_marked_complete(completed_level_id: String)
 
 func set_flag(key: String, value: bool = true) -> void:

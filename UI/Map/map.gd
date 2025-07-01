@@ -93,8 +93,8 @@ func show_locked_message(message: String, target_button_position: Vector2):
 		message_tween.stop() # Ou .kill() se quiser parar completamente e descartar
 	
 	# Posiciona o label um pouco acima do botão
-	message_label.global_position = target_button_position + Vector2(0, -50)
-	message_label.global_position.x -= message_label.size.x / 2.0
+	message_label.global_position = target_button_position + Vector2(0, -30)
+	message_label.global_position.x -= message_label.size.x / 7.0
 	
 	message_label.text = message
 	message_label.modulate = Color(1, 1, 1, 0) # Começa transparente
@@ -123,12 +123,19 @@ func _on_catedral_button_pressed():
 	if progress.get("catedral", false):
 		start_level("res://Levels/catedral.tscn")
 	else:
-		show_locked_message("Catedral bloqueada! Complete a fase anterior.", catedral_button.global_position)
+		show_locked_message("Fase bloqueada", catedral_button.global_position)
 		print("Tentativa de acessar Catedral bloqueada.")
 
 func _on_base_aerea_button_pressed() -> void:
 	if progress.get("base_aerea", false):
 		start_level("res://Levels/BaseAerea.tscn")
 	else:
-		show_locked_message("Base Aérea bloqueada! Complete as fases anteriores.", base_button.global_position)
+		show_locked_message("Fase bloqueada", base_button.global_position)
 		print("Tentativa de acessar Base Aérea bloqueada.")
+
+func _on_voltar_pressed() -> void:
+	if is_loading_level:
+		return
+
+	is_loading_level = true
+	call_deferred("change_scene_to_file_deferred", "res://UI/main_menu.tscn")

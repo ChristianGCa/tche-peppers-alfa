@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4kmpty2nmt2v"]
+
+[ext_resource type="Script" uid="uid://dl0mof1ku17uk" path="res://UI/intro.gd" id="1_boeer"]
+[ext_resource type="Texture2D" uid="uid://dt5ic64md323e" path="res://Assets/backgrounds/sm.png" id="2_sptw6"]
+[ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="3_s8pxw"]
+[ext_resource type="Theme" uid="uid://bgjkjrsn0nr0k" path="res://Themes/Button.tres" id="4_1qpgo"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_boeer")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1274.0
+offset_bottom = 723.0
+texture = ExtResource("2_sptw6")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 42.0
+offset_top = 72.0
+offset_right = 1235.0
+offset_bottom = 627.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("3_s8pxw")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "sadfasdfasdfasdfasdfasdfasdf"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 992.0
+offset_top = 646.0
+offset_right = 1245.0
+offset_bottom = 691.0
+theme = ExtResource("4_1qpgo")
+text = ">>>>"

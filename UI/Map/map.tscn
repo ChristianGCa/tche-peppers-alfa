@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://lj3m72hmrxb6"]
+[gd_scene load_steps=15 format=3 uid="uid://lj3m72hmrxb6"]
 
 [ext_resource type="Texture2D" uid="uid://b46dfygqd70n5" path="res://UI/Map/mapa_santa_maria.png" id="1_aykfp"]
 [ext_resource type="Script" uid="uid://ct2ocam014g2p" path="res://UI/Map/map.gd" id="1_hkkqg"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bl6kdxt4u8bly" path="res://UI/Map/base_miniatura_pressed.png" id="10_05n6e"]
 [ext_resource type="Texture2D" uid="uid://djbq6k0mkfyr8" path="res://UI/Map/base_miniatura_hover.png" id="11_yshux"]
 [ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="13_4fsbn"]
+[ext_resource type="Theme" uid="uid://bgjkjrsn0nr0k" path="res://Themes/Button.tres" id="13_xgwbs"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_hkkqg")
@@ -42,10 +43,10 @@ texture_hover = ExtResource("7_ysqor")
 
 [node name="cadeado" type="TextureRect" parent="catedralButton"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 58.0
-offset_right = 129.0
-offset_bottom = 123.0
+offset_left = 36.0
+offset_top = 27.0
+offset_right = 153.0
+offset_bottom = 144.0
 texture = ExtResource("8_hfjv1")
 
 [node name="baseAereaButton" type="TextureButton" parent="."]
@@ -59,10 +60,10 @@ texture_hover = ExtResource("11_yshux")
 
 [node name="cadeado" type="TextureRect" parent="baseAereaButton"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 62.0
-offset_right = 129.0
-offset_bottom = 127.0
+offset_left = 37.0
+offset_top = 28.0
+offset_right = 154.0
+offset_bottom = 145.0
 texture = ExtResource("8_hfjv1")
 
 [node name="Voltar" type="Button" parent="."]
@@ -70,20 +71,24 @@ offset_left = 59.0
 offset_top = 638.0
 offset_right = 217.0
 offset_bottom = 669.0
+theme = ExtResource("13_xgwbs")
 text = "Voltar para o menu"
 
-[node name="Label" type="Label" parent="."]
-offset_left = 55.0
-offset_top = 37.0
-offset_right = 168.0
-offset_bottom = 60.0
+[node name="EscolhaAfase" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 28.0
+offset_right = 484.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("13_4fsbn")
+theme_override_font_sizes/font_size = 50
 text = "Escolha a fase:"
 
 [node name="MessageLabel" type="Label" parent="."]
-offset_left = 484.0
-offset_top = 37.0
-offset_right = 729.0
-offset_bottom = 78.0
+offset_left = 693.0
+offset_top = 25.0
+offset_right = 938.0
+offset_bottom = 66.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("13_4fsbn")
 theme_override_font_sizes/font_size = 40
 text = "Fase bloqueada!"
@@ -91,3 +96,4 @@ text = "Fase bloqueada!"
 [connection signal="pressed" from="planetarioButton" to="." method="_on_planetario_button_pressed"]
 [connection signal="pressed" from="catedralButton" to="." method="_on_catedral_button_pressed"]
 [connection signal="pressed" from="baseAereaButton" to="." method="_on_base_aerea_button_pressed"]
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]

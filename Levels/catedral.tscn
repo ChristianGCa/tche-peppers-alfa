@@ -3813,7 +3813,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_x0r5p"]
 script = ExtResource("6_xt555")
-speaker_type = 1
+speaker_type = 0
 text = "Bah, faz calor hoje, hein? Capaz que tu vai pra igreja de moletom!"
 choices = Array[ExtResource("7_jkjtw")]([])
 creates_objective = false
@@ -4209,10 +4209,10 @@ offset_right = 1242.0
 offset_bottom = 106.0
 
 [node name="ReturnToMapButton" parent="HUD" instance=ExtResource("33_pskcm")]
-offset_left = 617.0
-offset_top = 29.0
-offset_right = 737.0
-offset_bottom = 60.0
+offset_left = 505.0
+offset_top = 31.0
+offset_right = 719.0
+offset_bottom = 72.0
 
 [node name="GlossaryBook" parent="HUD" instance=ExtResource("36_jkjtw")]
 visible = false

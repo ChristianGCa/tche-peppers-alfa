@@ -1,0 +1,39 @@
+{
+	"phrases": [
+		{
+			"english": "The priest speaks to the people during the ___.",
+			"portuguese": "O padre fala com as pessoas durante a missa."
+		},
+		{
+			"english": "The colorful ___ show scenes from the Bible.",
+			"portuguese": "Os vitrais coloridos mostram cenas da Bíblia."
+		},
+		{
+			"english": "People sit on a ___ during the service.",
+			"portuguese": "As pessoas sentam em um banco durante a cerimônia."
+		},
+		{
+			"english": "The large ___ rings when the mass begins.",
+			"portuguese": "O grande sino toca quando a missa começa."
+		}
+	],
+	"options": [
+		["mass", "party", "parade"],
+		["windows", "curtains", "paintings"],
+		["bench", "table", "sofa"],
+		["bell", "drum", "whistle"]
+	],
+	"correct_answers": [
+		"mass",
+		"windows",
+		"bench",
+		"bell"
+	],
+	"option_translations": [
+		["missa", "festa", "desfile"],
+		["janelas", "cortinas", "pinturas"],
+		["banco", "mesa", "sofá"],
+		["sino", "tambor", "apito"]
+	]
+}
+

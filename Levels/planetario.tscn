@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://bmx8emouf4xbl"]
+[gd_scene load_steps=79 format=4 uid="uid://bmx8emouf4xbl"]
 
 [ext_resource type="Script" uid="uid://dcdvqjjyvsh4r" path="res://Levels/planetario.gd" id="1_anyxf"]
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_qx4g2"]
@@ -3110,7 +3110,7 @@ sources/4 = SubResource("TileSetAtlasSource_csdg6")
 [sub_resource type="Resource" id="Resource_orrcu"]
 script = ExtResource("9_t33ux")
 speaker_type = 0
-text = "Buenas, vivente! Vi que tu veio do planetário, né? Sou o professor Rafael, da Hey Peppers — uma marca que mistura tecnologia, sustentabilidade e aquele tempero gaúcho que a gente adora!"
+text = "Buenas tchê, me chamo Joel, sou um professor da Hey peppers, vim aqui com um grupo de alunos para um excursão no planetário."
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = false
@@ -3134,7 +3134,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_qg8px"]
 script = ExtResource("9_t33ux")
 speaker_type = 0
-text = "Na Hey Peppers a gente cria soluções inteligentes para o campo e a cidade, sempre com respeito pela natureza e cultura regional."
+text = "É verdade. Esse lugar é muito interessante."
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = false
@@ -3143,11 +3143,38 @@ triggers_minigame = false
 minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
+[sub_resource type="Resource" id="Resource_cskjc"]
+script = ExtResource("10_0c5fv")
+text_english = "What is Hey Peppers!?"
+text_portuguese = "O que é a Hey Peppers!?"
+is_correct = true
+npc_response = "A Hey Peppers é uma baita de uma escola  de idiomas aqui da região. Temos espanhol e inglês, mas o carro chefe é inglês."
+response_portrait = ExtResource("14_7pg1g")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_fvxla"]
+script = ExtResource("10_0c5fv")
+text_english = "What time is it?"
+text_portuguese = "Que horas são?"
+is_correct = false
+npc_response = "Deve ser umas 10 da manhã agora."
+response_portrait = ExtResource("14_7pg1g")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
+[sub_resource type="Resource" id="Resource_vdjxn"]
+script = ExtResource("10_0c5fv")
+text_english = "Who are you?"
+text_portuguese = "Quem é você?"
+is_correct = false
+npc_response = "Eu ja me apresentei. Sou Joel, professor da Hey Peppers!."
+response_portrait = ExtResource("14_7pg1g")
+metadata/_custom_type_script = "uid://cry6b72kahevs"
+
 [sub_resource type="Resource" id="Resource_qgxd8"]
 script = ExtResource("9_t33ux")
 speaker_type = 1
-text = "Bacana demais! Isso combina muito com meu jeito de aprender. Vou querer conhecer melhor."
-choices = Array[ExtResource("10_0c5fv")]([])
+text = ""
+choices = Array[ExtResource("10_0c5fv")]([SubResource("Resource_cskjc"), SubResource("Resource_fvxla"), SubResource("Resource_vdjxn")])
 creates_objective = false
 completes_objective = false
 objective_text = ""
@@ -3158,7 +3185,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_80vfw"]
 script = ExtResource("9_t33ux")
 speaker_type = 0
-text = "Então fica de olho! E depois passa lá na nossa base pra tomar um chimarrão com a gente."
+text = "Temos um monte de escola pelo nosso Estado. Se não me falha a memória, são umas 30 e poucas escolas. Temos uma aqui em Santa Maria inclusive, se quiser dar uma olhada passa lá um dia e pede pelo professor Joel que eu te mostro nossa escola.ente."
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = false
@@ -3169,7 +3196,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 
 [sub_resource type="Resource" id="Resource_sd6de"]
 script = ExtResource("9_t33ux")
-speaker_type = 0
+speaker_type = 1
 text = "Pode deixar, professor! Valeu pela dica."
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
@@ -3529,7 +3556,6 @@ position = Vector2(720, 287)
 cena_destino_path = "res://Levels/interior_planetario.tscn"
 nome_ponto_entrada = "entrada_planetario"
 animacoes = ExtResource("3_8oc8m")
-flags_requeridas = Array[String](["talked_to_Funcionario"])
 
 [node name="entrada_planetario" type="Marker2D" parent="."]
 position = Vector2(708, 312)

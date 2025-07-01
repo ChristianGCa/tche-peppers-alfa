@@ -1,17 +1,25 @@
+# base_aerea.gd
 extends Node2D
 
 @onready var return_button: Button = $HUD/ReturnToMapButton
-@export var this_level_id: String = "catedral"
+@export var this_level_id: String = "base_aerea"
 @onready var music = $AudioStreamPlayer2D
 
 func _ready():
 	music.play()
-	ObjectiveManagement.add_objective("Fale com as pessoas na rua")
+	ObjectiveManagement.add_objective("Converse com o o soldado no portão")
 
 	return_button.visible = false
 	
 	if _level_was_completed():
 		_show_return_button()
+
+	if Global.posicao_marcador != "":
+		var marcador = get_node_or_null(Global.posicao_marcador)
+		if marcador:
+			var player = get_tree().get_first_node_in_group("player")
+			if player:
+				player.global_position = marcador.global_position
 
 func _level_was_completed() -> bool:
 	if FileAccess.file_exists("user://progress.save"):
