@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://yo77btld3l27"]
+[gd_scene load_steps=20 format=4 uid="uid://yo77btld3l27"]
 
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_akg04"]
 [ext_resource type="PackedScene" uid="uid://dp1x6bmwoerk2" path="res://Player/player.tscn" id="2_dh5lp"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b472ese88nqb4" path="res://Assets/Sprites/hangar.png" id="5_hiv0k"]
 [ext_resource type="PackedScene" uid="uid://qawyu4ju6omy" path="res://SceneObjects/taxi_arrival.tscn" id="5_sxv6g"]
 [ext_resource type="Texture2D" uid="uid://dekqqvvotognj" path="res://Assets/Sprites/Base Comando.png" id="7_v38kv"]
+[ext_resource type="PackedScene" uid="uid://c8al8ppb6vohr" path="res://NPCs/Scene/NPC.tscn" id="8_dw1gd"]
+[ext_resource type="Texture2D" uid="uid://32c0r2sf50qw" path="res://Assets/Characters/SpriteSheets/npc_08_spritesheet.png" id="9_0l8ok"]
+[ext_resource type="Texture2D" uid="uid://cqa8w5ppnb3va" path="res://Assets/Characters/Portraits/npc_08.png" id="9_v3wms"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j2m40"]
 texture = ExtResource("1_akg04")
@@ -1811,6 +1814,28 @@ texture = ExtResource("1_akg04")
 [sub_resource type="TileSet" id="TileSet_hiv0k"]
 sources/4 = SubResource("TileSetAtlasSource_sxv6g")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynpmw"]
+atlas = ExtResource("9_0l8ok")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2tif"]
+atlas = ExtResource("9_0l8ok")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smr7h"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_ynpmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2tif")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="terreno" type="Node2D"]
 
 [node name="grama_asfalto" type="TileMapLayer" parent="."]
@@ -1863,7 +1888,7 @@ texture = ExtResource("5_hiv0k")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decoracoes/aviao"]
 position = Vector2(-10.7791, 153.012)
-polygon = PackedVector2Array(21.5579, 329.563, -16.1685, 329.563, -48.5054, 223.632, -161.684, 158.897, -215.579, 129.471, -220.969, 76.5058, -366.484, 76.5058, -393.432, 76.5058, -490.442, 76.5058, -495.832, 76.5058, -501.221, -247.172, -420.379, -247.172, -420.379, -411.954, 5.3894, -494.345, 431.158, -406.069, 431.158, -247.172, 512, -247.172, 512, 70.6207, 371.874, 76.5058, 247.916, 82.3908, 199.41, 129.471, 107.789, 182.437, 53.8948, 217.747)
+polygon = PackedVector2Array(145.516, 511.999, 48.5054, 511.999, -32.3367, 511.999, -210.189, 511.999, -366.484, 511.999, -366.484, 411.953, -366.484, 200.091, -366.484, 76.5058, -393.432, 76.5058, -490.442, 76.5058, -495.832, 76.5058, -501.221, -247.172, -420.379, -247.172, -420.379, -411.954, 5.3894, -494.345, 431.158, -406.069, 431.158, -247.172, 512, -247.172, 512, 70.6207, 371.874, 76.5058, 377.263, 270.712, 377.263, 429.608, 377.263, 511.999, 247.916, 511.999)
 
 [node name="TaxiArrival" parent="decoracoes" instance=ExtResource("5_sxv6g")]
 position = Vector2(86, 564)
@@ -1877,3 +1902,10 @@ texture = ExtResource("7_v38kv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="decoracoes/comando"]
 polygon = PackedVector2Array(1000, 206, 985, 205, 984, 172, 938, 172, 937, 163, 911, 163, 910, 55, 925, 54, 925, 24, 944, 24, 943, 18, 1143, 18, 1143, 23, 1164, 23, 1165, 55, 1178, 55, 1177, 163, 1152, 163, 1152, 171, 1105, 171, 1105, 205, 1058, 206, 1058, 201, 1030, 201, 1030, 205)
+
+[node name="Maria" parent="decoracoes" instance=ExtResource("8_dw1gd")]
+position = Vector2(230, 506)
+sprite_frames = SubResource("SpriteFrames_smr7h")
+dialog_flag_name = "falou_com_cidadao_local"
+npc_name = "Maria"
+portrait_texture = ExtResource("9_v3wms")

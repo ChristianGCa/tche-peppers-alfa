@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://cu5qihhwaxnv4"]
+[gd_scene load_steps=73 format=4 uid="uid://cu5qihhwaxnv4"]
 
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_cwqj3"]
 [ext_resource type="Texture2D" uid="uid://bal8mv6xjen1w" path="res://Assets/tilemap/house/Walls.png" id="2_jacyy"]
@@ -3941,6 +3941,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_umge1"]
+script = ExtResource("28_fqvth")
+item_required = ""
+objective_text = ""
+state = 0
+metadata/_custom_type_script = "uid://bl48iy1o2n0sf"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_x1mch"]
 radius = 9.0
 
@@ -4048,10 +4055,12 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAdACMAAAAhAAIAAAAcACYAAAAhAAMAAAAdACYAAAAhAAMAAAAhACMAAAAhAAIAAAAhACQAAAAhAAMAAAAhACYAAAAhAAMAAAAiACMAAAAiAAIAAAAiACQAAAAiAAMAAABAABkAAAAIAAAAAAA+ABcAAAAKAAAAAAAeACMAAAAiAAIAAAAdACQAAAAhAAMAAAAeACQAAAAiAAMAAAAZACMAAAAhAAIAAAAZACQAAAAhAAMAAAAaACMAAAAiAAIAAAAaACQAAAAiAAMAAAAVACMAAAAhAAIAAAAVACQAAAAhAAMAAAAVACYAAAAhAAMAAAAWACMAAAAiAAIAAAAWACQAAAAiAAMAAAAlACMAAAAhAAIAAAAlACQAAAAhAAMAAAAmACMAAAAiAAIAAAAmACQAAAAiAAMAAAApACMAAAAhAAIAAAApACQAAAAhAAMAAAAqACMAAAAiAAIAAAAqACQAAAAiAAMAAAAtACMAAAAhAAIAAAAtACQAAAAhAAMAAAAuACMAAAAiAAIAAAAuACQAAAAiAAMAAAAxACMAAAAhAAIAAAAxACQAAAAhAAMAAAAyACMAAAAiAAIAAAAyACQAAAAiAAMAAAA1ACMAAAAhAAIAAAA1ACQAAAAhAAMAAAA2ACMAAAAiAAIAAAA2ACQAAAAiAAMAAAAAABkAAAAKAAAAAAAlABkAAAAKAAAAAAAjABgAAAAKAAYAAAA9ABkAAAAKAAAAAAA9ABsAAAAIAAYAAABCABkAAAAJAAYAAAABABcAAAAKAAAAAAA1ABYAAAAKAAAAAAATABYAAAAKAAAAAAAVACEAAAAhAAAAAAAVACIAAAAhAAEAAAAWACEAAAAiAAAAAAAWACIAAAAiAAEAAAAXACQAAAAjAAMAAAAXACUAAAAjAAQAAAAZACEAAAAhAAAAAAAZACIAAAAhAAEAAAAaACEAAAAiAAAAAAAaACIAAAAiAAEAAAAbACQAAAAjAAMAAAAcACQAAAAhAAMAAAAdACEAAAAhAAAAAAAdACIAAAAhAAEAAAAeACEAAAAiAAAAAAAeACIAAAAiAAEAAAAfACQAAAAjAAMAAAAhACEAAAAhAAAAAAAhACIAAAAhAAEAAAAiACEAAAAiAAAAAAAiACIAAAAiAAEAAAAjACQAAAAjAAMAAAAlACEAAAAhAAAAAAAlACIAAAAhAAEAAAAmACEAAAAiAAAAAAAmACIAAAAiAAEAAAAnACQAAAAjAAMAAAAnACUAAAAjAAQAAAApACEAAAAhAAAAAAApACIAAAAhAAEAAAAqACEAAAAiAAAAAAAqACIAAAAiAAEAAAArACQAAAAjAAMAAAArACUAAAAjAAQAAAAtACEAAAAhAAAAAAAtACIAAAAhAAEAAAAuACEAAAAiAAAAAAAuACIAAAAiAAEAAAAvACQAAAAjAAMAAAAvACUAAAAjAAQAAAAxACEAAAAhAAAAAAAxACIAAAAhAAEAAAAyACEAAAAiAAAAAAAyACIAAAAiAAEAAAAzACQAAAAjAAMAAAAzACUAAAAjAAQAAAA1ACEAAAAhAAAAAAA1ACIAAAAhAAEAAAA2ACEAAAAiAAAAAAA2ACIAAAAiAAEAAAA3ACQAAAAjAAMAAAA3ACUAAAAjAAQAAAAjACUAAAAjAAQAAAAbACUAAAAjAAQAAAAfACUAAAAjAAQAAAA=")
 tile_set = SubResource("TileSet_jxno4")
 
-[node name="Gabriel" parent="decoracoes" instance=ExtResource("5_pskcm")]
+[node name="Lucas" parent="decoracoes" instance=ExtResource("5_pskcm")]
 position = Vector2(539, 488)
 dialog_intro = SubResource("Resource_b25yl")
 sprite_frames = SubResource("SpriteFrames_yfg6r")
+npc_name = "Gabriel"
+portrait_texture = ExtResource("8_gh6b5")
 
 [node name="Player" parent="decoracoes" instance=ExtResource("12_075sj")]
 position = Vector2(343, 656)
@@ -4181,6 +4190,7 @@ animacoes = SubResource("SpriteFrames_hie4d")
 [node name="Relogio" parent="decoracoes" instance=ExtResource("26_x0r5p")]
 position = Vector2(560, 403)
 item_name = "Relógio"
+related_quest = SubResource("Resource_umge1")
 
 [node name="Sprite2D" type="Sprite2D" parent="decoracoes/Relogio"]
 position = Vector2(-1.90735e-06, 1.90735e-06)
@@ -4190,13 +4200,16 @@ texture = ExtResource("27_fws60")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="decoracoes/Relogio"]
 shape = SubResource("CircleShape2D_x1mch")
 
-[node name="CharacterBody2D" parent="decoracoes" instance=ExtResource("5_pskcm")]
+[node name="Gabriel" parent="decoracoes" instance=ExtResource("5_pskcm")]
 position = Vector2(299, 518)
 dialog_intro = SubResource("Resource_3ssd7")
 dialog_in_progress = SubResource("Resource_2sm4p")
 dialog_completed = SubResource("Resource_gkgo8")
 quest = SubResource("Resource_cbj3i")
 sprite_frames = SubResource("SpriteFrames_bo4cd")
+
+[node name="Amanda" parent="decoracoes" instance=ExtResource("5_pskcm")]
+position = Vector2(724, 461)
 
 [node name="TaxiArrival" parent="." instance=ExtResource("29_tukl2")]
 position = Vector2(314, 668)
