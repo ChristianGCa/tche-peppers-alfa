@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://cu5qihhwaxnv4"]
+[gd_scene load_steps=76 format=4 uid="uid://cu5qihhwaxnv4"]
 
 [ext_resource type="Texture2D" uid="uid://dhfm22g1pbbo4" path="res://Assets/tilemap/terrain/tile_floor.png" id="1_cwqj3"]
 [ext_resource type="Texture2D" uid="uid://bal8mv6xjen1w" path="res://Assets/tilemap/house/Walls.png" id="2_jacyy"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://d2hjcp7g5wuvp" path="res://Assets/Sprites/escada.png" id="25_pcn1y"]
 [ext_resource type="PackedScene" uid="uid://b2pxhan0dtlwm" path="res://SceneObjects/collectible_item.tscn" id="26_x0r5p"]
 [ext_resource type="Texture2D" uid="uid://b5atremtbw22e" path="res://Assets/Sprites/relogio.png" id="27_fws60"]
+[ext_resource type="Texture2D" uid="uid://rxyecsrdvgtt" path="res://Assets/Characters/Portraits/npc_05.png" id="28_cwqj3"]
 [ext_resource type="Script" uid="uid://bl48iy1o2n0sf" path="res://Resources/QuestData.gd" id="28_fqvth"]
 [ext_resource type="PackedScene" uid="uid://qawyu4ju6omy" path="res://SceneObjects/taxi_arrival.tscn" id="29_tukl2"]
 [ext_resource type="PackedScene" uid="uid://b3tj64ox1uvov" path="res://UI/NotificationPanel/notification_panel.tscn" id="30_vklx0"]
@@ -4025,6 +4026,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_jacyy"]
+script = ExtResource("6_xt555")
+speaker_type = 0
+text = "Olá seja bem-vindo a catedral"
+choices = Array[ExtResource("7_jkjtw")]([])
+creates_objective = false
+completes_objective = false
+objective_text = ""
+metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
+
+[sub_resource type="Resource" id="Resource_d8ua1"]
+script = ExtResource("10_cgud0")
+lines = Array[ExtResource("6_xt555")]([SubResource("Resource_jacyy")])
+metadata/_custom_type_script = "uid://d13f556ayg2wq"
+
 [node name="terreno" type="Node2D"]
 
 [node name="grama_asfalto" type="TileMapLayer" parent="."]
@@ -4210,6 +4226,9 @@ sprite_frames = SubResource("SpriteFrames_bo4cd")
 
 [node name="Amanda" parent="decoracoes" instance=ExtResource("5_pskcm")]
 position = Vector2(724, 461)
+dialog_intro = SubResource("Resource_d8ua1")
+npc_name = "amanda"
+portrait_texture = ExtResource("28_cwqj3")
 
 [node name="TaxiArrival" parent="." instance=ExtResource("29_tukl2")]
 position = Vector2(314, 668)
