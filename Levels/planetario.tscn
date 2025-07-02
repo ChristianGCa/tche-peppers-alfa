@@ -3591,11 +3591,10 @@ texture_pressed = ExtResource("30_wnxbn")
 texture_hover = ExtResource("30_wnxbn")
 
 [node name="ReturnToMapButton" parent="HUD" instance=ExtResource("33_gwwm5")]
-visible = false
-offset_left = 1095.0
-offset_top = 622.0
-offset_right = 1215.0
-offset_bottom = 653.0
+offset_left = 563.0
+offset_top = 26.0
+offset_right = 777.0
+offset_bottom = 67.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("34_v3gky")
