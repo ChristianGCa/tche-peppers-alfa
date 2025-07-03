@@ -4002,6 +4002,7 @@ position = Vector2(642, 211)
 dialog_intro = SubResource("Resource_rxope")
 sprite_frames = SubResource("SpriteFrames_n3ppq")
 portrait_texture = ExtResource("11_jkjtw")
+npc_name = "Done Vera"
 auto_hide_after_dialogue = true
 
 [node name="Edson" parent="decoracoes" instance=ExtResource("5_pskcm")]

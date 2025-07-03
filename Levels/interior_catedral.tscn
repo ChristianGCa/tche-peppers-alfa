@@ -2100,12 +2100,14 @@ position = Vector2(607, 605)
 dialog_intro = SubResource("Resource_rlves")
 sprite_frames = SubResource("SpriteFrames_nvi2q")
 portrait_texture = ExtResource("10_65pdp")
+npc_name = "Dona Neiva"
 
 [node name="PadreJoaquim" parent="decoracoes" instance=ExtResource("7_jegsm")]
 position = Vector2(675, 317)
 dialog_intro = SubResource("Resource_84bym")
 sprite_frames = SubResource("SpriteFrames_ujwoq")
 portrait_texture = ExtResource("15_84bym")
+npc_name = "Padre Joaquim"
 level_id = "catedral"
 
 [node name="HUD" type="CanvasLayer" parent="."]
