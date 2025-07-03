@@ -3,7 +3,7 @@ extends Node2D
 @export var full_text: String = "Edward, um americano fascinado pelas histórias do avô, chegou em Santa Maria para desvendar a cultura local e as gírias gaúchas. Prepare-se para aprender inglês de um jeito único, explorando a cidade e seus costumes."
 @export var typing_speed: float = 0.05 # Tempo em segundos entre cada caractere
 
-@onready var rich_text_label: RichTextLabel = $RichTextLabel
+@onready var rich_text_label: RichTextLabel = $ColorRect/RichTextLabel
 @onready var next_button: Button = $Button # Pega a referência ao botão
 
 var current_char_index: int = 0
@@ -31,6 +31,8 @@ func _on_timer_timeout():
 			next_button.text = "Jogar" # Muda o texto do botão quando a animação termina
 
 func _on_next_button_pressed():
+	$AudioStreamPlayer2D.play()
+	await $AudioStreamPlayer2D.finished
 	if not text_fully_displayed:
 		# Se o texto ainda não foi totalmente exibido, mostra tudo
 		timer.queue_free() # Para a animação de digitação

@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://dc4cdd2itfapr"]
+
+[ext_resource type="Script" uid="uid://d4g8nr5r8cosc" path="res://girias.gd" id="1_3we1j"]
+[ext_resource type="Texture2D" uid="uid://cxe4i5usy8es0" path="res://Assets/backgrounds/bye.png" id="2_ncujq"]
+[ext_resource type="Theme" uid="uid://bgjkjrsn0nr0k" path="res://Themes/Button.tres" id="3_t1faa"]
+[ext_resource type="Theme" uid="uid://dqnqg4hfy26wb" path="res://Themes/label_theme.tres" id="4_lqu5p"]
+[ext_resource type="AudioStream" uid="uid://c04h31wovdf7o" path="res://Audio/Feedback/click_2.wav" id="5_ncujq"]
+
+[node name="girias" type="Node2D"]
+script = ExtResource("1_3we1j")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 1283.0
+offset_bottom = 829.0
+texture = ExtResource("2_ncujq")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1008.0
+offset_top = 619.0
+offset_right = 1257.0
+offset_bottom = 697.0
+theme = ExtResource("3_t1faa")
+text = "Menu Principal"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 394.0
+offset_top = 182.0
+offset_right = 923.0
+offset_bottom = 582.0
+theme = ExtResource("4_lqu5p")
+color = Color(0.180392, 0.0901961, 0.027451, 0.854902)
+
+[node name="VScrollBar" type="ScrollContainer" parent="ColorRect"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 83.0
+offset_right = 511.0
+offset_bottom = 386.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VScrollBar"]
+layout_mode = 2
+theme = ExtResource("4_lqu5p")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 475.0
+offset_top = 192.0
+offset_right = 891.0
+offset_bottom = 268.0
+theme = ExtResource("4_lqu5p")
+text = "Gírias descobertas:"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ncujq")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

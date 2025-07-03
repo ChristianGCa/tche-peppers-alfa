@@ -19,3 +19,7 @@ func complete_objective(text: String):
 
 func get_objectives() -> Array[String]:
 	return current_objectives
+
+func clear_all_objectives():
+	current_objectives.clear()
+	emit_signal("objectives_updated")

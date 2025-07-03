@@ -9,7 +9,7 @@
 [sub_resource type="Theme" id="Theme_gj1np"]
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.380392)
-Label/font_sizes/font_size = 32
+Label/font_sizes/font_size = 27
 Label/fonts/font = ExtResource("3_gj1np")
 
 [node name="GlossaryBook" type="TextureRect"]
@@ -34,6 +34,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Barbaridade -> Wow"
 
 [node name="CloseButton" type="TextureButton" parent="."]

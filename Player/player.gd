@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed_running: float = 200.0
-@export var speed_walking: float = 600.0
+@export var speed_walking: float =200.0
 @onready var anim_sprite = $AnimatedSprite2D
 @onready var audio_click = $AudioStreamPlayer2D
 

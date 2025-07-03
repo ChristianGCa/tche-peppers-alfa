@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0opgy1agi8kj"]
+
+[ext_resource type="Script" uid="uid://ngq1cqw86eps" path="res://UI/how_to_play.gd" id="1_qfrwe"]
+[ext_resource type="Theme" uid="uid://dqnqg4hfy26wb" path="res://Themes/label_theme.tres" id="1_xjxch"]
+[ext_resource type="Texture2D" uid="uid://bn8gxana6wn50" path="res://Assets/backgrounds/inicio.jpg" id="3_k7nba"]
+[ext_resource type="Theme" uid="uid://bgjkjrsn0nr0k" path="res://Themes/Button.tres" id="4_6lad0"]
+[ext_resource type="Texture2D" uid="uid://cej72dpngbhw" path="res://Assets/Buttons/wasd.png" id="4_k7nba"]
+[ext_resource type="Texture2D" uid="uid://dsa0834wx333w" path="res://Assets/Buttons/e.png" id="5_hrn3k"]
+[ext_resource type="Texture2D" uid="uid://dp4620r5e0co7" path="res://Assets/Buttons/mouse.png" id="7_hc7yc"]
+[ext_resource type="AudioStream" uid="uid://c04h31wovdf7o" path="res://Audio/Feedback/click_2.wav" id="8_hrn3k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfrwe"]
+bg_color = Color(0.180392, 0.0901961, 0.027451, 0.854902)
+
+[node name="HowToPlay" type="Node2D"]
+script = ExtResource("1_qfrwe")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = -141.0
+offset_right = 1282.0
+offset_bottom = 713.0
+theme = ExtResource("1_xjxch")
+texture = ExtResource("3_k7nba")
+expand_mode = 1
+
+[node name="title" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 188.0
+offset_right = 603.0
+offset_bottom = 247.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qfrwe")
+text = " How to play? / Como Jogar?"
+
+[node name="TextureRect" type="ColorRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 289.0
+offset_right = 1154.0
+offset_bottom = 673.0
+color = Color(0.180392, 0.0901961, 0.027451, 0.854902)
+
+[node name="Wasd" type="Sprite2D" parent="TextureRect/TextureRect"]
+position = Vector2(237, 158)
+scale = Vector2(6.42733, 6.42733)
+texture = ExtResource("4_k7nba")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/TextureRect"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 277.0
+offset_right = 1013.0
+offset_bottom = 390.0
+theme = ExtResource("1_xjxch")
+text = "Movimentação         Interagir          Ações"
+
+[node name="E" type="Sprite2D" parent="TextureRect/TextureRect"]
+position = Vector2(573, 172)
+scale = Vector2(6.78289, 6.78289)
+texture = ExtResource("5_hrn3k")
+
+[node name="Mouse" type="Sprite2D" parent="TextureRect/TextureRect"]
+position = Vector2(856, 151)
+scale = Vector2(6.59524, 6.59524)
+texture = ExtResource("7_hc7yc")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 61.0
+offset_top = 626.0
+offset_right = 216.0
+offset_bottom = 686.0
+theme = ExtResource("4_6lad0")
+text = "Voltar"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_hrn3k")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

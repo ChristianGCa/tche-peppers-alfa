@@ -6,6 +6,7 @@ extends Node2D
 @onready var credits_button = $CenterContainer2/VBoxContainer/CreditsButton
 @onready var quit_button = $CenterContainer2/VBoxContainer/QuitButton
 @onready var continue_button = $CenterContainer2/VBoxContainer/ContinueButton
+@onready var click = $AudioStreamPlayer2D
 
 func _ready():
 	new_game_button.pressed.connect(_on_new_game_pressed)
@@ -15,7 +16,8 @@ func _ready():
 	continue_button.pressed.connect(_on_continue_pressed)
 
 func _on_new_game_pressed():
-	# --- NOVO CÓDIGO AQUI ---
+	click.play()
+	await click.finished
 	var save_path = "user://progress.save"
 	
 	# Verifica se o arquivo de save existe e o deleta
@@ -30,18 +32,24 @@ func _on_new_game_pressed():
 		print("ℹ️ Nenhum arquivo de save ('progress.save') encontrado para deletar.")
 	# --- FIM DO NOVO CÓDIGO ---
 	
-	get_tree().change_scene_to_file("res://UI/Map/map.tscn") # ou outro caminho para o menu de fases
+	get_tree().change_scene_to_file("res://UI/intro.tscn") # ou outro caminho para o menu de fases
 
 func _on_continue_pressed():
+	click.play()
+	await click.finished
 	get_tree().change_scene_to_file("res://UI/Map/map.tscn")
 	
 func _on_how_to_play_pressed():
-	# Substitua com o caminho para a tela de instruções
-	get_tree().change_scene_to_file("res://UI/ComoJogar.tscn")
+	click.play()
+	await click.finished
+	get_tree().change_scene_to_file("res://UI/how_to_play.tscn")
 
 func _on_credits_pressed():
-	# Substitua com o caminho para a tela de créditos
-	get_tree().change_scene_to_file("res://UI/Creditos.tscn")
+	click.play()
+	await click.finished
+	get_tree().change_scene_to_file("res://UI/creditos.tscn")
 
 func _on_quit_pressed():
+	click.play()
+	await click.finished
 	get_tree().quit()

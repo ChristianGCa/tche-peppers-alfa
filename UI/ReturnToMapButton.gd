@@ -1,6 +1,9 @@
 extends Button
 
 func _ready():
+	
+	if get_tree().current_scene.scene_file_path.contains("BaseAerea"):
+		self.text = "Concluir"
 	# Estilização básica (opcional)
 	add_theme_color_override("font_color", Color.WHITE)
 	add_theme_color_override("font_color_hover", Color.YELLOW)
@@ -14,4 +17,8 @@ func _ready():
 	pressed.connect(_on_pressed)
 
 func _on_pressed():
-	get_tree().change_scene_to_file("res://UI/Map/map.tscn")
+	var current_path := get_tree().current_scene.scene_file_path
+	if current_path.contains("BaseAerea"):
+		get_tree().change_scene_to_file("res://UI/final.tscn")
+	else:
+		get_tree().change_scene_to_file("res://UI/Map/map.tscn")

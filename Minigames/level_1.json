@@ -18,20 +18,20 @@
 		}
 	],
 	"options": [
-		["stars", "tables", "animals"],
-		["system", "sandwich", "stadium"],
+		["animals", "tables", "objects"],
+		["sandwich", "system", "stadium"],
 		["stars", "umbrellas", "candles"],
 		["Earth", "Sun", "Telescope"]
 	],
 	"correct_answers": [
-		"stars",
+		"objects",
 		"system",
 		"stars",
 		"Earth"
 	],
 	"option_translations": [
-		["estrelas", "mesas", "animais"],
-		["sistema", "sanduíche", "estádio"],
+		["animais", "mesas", "objetos"],
+		["sanduíche", "sistema", "estádio"],
 		["estrelas", "guarda-chuvas", "velas"],
 		["Terra", "Sol", "Telescópio"]
 	]

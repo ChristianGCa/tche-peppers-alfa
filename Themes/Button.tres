@@ -1,9 +1,23 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bgjkjrsn0nr0k"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bgjkjrsn0nr0k"]
 
 [ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="1_m8r5b"]
 [ext_resource type="Texture2D" uid="uid://l6qt3l0qit16" path="res://Assets/Interface/Buttons/botao_hover.png" id="2_poi7d"]
 [ext_resource type="Texture2D" uid="uid://dtucumw2fdfpi" path="res://Assets/Interface/Buttons/botao.png" id="3_l56b2"]
 [ext_resource type="Texture2D" uid="uid://8k377f3chtym" path="res://Assets/Interface/Buttons/botao_pressed.png" id="4_hm5jb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8r5b"]
+texture = ExtResource("4_hm5jb")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_poi7d"]
+texture = ExtResource("4_hm5jb")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fj68a"]
 texture = ExtResource("2_poi7d")
@@ -32,6 +46,8 @@ Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/font_sizes/font_size = 40
 Button/fonts/font = ExtResource("1_m8r5b")
+Button/styles/disabled = SubResource("StyleBoxTexture_m8r5b")
+Button/styles/focus = SubResource("StyleBoxTexture_poi7d")
 Button/styles/hover = SubResource("StyleBoxTexture_fj68a")
 Button/styles/normal = SubResource("StyleBoxTexture_wqr7k")
 Button/styles/pressed = SubResource("StyleBoxTexture_r3y3a")

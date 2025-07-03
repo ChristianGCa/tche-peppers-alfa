@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://djfynmn8jpl0l"]
+[gd_scene load_steps=6 format=3 uid="uid://djfynmn8jpl0l"]
 
 [ext_resource type="Script" uid="uid://rpclifqw21sc" path="res://Minigame/minigame.gd" id="1_80ohy"]
 [ext_resource type="Theme" uid="uid://dxnlppmy2wqak" path="res://Themes/minigame_theme.tres" id="1_auvxj"]
 [ext_resource type="Texture2D" uid="uid://4lx0tysrrbci" path="res://Minigame/fundo_minigame.png" id="2_7llvh"]
 [ext_resource type="AudioStream" uid="uid://c04h31wovdf7o" path="res://Audio/Feedback/click_2.wav" id="4_8c64t"]
+[ext_resource type="Theme" uid="uid://bgjkjrsn0nr0k" path="res://Themes/Button.tres" id="4_d5ubm"]
 
 [node name="Minigame" type="CanvasLayer"]
 script = ExtResource("1_80ohy")
@@ -19,10 +20,10 @@ expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 51.0
-offset_right = 991.0
-offset_bottom = 554.0
+offset_left = 61.0
+offset_top = 34.0
+offset_right = 992.0
+offset_bottom = 537.0
 theme_override_constants/separation = 26
 
 [node name="LabelPhrase" type="RichTextLabel" parent="TextureRect/VBoxContainer"]
@@ -42,18 +43,24 @@ scroll_active = false
 [node name="CenterContainer" type="CenterContainer" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
 layout_mode = 2
+offset_left = 295.0
+offset_top = 241.0
+offset_right = 758.0
+offset_bottom = 282.0
+theme = ExtResource("4_d5ubm")
+theme_override_constants/separation = 48
 
-[node name="Button1" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Button1" type="Button" parent="TextureRect/HBoxContainer"]
 layout_mode = 2
 text = "option 1"
 
-[node name="Button2" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Button2" type="Button" parent="TextureRect/HBoxContainer"]
 layout_mode = 2
 text = "option 2"
 
-[node name="Button3" type="Button" parent="TextureRect/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Button3" type="Button" parent="TextureRect/HBoxContainer"]
 layout_mode = 2
 text = "option3"
 

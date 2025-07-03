@@ -2,7 +2,7 @@ extends Node2D
 
 @export var max_speed := 300.0
 @export var acceleration := 500.0
-@export var wait_time := 1.0
+@export var wait_time := 0.5
 @export var drive_direction := Vector2.RIGHT  # Use Vector2.LEFT ou Vector2.RIGHT
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D

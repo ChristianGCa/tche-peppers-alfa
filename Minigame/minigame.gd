@@ -13,9 +13,9 @@ var current_index: int = 0
 @onready var label_phrase = $TextureRect/VBoxContainer/LabelPhrase as RichTextLabel
 @onready var label_translation = $TextureRect/VBoxContainer/LabelTranslation
 @onready var option_buttons = [
-	$TextureRect/VBoxContainer/CenterContainer/HBoxContainer/Button1,
-	$TextureRect/VBoxContainer/CenterContainer/HBoxContainer/Button2,
-	$TextureRect/VBoxContainer/CenterContainer/HBoxContainer/Button3
+	$TextureRect/HBoxContainer/Button1,
+	$TextureRect/HBoxContainer/Button2,
+	$TextureRect/HBoxContainer/Button3
 ]
 
 func set_data_from_dict(data: Dictionary):

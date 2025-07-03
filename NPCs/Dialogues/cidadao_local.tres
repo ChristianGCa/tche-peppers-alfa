@@ -119,7 +119,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_yv8r1"]
 script = ExtResource("1_dl8gl")
 speaker_type = 0
-text = "Claro que pode! Vai lá e procura o João. Ele vive contando história bonita sobre as constelações e o céu do sul. Ele trabalha aqui."
+text = "Claro que pode! Vai lá e procura o João. Ele trabalha no planetário."
 choices = Array[ExtResource("2_g0dtq")]([])
 creates_objective = true
 completes_objective = false

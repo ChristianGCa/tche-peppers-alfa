@@ -18,9 +18,9 @@
 		}
 	],
 	"options": [
-		["mass", "party", "parade"],
+		["party", "mass", "parade"],
 		["windows", "curtains", "paintings"],
-		["bench", "table", "sofa"],
+		["table", "sofa", "bench"],
 		["bell", "drum", "whistle"]
 	],
 	"correct_answers": [
@@ -30,10 +30,9 @@
 		"bell"
 	],
 	"option_translations": [
-		["missa", "festa", "desfile"],
+		["festa", "missa", "desfile"],
 		["janelas", "cortinas", "pinturas"],
-		["banco", "mesa", "sofá"],
+		["mesa", "sofá", "banco"],
 		["sino", "tambor", "apito"]
 	]
 }
-

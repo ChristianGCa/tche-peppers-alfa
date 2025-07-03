@@ -33,6 +33,12 @@ class_name NPC
 var minigame_started := false
 
 func _ready():
+	# Oculta o ícone de interação se o player já falou com esse NPC
+	var already_talked = GameState.get_flag(_get_dialog_flag_name())
+	if already_talked:
+		$Interaction.visible = false
+
+	
 	print("👤 NPC pronto:", npc_name)
 
 	# Esconde o NPC se exige uma flag específica que ainda não foi ativada
@@ -138,6 +144,7 @@ func _complete_level():
 
 func _show_return_button_in_level():
 
+	$AudioStreamPlayer2D.play()
 	var return_button = $"../../HUD/ReturnToMapButton"
 	
 	if return_button and return_button is Button:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://c0joh4il0xwip"]
+[gd_scene load_steps=64 format=4 uid="uid://c0joh4il0xwip"]
 
 [ext_resource type="Script" uid="uid://cx1qjdkxld66v" path="res://Levels/interior_catedral.gd" id="1_bltlc"]
 [ext_resource type="Texture2D" uid="uid://6r6lo06uvl2l" path="res://Assets/tilemap/interior/tile_interior.png" id="1_ju0px"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cx8mobmc7mxvl" path="res://UI/ObjectivesSystem/Objectives.tscn" id="13_0axhi"]
 [ext_resource type="Texture2D" uid="uid://dfk8s353sirtk" path="res://Assets/Characters/SpriteSheets/npc_12_spritesheet.png" id="14_phsda"]
 [ext_resource type="AudioStream" uid="uid://c7srg3abpboj3" path="res://Audio/Music/Organ_ballad.mp3" id="15_4n2bw"]
+[ext_resource type="Texture2D" uid="uid://7vnkhwqkhkj5" path="res://Assets/Characters/Portraits/npc_12.png" id="15_84bym"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_55oi6"]
 texture = ExtResource("1_ju0px")
@@ -1737,8 +1738,8 @@ speaker_type = 0
 text = "Olá rapaz. Te vi chegando meio perdido… Primeira vez na catedral?"
 choices = Array[ExtResource("9_84bym")]([])
 creates_objective = false
-completes_objective = false
-objective_text = ""
+completes_objective = true
+objective_text = "Fale com a mulher na entrada"
 triggers_minigame = false
 minigame_json_path = ""
 metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
@@ -2104,6 +2105,7 @@ portrait_texture = ExtResource("10_65pdp")
 position = Vector2(675, 317)
 dialog_intro = SubResource("Resource_84bym")
 sprite_frames = SubResource("SpriteFrames_ujwoq")
+portrait_texture = ExtResource("15_84bym")
 level_id = "catedral"
 
 [node name="HUD" type="CanvasLayer" parent="."]

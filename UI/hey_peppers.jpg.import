@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cihxvk7t6ywfg"
-path="res://.godot/imported/portrait-3353699_1280.jpg-cb0ad1d0fafc7de2781ec6ffa73ced36.ctex"
+uid="uid://b0d2pjecfssi3"
+path="res://.godot/imported/hey_peppers.jpg-e72a6382f108c67d3ff7b648ea0d9398.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/backgrounds/portrait-3353699_1280.jpg"
-dest_files=["res://.godot/imported/portrait-3353699_1280.jpg-cb0ad1d0fafc7de2781ec6ffa73ced36.ctex"]
+source_file="res://UI/hey_peppers.jpg"
+dest_files=["res://.godot/imported/hey_peppers.jpg-e72a6382f108c67d3ff7b648ea0d9398.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8al8ppb6vohr"]
+[gd_scene load_steps=14 format=3 uid="uid://c8al8ppb6vohr"]
 
 [ext_resource type="Script" uid="uid://bf0avue3n1mgs" path="res://NPCs/Scene/NPC.gd" id="1_10bwf"]
 [ext_resource type="SpriteFrames" uid="uid://3l22jwmigeha" path="res://NPCs/SpriteFrames/cidadao_local.tres" id="2_d33j4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c0gqend51fk3g" path="res://Assets/Interface/interaction_02.png" id="6_psplr"]
 [ext_resource type="Texture2D" uid="uid://b4qonqk1qp5tr" path="res://Assets/Interface/interaction_03.png" id="7_4o6lx"]
 [ext_resource type="Texture2D" uid="uid://bd64uxu35yreg" path="res://Assets/Interface/interaction_04.png" id="8_12a5x"]
+[ext_resource type="AudioStream" uid="uid://hrvk5hfgffb0" path="res://Audio/Feedback/fase_completada.mp3" id="9_psplr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_klot4"]
 radius = 19.0
@@ -82,3 +83,6 @@ frame_progress = 0.734921
 position = Vector2(0, -41)
 sprite_frames = SubResource("SpriteFrames_lcp06")
 autoplay = "default"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_psplr")

@@ -117,23 +117,31 @@ func show_locked_message(message: String, target_button_position: Vector2):
 
 
 func _on_planetario_button_pressed():
+	$AudioStreamPlayer2D.play()
+	await $AudioStreamPlayer2D.finished
 	start_level("res://Levels/planetario.tscn")
 
 func _on_catedral_button_pressed():
+	$AudioStreamPlayer2D.play()
+	await $AudioStreamPlayer2D.finished
 	if progress.get("catedral", false):
 		start_level("res://Levels/catedral.tscn")
 	else:
-		show_locked_message("Fase bloqueada", catedral_button.global_position)
+		show_locked_message("Local bloqueado", catedral_button.global_position)
 		print("Tentativa de acessar Catedral bloqueada.")
 
 func _on_base_aerea_button_pressed() -> void:
+	$AudioStreamPlayer2D.play()
+	await $AudioStreamPlayer2D.finished
 	if progress.get("base_aerea", false):
 		start_level("res://Levels/BaseAerea.tscn")
 	else:
-		show_locked_message("Fase bloqueada", base_button.global_position)
+		show_locked_message("Local bloqueado", base_button.global_position)
 		print("Tentativa de acessar Base Aérea bloqueada.")
 
 func _on_voltar_pressed() -> void:
+	$AudioStreamPlayer2D.play()
+	await $AudioStreamPlayer2D.finished
 	if is_loading_level:
 		return
 

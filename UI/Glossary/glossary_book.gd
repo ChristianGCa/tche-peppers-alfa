@@ -3,7 +3,8 @@ extends TextureRect
 @onready var list = $MarginContainer/VBoxContainer
 @onready var notification_panel = $"../NotificationPanel"
 @onready var close_button = $CloseButton
-@onready var glossary_button = $"../GlossaryButton"  # ou ajuste caminho se for diferente
+@onready var glossary_button = $"../GlossaryButton"
+@onready var glossary_empty_label = $GlossaryEmpty
 
 func _ready():
 	self.visible = false
@@ -16,7 +17,6 @@ func _on_close_pressed():
 	if is_instance_valid(glossary_button):
 		glossary_button.visible = true
 
-
 func refresh():
 	for child in list.get_children():
 		child.queue_free()
@@ -27,7 +27,10 @@ func refresh():
 		label.text = term + " → " + translation
 		list.add_child(label)
 
+	# Mostra ou esconde o aviso de glossário vazio
+	glossary_empty_label.visible = GlossaryManager.known_terms.is_empty()
+
 func _on_new_term(term: String, translation: String):
-	$GlossaryEmpty.visible = false
+	glossary_empty_label.visible = false
 	refresh()
 	notification_panel.show_message("Nova gíria aprendida: %s → %s" % [term, translation])

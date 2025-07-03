@@ -32,6 +32,8 @@ func _process(delta):
 		if player and item_name != "":
 			audio_pickup.play()
 			player.inventory.append(item_name)
+			# Espera o som terminar antes de sumir com o item
+			await audio_pickup.finished
 			queue_free()
 
 func _on_body_entered(body):

@@ -1,15 +1,15 @@
 extends Node2D
 
 @onready var return_button: Button = $HUD/ReturnToMapButton
-@export var this_level_id: String = "planetario" # Mantenha se ainda usar em _level_was_completed
+@export var this_level_id: String = "planetario"
 @onready var music = $AudioStreamPlayer2D
+@onready var decoracoes_node = $decoracoes  # ajusta conforme o nome exato na sua cena
 
 func _ready():
 	music.play()
-	ObjectiveManagement.add_objective("Fale com o cidadão local")
-
 	return_button.visible = false
 
+	# Reposiciona o player, se necessário
 	if Global.posicao_marcador != "":
 		var marcador = get_node_or_null(Global.posicao_marcador)
 		if marcador:
@@ -17,15 +17,27 @@ func _ready():
 			if player:
 				player.global_position = marcador.global_position
 
+	# Exibe o botão se a fase foi completada
 	if _level_was_completed():
 		_show_return_button()
+
+	# Espera um pouco e verifica se o NPC está presente
+	await get_tree().create_timer(0.1).timeout
+	_check_for_npc()
+
+func _check_for_npc():
+	if decoracoes_node.has_node("CidadaoLocal"):
+		ObjectiveManagement.add_objective("Fale com o cidadão local")
+		print("🎯 Objetivo ativado: Fale com o cidadão local")
+	else:
+		ObjectiveManagement.add_objective("Busque mais pessoas para conversar")
+		print("👻 NPC 'CidadaoLocal' não encontrado em Decorações")
 
 func _level_was_completed() -> bool:
 	if FileAccess.file_exists("user://progress.save"):
 		var file = FileAccess.open("user://progress.save", FileAccess.READ)
 		if file.get_length() > 0:
 			var progress = file.get_var()
-			# A fase "planetario" é considerada completa se "catedral" estiver desbloqueada.
 			return progress.get("catedral", false)
 	return false
 

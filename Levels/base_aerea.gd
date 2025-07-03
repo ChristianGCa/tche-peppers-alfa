@@ -7,12 +7,10 @@ extends Node2D
 
 func _ready():
 	music.play()
-	ObjectiveManagement.add_objective("Converse com o o soldado no portão")
+	ObjectiveManagement.clear_all_objectives()
+	ObjectiveManagement.add_objective("Converse com o soldado no portão")
 
 	return_button.visible = false
-	
-	if _level_was_completed():
-		_show_return_button()
 
 	if Global.posicao_marcador != "":
 		var marcador = get_node_or_null(Global.posicao_marcador)

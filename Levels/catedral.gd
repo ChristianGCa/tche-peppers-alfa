@@ -6,7 +6,8 @@ extends Node2D
 
 func _ready():
 	music.play()
-	ObjectiveManagement.add_objective("Fale com as pessoas na rua")
+	ObjectiveManagement.clear_all_objectives()
+	ObjectiveManagement.add_objective("Fale com o homem na calçada")
 
 	return_button.visible = false
 	

@@ -1,0 +1,38 @@
+{
+	"phrases": [
+		{
+			"english": "The pilot sits in the ___.",
+			"portuguese": "O piloto se senta na cabine."
+		},
+		{
+			"english": "Before takeoff, we check the ___.",
+			"portuguese": "Antes da decolagem, verificamos o motor."
+		},
+		{
+			"english": "Soldiers wear a ___.",
+			"portuguese": "Os soldados usam um uniforme."
+		},
+		{
+			"english": "The airplane is on the ___.",
+			"portuguese": "O avião está na pista."
+		}
+	],
+	"options": [
+		["cockpit", "closet", "couch"],
+		["engine", "sandwich", "pencil"],
+		["pajamas", "uniform", "apron"],
+		["runway", "hallway", "sidewalk"]
+	],
+	"correct_answers": [
+		"cockpit",
+		"engine",
+		"uniform",
+		"runway"
+	],
+	"option_translations": [
+		["cabine", "armário", "sofá"],
+		["motor", "sanduíche", "lápis"],
+		["pijama", "uniforme", "avental"],
+		["pista", "corredor", "calçada"]
+	]
+}

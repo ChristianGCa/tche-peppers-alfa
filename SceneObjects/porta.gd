@@ -81,7 +81,7 @@ func _on_body_exited(body):
 func _process(_delta):
 	if jogador_na_area and Input.is_action_just_pressed(tecla_acao):
 		if not tem_todas_flags():
-			notificationPanel.show_message("Ainda parece trancado... talvez você precise conversar com alguém.")
+			notificationPanel.show_message("Parece trancado... talvez você precise conversar com alguém.")
 			return
 
 		if cena_destino:

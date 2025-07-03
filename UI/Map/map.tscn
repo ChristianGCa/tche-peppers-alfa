@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://lj3m72hmrxb6"]
+[gd_scene load_steps=16 format=3 uid="uid://lj3m72hmrxb6"]
 
 [ext_resource type="Texture2D" uid="uid://b46dfygqd70n5" path="res://UI/Map/mapa_santa_maria.png" id="1_aykfp"]
 [ext_resource type="Script" uid="uid://ct2ocam014g2p" path="res://UI/Map/map.gd" id="1_hkkqg"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://djbq6k0mkfyr8" path="res://UI/Map/base_miniatura_hover.png" id="11_yshux"]
 [ext_resource type="FontFile" uid="uid://csmy7g31sp3mj" path="res://Fonts/PixelOperator.ttf" id="13_4fsbn"]
 [ext_resource type="Theme" uid="uid://bgjkjrsn0nr0k" path="res://Themes/Button.tres" id="13_xgwbs"]
+[ext_resource type="AudioStream" uid="uid://c04h31wovdf7o" path="res://Audio/Feedback/click_2.wav" id="15_783jd"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_hkkqg")
@@ -81,7 +82,7 @@ offset_right = 484.0
 offset_bottom = 59.0
 theme_override_fonts/font = ExtResource("13_4fsbn")
 theme_override_font_sizes/font_size = 50
-text = "Escolha a fase:"
+text = "Escolha o local:"
 
 [node name="MessageLabel" type="Label" parent="."]
 offset_left = 693.0
@@ -92,6 +93,9 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("13_4fsbn")
 theme_override_font_sizes/font_size = 40
 text = "Fase bloqueada!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_783jd")
 
 [connection signal="pressed" from="planetarioButton" to="." method="_on_planetario_button_pressed"]
 [connection signal="pressed" from="catedralButton" to="." method="_on_catedral_button_pressed"]
