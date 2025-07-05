@@ -1861,7 +1861,7 @@ sources/4 = SubResource("TileSetAtlasSource_sxv6g")
 [sub_resource type="Resource" id="Resource_swemc"]
 script = ExtResource("5_dq2tc")
 speaker_type = 0
-text = "Buenas. O Soldado Luiz disse que tu é neto do Seu Ernesto? Aquele [gloss:vivente|old fellow] que cuidava do hangar?"
+text = "Buenas. O Soldado Luiz disse que tu é neto do Seu Otávio? Aquele [gloss:vivente|old fellow] que cuidava do hangar?"
 choices = Array[ExtResource("6_cm320")]([])
 creates_objective = false
 completes_objective = true
@@ -1885,7 +1885,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_bfgsq"]
 script = ExtResource("5_dq2tc")
 speaker_type = 0
-text = "Bah!! o velho Ernesto era um baita parceiro! Trabalhava firme, mesmo nos dias de [gloss:toró|pouring rain]."
+text = "Bah!! o velho Otávio era um baita parceiro! Trabalhava firme, mesmo nos dias de [gloss:toró|pouring rain]."
 choices = Array[ExtResource("6_cm320")]([])
 creates_objective = false
 completes_objective = false
@@ -1921,7 +1921,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_r872c"]
 script = ExtResource("5_dq2tc")
 speaker_type = 0
-text = "Tchê, tu foi bem melhor do que muito recruta de verdade. Teu vô ia ficar [gloss:faceiro|happy] de te ver assim.d"
+text = "Tchê, tu foi bem melhor do que muito recruta de verdade. Teu vô ia ficar [gloss:faceiro|happy] de te ver assim."
 choices = Array[ExtResource("6_cm320")]([])
 creates_objective = false
 completes_objective = false

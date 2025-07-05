@@ -3284,7 +3284,7 @@ metadata/_custom_type_script = "uid://ckvrtwvkogy3w"
 [sub_resource type="Resource" id="Resource_gwwm5"]
 script = ExtResource("9_t33ux")
 speaker_type = 0
-text = "Deve estar atrás de alguma árvore. Estava ouvindo a [gloss:peleia|briga, confusão] que deu no GRENAL."
+text = "Deve estar atrás de alguma árvore. Estava ouvindo a [gloss:peleia|confusion, fight] que deu no GRENAL."
 choices = Array[ExtResource("10_0c5fv")]([])
 creates_objective = false
 completes_objective = false
@@ -3451,7 +3451,7 @@ position = Vector2(1011, 463)
 dialog_intro = SubResource("Resource_onruw")
 sprite_frames = SubResource("SpriteFrames_b5wkc")
 portrait_texture = ExtResource("14_7pg1g")
-npc_name = "Rafael"
+npc_name = "Joel"
 level_id = "planetario"
 show_only_if_flag = true
 required_flag_to_show = "talked_to_Professor"

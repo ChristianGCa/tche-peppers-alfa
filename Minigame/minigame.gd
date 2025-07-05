@@ -77,7 +77,7 @@ func _on_option_pressed(index: int):
 		var translation = option_translations[current_index][index]
 		option_buttons[index].text = translation
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 
 	if selected == correct:
 		current_index += 1

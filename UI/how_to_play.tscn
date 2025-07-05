@@ -60,7 +60,7 @@ scale = Vector2(6.78289, 6.78289)
 texture = ExtResource("5_hrn3k")
 
 [node name="Mouse" type="Sprite2D" parent="TextureRect/TextureRect"]
-position = Vector2(856, 151)
+position = Vector2(848, 153)
 scale = Vector2(6.59524, 6.59524)
 texture = ExtResource("7_hc7yc")
 
